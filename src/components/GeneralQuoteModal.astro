@@ -417,7 +417,7 @@ const productsJson = JSON.stringify(products.map(p => ({
 
 <!-- Preview Modal - Mobile Optimized -->
 <div id="preview-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-0 sm:p-4">
-  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="preview-backdrop"></div>
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="preview-backdrop"></div>
   
   <div class="relative bg-white rounded-none sm:rounded-2xl shadow-2xl max-w-4xl w-full h-full sm:h-auto sm:max-h-[90vh] overflow-hidden flex flex-col">
     <div class="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between safe-area-inset-top">
@@ -429,7 +429,7 @@ const productsJson = JSON.stringify(products.map(p => ({
       </button>
     </div>
 
-    <div id="preview-content" class="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 bg-gray-50 -webkit-overflow-scrolling-touch">
+    <div id="preview-content" class="flex-1 overflow-y-auto overscroll-contain p-0 sm:p-6 bg-gray-50 -webkit-overflow-scrolling-touch">
       <!-- Preview content will be inserted here -->
     </div>
 
@@ -444,12 +444,6 @@ const productsJson = JSON.stringify(products.map(p => ({
         {t.downloadPNG}
       </button>
       <button id="download-from-preview" class="w-full sm:w-auto px-4 py-3 sm:py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-98 transition-all text-sm font-medium flex items-center justify-center gap-2 touch-manipulation">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        {t.downloadPNG}
-      </button>
-      <button id="download-from-preview" class="px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium flex items-center gap-2">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
@@ -1015,7 +1009,7 @@ const productsJson = JSON.stringify(products.map(p => ({
   
   function showToast(message, type = 'info') {
     const toast = document.createElement('div')
-    toast.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white z-[70] transition-opacity duration-300 ${
+    toast.className = `fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg text-white z-[70] transition-opacity duration-300 ${
       type === 'success' ? 'bg-green-600' : 
       type === 'error' ? 'bg-red-600' : 
       'bg-blue-600'
@@ -1180,6 +1174,32 @@ const productsJson = JSON.stringify(products.map(p => ({
       return
     }
 
+    // Validate required fields in step 2
+    if (currentStep === 2) {
+      const formData = new FormData(form)
+      const name = formData.get('name')
+      const phone = formData.get('phone')
+      const email = formData.get('email')
+      
+      if (!name || !phone || !email) {
+        showToast(
+          lang === 'vi' ? 'Vui lòng nhập đầy đủ thông tin bắt buộc (Tên, SĐT, Email)' : 
+          lang === 'en' ? 'Please fill in all required fields (Name, Phone, Email)' : 
+          '请填写所有必填字段（姓名、电话、电子邮件）',
+          'error'
+        )
+        return
+      }
+      
+      contactInfo = {
+        name: name,
+        phone: phone,
+        email: email,
+        company: formData.get('company') || '',
+        message: formData.get('message') || ''
+      }
+    }
+
     try {
       // Generate PNG and show in modal
       if (typeof window.html2canvas === 'undefined') {
@@ -1245,10 +1265,10 @@ const productsJson = JSON.stringify(products.map(p => ({
       // Convert to data URL and show in modal
       const dataUrl = canvas.toDataURL('image/png', 1.0)
       
-      // Display PNG in modal (simple view - just image)
+      // Display PNG in modal (simple view - just image, scrollable)
       previewContentEl.innerHTML = `
-        <div class="flex items-center justify-center min-h-full bg-gray-100 p-4">
-          <img src="${dataUrl}" alt="Báo giá Quang Minh" class="max-w-full h-auto shadow-lg rounded-lg" style="max-height: 85vh;" />
+        <div class="min-h-full bg-black/90 p-0 overflow-auto">
+          <img src="${dataUrl}" alt="Báo giá Quang Minh" class="w-full h-auto" />
         </div>
       `
 
@@ -1273,6 +1293,32 @@ const productsJson = JSON.stringify(products.map(p => ({
         'error'
       )
       return
+    }
+
+    // Validate required fields in step 2
+    if (currentStep === 2) {
+      const formData = new FormData(form)
+      const name = formData.get('name')
+      const phone = formData.get('phone')
+      const email = formData.get('email')
+      
+      if (!name || !phone || !email) {
+        showToast(
+          lang === 'vi' ? 'Vui lòng nhập đầy đủ thông tin bắt buộc (Tên, SĐT, Email)' : 
+          lang === 'en' ? 'Please fill in all required fields (Name, Phone, Email)' : 
+          '请填写所有必填字段（姓名、电话、电子邮件）',
+          'error'
+        )
+        return
+      }
+      
+      contactInfo = {
+        name: name,
+        phone: phone,
+        email: email,
+        company: formData.get('company') || '',
+        message: formData.get('message') || ''
+      }
     }
 
     // Show footer buttons for desktop HTML preview
@@ -1479,6 +1525,32 @@ const productsJson = JSON.stringify(products.map(p => ({
       return
     }
 
+    // Validate required fields in step 2
+    if (currentStep === 2) {
+      const formData = new FormData(form)
+      const name = formData.get('name')
+      const phone = formData.get('phone')
+      const email = formData.get('email')
+      
+      if (!name || !phone || !email) {
+        showToast(
+          lang === 'vi' ? 'Vui lòng nhập đầy đủ thông tin bắt buộc (Tên, SĐT, Email)' : 
+          lang === 'en' ? 'Please fill in all required fields (Name, Phone, Email)' : 
+          '请填写所有必填字段（姓名、电话、电子邮件）',
+          'error'
+        )
+        return
+      }
+      
+      contactInfo = {
+        name: name,
+        phone: phone,
+        email: email,
+        company: formData.get('company') || '',
+        message: formData.get('message') || ''
+      }
+    }
+
     // Check if libraries are loaded
     if (typeof window.jspdf === 'undefined' || typeof window.html2canvas === 'undefined') {
       showToast(
@@ -1595,6 +1667,32 @@ const productsJson = JSON.stringify(products.map(p => ({
         'error'
       )
       return
+    }
+
+    // Validate required fields in step 2
+    if (currentStep === 2) {
+      const formData = new FormData(form)
+      const name = formData.get('name')
+      const phone = formData.get('phone')
+      const email = formData.get('email')
+      
+      if (!name || !phone || !email) {
+        showToast(
+          lang === 'vi' ? 'Vui lòng nhập đầy đủ thông tin bắt buộc (Tên, SĐT, Email)' : 
+          lang === 'en' ? 'Please fill in all required fields (Name, Phone, Email)' : 
+          '请填写所有必填字段（姓名、电话、电子邮件）',
+          'error'
+        )
+        return
+      }
+      
+      contactInfo = {
+        name: name,
+        phone: phone,
+        email: email,
+        company: formData.get('company') || '',
+        message: formData.get('message') || ''
+      }
     }
 
     // Check if html2canvas is loaded
