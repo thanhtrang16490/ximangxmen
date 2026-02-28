@@ -1676,110 +1676,14 @@ const productsJson = JSON.stringify(products.map(p => ({
       return
     }
 
-    // Validate required fields in step 2
-    if (currentStep === 2) {
-      const formData = new FormData(form)
-      const name = formData.get('name')
-      const phone = formData.get('phone')
-      const email = formData.get('email')
-      
-      if (!name || !phone || !email) {
-        showToast(
-          lang === 'vi' ? 'Vui lòng nhập đầy đủ thông tin bắt buộc (Tên, SĐT, Email)' : 
-          lang === 'en' ? 'Please fill in all required fields (Name, Phone, Email)' : 
-          '请填写所有必填字段（姓名、电话、电子邮件）',
-          'error'
-        )
-        return
-      }
-      
-      contactInfo = {
-        name: name,
-        phone: phone,
-        email: email,
-        company: formData.get('company') || '',
-        message: formData.get('message') || ''
-      }
-    }
-
-    try {
-      console.log('[Download PDF] Starting server-side generation...')
-      
-      // Show loading message
-      const loadingMsg = lang === 'vi' ? 'Đang tạo PDF...' : lang === 'en' ? 'Generating PDF...' : '正在生成PDF...'
-      const originalText = downloadPDFButton.textContent
-      downloadPDFButton.textContent = loadingMsg
-      downloadPDFButton.disabled = true
-
-      // Generate HTML content
-      const html = generateQuotationHTML()
-      const filename = `BaoGia_QuangMinh_${new Date().getTime()}.pdf`
-
-      console.log('[Download PDF] Sending request to server...')
-
-      // Send to server for PDF generation
-      const response = await fetch('/api/generate-quote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          html,
-          format: 'pdf',
-          filename
-        })
-      })
-
-      if (!response.ok) {
-        throw new Error(`Server error: ${response.status}`)
-      }
-
-      console.log('[Download PDF] Receiving PDF from server...')
-
-      // Download the PDF
-      const blob = await response.blob()
-      const url = URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.href = url
-      link.download = filename
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      URL.revokeObjectURL(url)
-
-      console.log('[Download PDF] Complete!')
-
-      // Restore button
-      downloadPDFButton.textContent = originalText
-      downloadPDFButton.disabled = false
-
+    // Check if mobile - show message
+    const isMobile = window.innerWidth < 768
+    if (isMobile) {
       showToast(
-        lang === 'vi' ? 'Tải PDF thành công!' : 
-        lang === 'en' ? 'PDF downloaded successfully!' : 
-        'PDF下载成功！',
-        'success'
-      )
-
-    } catch (error) {
-      console.error('[Download PDF] Error:', error)
-      showToast(
-        lang === 'vi' ? 'Có lỗi khi tạo PDF. Vui lòng thử lại.' : 
-        lang === 'en' ? 'Error generating PDF. Please try again.' : 
-        '生成PDF时出错。请重试。',
-        'error'
-      )
-      downloadPDFButton.textContent = t.downloadPDF
-      downloadPDFButton.disabled = false
-    }
-  }
-
-  async function downloadPNG() {
-    if (Object.keys(selectedProducts).length === 0) {
-      showToast(
-        lang === 'vi' ? 'Vui lòng chọn sản phẩm trước khi tải PNG' : 
-        lang === 'en' ? 'Please select products before downloading PNG' : 
-        '请在下载PNG之前选择产品',
-        'error'
+        lang === 'vi' ? 'Vui lòng sử dụng máy tính để tải PDF. Hoặc liên hệ: 0947776662' : 
+        lang === 'en' ? 'Please use desktop to download PDF. Or contact: 0947776662' : 
+        '请使用电脑下载PDF。或联系：0947776662',
+        'info'
       )
       return
     }
@@ -1810,8 +1714,162 @@ const productsJson = JSON.stringify(products.map(p => ({
       }
     }
 
+    // Check if libraries are loaded
+    if (typeof window.jspdf === 'undefined' || typeof window.html2canvas === 'undefined') {
+      showToast(
+        lang === 'vi' ? 'Thư viện đang tải, vui lòng thử lại' : 
+        lang === 'en' ? 'Library is loading, please try again' : 
+        '库正在加载，请重试',
+        'info'
+      )
+      return
+    }
+
     try {
-      console.log('[Download PNG] Starting server-side generation...')
+      console.log('[Download PDF] Starting...')
+      
+      // Show loading message
+      const loadingMsg = lang === 'vi' ? 'Đang tạo PDF...' : lang === 'en' ? 'Generating PDF...' : '正在生成PDF...'
+      const originalText = downloadPDFButton.textContent
+      downloadPDFButton.textContent = loadingMsg
+      downloadPDFButton.disabled = true
+
+      // Generate preview first if not exists
+      const previewContentEl = document.getElementById('preview-content')
+      if (!previewContentEl || !previewContentEl.firstElementChild) {
+        showPreview()
+        await new Promise(resolve => setTimeout(resolve, 300))
+      }
+
+      // Create temp container
+      const tempContainer = document.createElement('div')
+      tempContainer.style.position = 'absolute'
+      tempContainer.style.left = '-9999px'
+      tempContainer.style.width = '210mm'
+      const contentToClone = previewContentEl.firstElementChild
+      tempContainer.appendChild(contentToClone.cloneNode(true))
+      document.body.appendChild(tempContainer)
+
+      await new Promise(resolve => setTimeout(resolve, 200))
+
+      // Render to canvas
+      const canvas = await html2canvas(tempContainer, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        windowWidth: 794, // A4 width in pixels at 96 DPI
+        windowHeight: tempContainer.scrollHeight
+      })
+
+      document.body.removeChild(tempContainer)
+
+      // Create PDF
+      const { jsPDF } = window.jspdf
+      const imgData = canvas.toDataURL('image/png')
+      const pdf = new jsPDF('p', 'mm', 'a4')
+      const pageWidth = 210
+      const pageHeight = 297
+      const imgWidth = pageWidth
+      const imgHeight = (canvas.height * pageWidth) / canvas.width
+      
+      let position = 0
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
+      
+      let heightLeft = imgHeight - pageHeight
+      while (heightLeft > 0) {
+        position = -pageHeight * (Math.ceil((imgHeight - heightLeft) / pageHeight))
+        pdf.addPage()
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
+        heightLeft -= pageHeight
+      }
+
+      pdf.save(`BaoGia_QuangMinh_${new Date().getTime()}.pdf`)
+
+      downloadPDFButton.textContent = originalText
+      downloadPDFButton.disabled = false
+
+      showToast(
+        lang === 'vi' ? 'Tải PDF thành công!' : 
+        lang === 'en' ? 'PDF downloaded!' : 
+        'PDF下载成功！',
+        'success'
+      )
+
+    } catch (error) {
+      console.error('[Download PDF] Error:', error)
+      showToast(
+        lang === 'vi' ? 'Có lỗi khi tạo PDF. Vui lòng thử lại.' : 
+        lang === 'en' ? 'Error generating PDF. Please try again.' : 
+        '生成PDF时出错。请重试。',
+        'error'
+      )
+      downloadPDFButton.textContent = t.downloadPDF
+      downloadPDFButton.disabled = false
+    }
+  }
+
+  async function downloadPNG() {
+    if (Object.keys(selectedProducts).length === 0) {
+      showToast(
+        lang === 'vi' ? 'Vui lòng chọn sản phẩm trước khi tải PNG' : 
+        lang === 'en' ? 'Please select products before downloading PNG' : 
+        '请在下载PNG之前选择产品',
+        'error'
+      )
+      return
+    }
+
+    // Check if mobile - show message
+    const isMobile = window.innerWidth < 768
+    if (isMobile) {
+      showToast(
+        lang === 'vi' ? 'Vui lòng sử dụng máy tính để tải PNG. Hoặc liên hệ: 0947776662' : 
+        lang === 'en' ? 'Please use desktop to download PNG. Or contact: 0947776662' : 
+        '请使用电脑下载PNG。或联系：0947776662',
+        'info'
+      )
+      return
+    }
+
+    // Validate required fields in step 2
+    if (currentStep === 2) {
+      const formData = new FormData(form)
+      const name = formData.get('name')
+      const phone = formData.get('phone')
+      const email = formData.get('email')
+      
+      if (!name || !phone || !email) {
+        showToast(
+          lang === 'vi' ? 'Vui lòng nhập đầy đủ thông tin bắt buộc (Tên, SĐT, Email)' : 
+          lang === 'en' ? 'Please fill in all required fields (Name, Phone, Email)' : 
+          '请填写所有必填字段（姓名、电话、电子邮件）',
+          'error'
+        )
+        return
+      }
+      
+      contactInfo = {
+        name: name,
+        phone: phone,
+        email: email,
+        company: formData.get('company') || '',
+        message: formData.get('message') || ''
+      }
+    }
+
+    // Check if html2canvas is loaded
+    if (typeof window.html2canvas === 'undefined') {
+      showToast(
+        lang === 'vi' ? 'Thư viện đang tải, vui lòng thử lại' : 
+        lang === 'en' ? 'Library is loading, please try again' : 
+        '库正在加载，请重试',
+        'info'
+      )
+      return
+    }
+
+    try {
+      console.log('[Download PNG] Starting...')
       
       // Show loading message
       const loadingMsg = lang === 'vi' ? 'Đang tạo PNG...' : lang === 'en' ? 'Generating PNG...' : '正在生成PNG...'
@@ -1821,56 +1879,68 @@ const productsJson = JSON.stringify(products.map(p => ({
         downloadPNGButton.disabled = true
       }
 
-      // Generate HTML content
-      const html = generateQuotationHTML()
-      const filename = `BaoGia_QuangMinh_${new Date().getTime()}.png`
+      // Generate preview first if not exists
+      const previewContentEl = document.getElementById('preview-content')
+      if (!previewContentEl || !previewContentEl.firstElementChild) {
+        showPreview()
+        await new Promise(resolve => setTimeout(resolve, 300))
+      }
 
-      console.log('[Download PNG] Sending request to server...')
+      // Create temp container
+      const tempContainer = document.createElement('div')
+      tempContainer.style.position = 'absolute'
+      tempContainer.style.left = '-9999px'
+      tempContainer.style.width = '210mm'
+      const contentToClone = previewContentEl.firstElementChild
+      tempContainer.appendChild(contentToClone.cloneNode(true))
+      document.body.appendChild(tempContainer)
 
-      // Send to server for PNG generation
-      const response = await fetch('/api/generate-quote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          html,
-          format: 'png',
-          filename
-        })
+      await new Promise(resolve => setTimeout(resolve, 200))
+
+      // Render to canvas
+      const canvas = await html2canvas(tempContainer, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        windowWidth: 794,
+        windowHeight: tempContainer.scrollHeight
       })
 
-      if (!response.ok) {
-        throw new Error(`Server error: ${response.status}`)
-      }
+      document.body.removeChild(tempContainer)
 
-      console.log('[Download PNG] Receiving PNG from server...')
+      // Download PNG
+      canvas.toBlob((blob) => {
+        if (!blob) {
+          showToast(
+            lang === 'vi' ? 'Có lỗi khi tạo file PNG' : 
+            lang === 'en' ? 'Error creating PNG file' : 
+            '创建PNG文件时出错',
+            'error'
+          )
+          return
+        }
 
-      // Download the PNG
-      const blob = await response.blob()
-      const url = URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.href = url
-      link.download = filename
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      URL.revokeObjectURL(url)
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.download = `BaoGia_QuangMinh_${new Date().getTime()}.png`
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        URL.revokeObjectURL(url)
 
-      console.log('[Download PNG] Complete!')
+        if (downloadPNGButton) {
+          downloadPNGButton.textContent = originalText
+          downloadPNGButton.disabled = false
+        }
 
-      // Restore button
-      if (downloadPNGButton) {
-        downloadPNGButton.textContent = originalText
-        downloadPNGButton.disabled = false
-      }
-
-      showToast(
-        lang === 'vi' ? 'Tải PNG thành công!' : 
-        lang === 'en' ? 'PNG downloaded successfully!' : 
-        'PNG下载成功！',
-        'success'
-      )
+        showToast(
+          lang === 'vi' ? 'Tải PNG thành công!' : 
+          lang === 'en' ? 'PNG downloaded!' : 
+          'PNG下载成功！',
+          'success'
+        )
+      }, 'image/png')
 
     } catch (error) {
       console.error('[Download PNG] Error:', error)
