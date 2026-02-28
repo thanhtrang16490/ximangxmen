@@ -1590,6 +1590,8 @@ const productsJson = JSON.stringify(products.map(p => ({
     }
 
     try {
+      console.log('[Download PDF] Starting...')
+      
       // Show loading message
       const loadingMsg = lang === 'vi' ? 'Đang tạo PDF...' : lang === 'en' ? 'Generating PDF...' : '正在生成PDF...'
       const originalText = downloadPDFButton.textContent
@@ -1599,9 +1601,12 @@ const productsJson = JSON.stringify(products.map(p => ({
       // Get preview content
       const previewContentEl = document.getElementById('preview-content')
       if (!previewContentEl || !previewContentEl.firstElementChild) {
+        console.log('[Download PDF] Generating preview first...')
         showPreview()
         await new Promise(resolve => setTimeout(resolve, 100))
       }
+
+      console.log('[Download PDF] Creating temp container...')
 
       // Create a temporary container outside viewport for full rendering
       const tempContainer = document.createElement('div')
@@ -1621,15 +1626,29 @@ const productsJson = JSON.stringify(products.map(p => ({
       // Wait for fonts and images to load
       await new Promise(resolve => setTimeout(resolve, 200))
 
-      // Convert HTML to canvas with full content
-      const canvas = await html2canvas(tempContainer, {
-        scale: 2,
+      console.log('[Download PDF] Rendering with html2canvas...')
+
+      // Convert HTML to canvas with timeout
+      const renderPromise = html2canvas(tempContainer, {
+        scale: 1.5, // Reduce scale for mobile
         useCORS: true,
-        logging: false,
+        logging: true,
         backgroundColor: '#ffffff',
+        allowTaint: true,
+        foreignObjectRendering: false,
+        imageTimeout: 15000,
+        removeContainer: true,
         windowWidth: tempContainer.scrollWidth,
         windowHeight: tempContainer.scrollHeight
       })
+
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Rendering timeout after 30 seconds')), 30000)
+      )
+
+      const canvas = await Promise.race([renderPromise, timeoutPromise])
+
+      console.log('[Download PDF] Canvas created, generating PDF...')
 
       // Remove temporary container
       document.body.removeChild(tempContainer)
@@ -1664,16 +1683,20 @@ const productsJson = JSON.stringify(products.map(p => ({
         heightLeft -= pageHeight
       }
 
+      console.log('[Download PDF] Saving file...')
+
       // Save PDF
       const filename = `BaoGia_QuangMinh_${new Date().getTime()}.pdf`
       pdf.save(filename)
+
+      console.log('[Download PDF] Complete!')
 
       // Restore button
       downloadPDFButton.textContent = originalText
       downloadPDFButton.disabled = false
 
     } catch (error) {
-      console.error('Error generating PDF:', error)
+      console.error('[Download PDF] Error:', error)
       showToast(
         lang === 'vi' ? 'Có lỗi khi tạo PDF. Vui lòng thử lại.' : 
         lang === 'en' ? 'Error generating PDF. Please try again.' : 
@@ -1734,6 +1757,8 @@ const productsJson = JSON.stringify(products.map(p => ({
     }
 
     try {
+      console.log('[Download PNG] Starting...')
+      
       // Show loading message
       const loadingMsg = lang === 'vi' ? 'Đang tạo PNG...' : lang === 'en' ? 'Generating PNG...' : '正在生成PNG...'
       const originalText = downloadPNGButton ? downloadPNGButton.textContent : ''
@@ -1745,9 +1770,12 @@ const productsJson = JSON.stringify(products.map(p => ({
       // Get preview content
       const previewContentEl = document.getElementById('preview-content')
       if (!previewContentEl || !previewContentEl.firstElementChild) {
+        console.log('[Download PNG] Generating preview first...')
         showPreview()
         await new Promise(resolve => setTimeout(resolve, 100))
       }
+
+      console.log('[Download PNG] Creating temp container...')
 
       // Create a temporary container outside viewport for full rendering
       const tempContainer = document.createElement('div')
@@ -1767,21 +1795,46 @@ const productsJson = JSON.stringify(products.map(p => ({
       // Wait for fonts and images to load
       await new Promise(resolve => setTimeout(resolve, 200))
 
-      // Convert HTML to canvas with full content
-      const canvas = await html2canvas(tempContainer, {
-        scale: 2,
+      console.log('[Download PNG] Rendering with html2canvas...')
+
+      // Convert HTML to canvas with timeout
+      const renderPromise = html2canvas(tempContainer, {
+        scale: 1.5, // Reduce scale for mobile
         useCORS: true,
-        logging: false,
+        logging: true,
         backgroundColor: '#ffffff',
+        allowTaint: true,
+        foreignObjectRendering: false,
+        imageTimeout: 15000,
+        removeContainer: true,
         windowWidth: tempContainer.scrollWidth,
         windowHeight: tempContainer.scrollHeight
       })
+
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Rendering timeout after 30 seconds')), 30000)
+      )
+
+      const canvas = await Promise.race([renderPromise, timeoutPromise])
+
+      console.log('[Download PNG] Canvas created, downloading...')
 
       // Remove temporary container
       document.body.removeChild(tempContainer)
 
       // Convert canvas to PNG and download
       canvas.toBlob((blob) => {
+        if (!blob) {
+          console.error('[Download PNG] Failed to create blob')
+          showToast(
+            lang === 'vi' ? 'Có lỗi khi tạo file PNG' : 
+            lang === 'en' ? 'Error creating PNG file' : 
+            '创建PNG文件时出错',
+            'error'
+          )
+          return
+        }
+
         const url = URL.createObjectURL(blob)
         const link = document.createElement('a')
         link.href = url
