@@ -1,86 +1,103 @@
-# Deployment Guide for Dokploy/Nixpacks
+# Deployment Guide for Dokploy
 
-## Option 1: Using Nixpacks (Recommended for Dokploy)
+## Static Site Deployment
 
-Dokploy sẽ tự động detect `nixpacks.toml` và build theo cấu hình.
+This is a **static site** built with Astro. No server required.
 
-### Cấu hình trong Dokploy:
+### Dokploy Configuration:
 
-1. **Build Command**: `npm run build`
-2. **Start Command**: `npm start` hoặc `node dist/server/entry.mjs`
-3. **Port**: `3000`
-4. **Environment Variables**:
-   ```
-   NODE_ENV=production
-   HOST=0.0.0.0
-   PORT=3000
-   PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-   ```
+**Build Settings:**
+- Build Method: **Static** (or Nixpacks will auto-detect)
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- No start command needed (static files only)
 
-### Lưu ý:
-- Nixpacks sẽ tự động cài Chromium từ nixPkgs
-- Puppeteer sẽ sử dụng Chromium từ system
+**Environment Variables:**
+```
+NODE_ENV=production
+```
+
+**Port:** Not needed (static files served by web server)
 
 ---
 
-## Option 2: Using Dockerfile
+## Build Process
 
-Nếu Nixpacks không hoạt động, sử dụng Dockerfile:
-
-### Cấu hình trong Dokploy:
-
-1. Chọn **Docker** build method
-2. **Dockerfile Path**: `./Dockerfile`
-3. **Port**: `3000`
-4. **Environment Variables**: (same as above)
+1. **Install dependencies**: `npm ci --legacy-peer-deps`
+2. **Build**: `npm run build`
+3. **Output**: Static files in `dist/` directory
 
 ---
 
-## Testing Locally
+## Local Testing
 
-### Test with Node:
 ```bash
+# Build
 npm run build
-npm start
+
+# Preview (uses Astro's preview server)
+npm run preview
 ```
 
-### Test with Docker:
-```bash
-docker build -t qmalu-web .
-docker run -p 3000:3000 qmalu-web
-```
+Visit: http://localhost:4321
 
-Truy cập: http://localhost:3000
+---
+
+## Deployment Steps in Dokploy
+
+1. Connect your Git repository
+2. Set build command: `npm run build`
+3. Set output directory: `dist`
+4. Deploy!
+
+Dokploy will:
+- Run `npm install`
+- Run `npm run build`
+- Serve static files from `dist/`
 
 ---
 
 ## Troubleshooting
 
-### Issue: "Index of dist/client/server/"
-**Cause**: Server không chạy, chỉ serve static files
-
-**Solution**: 
-- Đảm bảo start command là `node dist/server/entry.mjs`
-- Kiểm tra logs để xem server có start không
-
-### Issue: Puppeteer không tìm thấy Chromium
-**Cause**: Chromium chưa được cài
+### Issue: "Bad Gateway"
+**Cause**: Dokploy trying to run as Node server instead of static site
 
 **Solution**:
-- Với Nixpacks: Đã config trong `nixpacks.toml`
-- Với Docker: Đã config trong `Dockerfile`
-- Set env var: `PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium`
+1. Make sure there's NO start command configured
+2. Verify output directory is set to `dist`
+3. Check build logs - should see "148 page(s) built"
+4. Ensure `.static` file exists in root (tells Dokploy it's static)
 
-### Issue: Memory issues
-**Solution**: Tăng memory limit trong Dokploy settings (recommend: 1GB+)
+### Issue: "Index of dist/"
+**Cause**: Web server listing directory instead of serving index.html
+
+**Solution**:
+- Configure web server to serve index.html as default
+- In Dokploy, ensure it's set as "Static Site" not "Node App"
+
+### Issue: Build fails
+**Cause**: Dependencies or build errors
+
+**Solution**:
+- Check build logs in Dokploy
+- Test locally: `npm run build`
+- Ensure all dependencies installed: `npm ci --legacy-peer-deps`
 
 ---
 
-## Production Checklist
+## Features
 
-- [ ] Build thành công: `npm run build`
-- [ ] Server chạy local: `npm start`
-- [ ] Test PDF generation: Thử download PDF từ modal
-- [ ] Check logs: Xem có error không
-- [ ] Memory: Đảm bảo có đủ RAM (1GB+)
-- [ ] Environment variables đã set đúng
+- ✅ Static HTML/CSS/JS (no server needed)
+- ✅ Fast loading (CDN-friendly)
+- ✅ Low cost (static hosting)
+- ✅ Desktop PDF/PNG generation (client-side)
+- ✅ Mobile shows contact info for quotes
+
+---
+
+## Notes
+
+- PDF/PNG generation works on **desktop only**
+- Mobile users see message to use desktop or call: **0947776662**
+- All pages pre-rendered at build time
+- No database, no API, pure static files
