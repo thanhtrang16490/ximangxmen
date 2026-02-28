@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import partytown from '@astrojs/partytown'
+import node from '@astrojs/node'
 
 export default defineConfig({
   integrations: [
@@ -16,9 +17,11 @@ export default defineConfig({
       },
     }),
   ],
-  output: 'hybrid',
+  output: 'server',
+  adapter: node({
+    mode: 'standalone'
+  }),
   site: 'https://qmalu.com',
-  adapter: undefined, // Will be configured based on deployment platform
   
   // Security Headers - Applied at build time for static hosting
   // For additional security, configure these at your CDN/edge (Cloudflare, Vercel, Nginx)
