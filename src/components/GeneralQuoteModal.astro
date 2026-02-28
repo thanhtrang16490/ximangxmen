@@ -1201,8 +1201,11 @@ const productsJson = JSON.stringify(products.map(p => ({
     }
 
     try {
+      console.log('[PNG Preview] Starting...')
+      
       // Generate PNG and show in modal
       if (typeof window.html2canvas === 'undefined') {
+        console.error('[PNG Preview] html2canvas not loaded')
         showToast(
           lang === 'vi' ? 'Thư viện đang tải, vui lòng thử lại' : 
           lang === 'en' ? 'Library is loading, please try again' : 
@@ -1212,6 +1215,8 @@ const productsJson = JSON.stringify(products.map(p => ({
         return
       }
 
+      console.log('[PNG Preview] Libraries loaded, generating preview...')
+
       // First generate the HTML preview content
       showPreview()
       await new Promise(resolve => setTimeout(resolve, 100))
@@ -1219,6 +1224,7 @@ const productsJson = JSON.stringify(products.map(p => ({
       // Get preview content
       const previewContentEl = document.getElementById('preview-content')
       if (!previewContentEl || !previewContentEl.firstElementChild) {
+        console.error('[PNG Preview] Preview content not found')
         return
       }
 
@@ -1241,6 +1247,8 @@ const productsJson = JSON.stringify(products.map(p => ({
         </div>
       `
 
+      console.log('[PNG Preview] Creating temp container...')
+
       // Create a temporary container for rendering
       const tempContainer = document.createElement('div')
       tempContainer.style.position = 'absolute'
@@ -1253,18 +1261,26 @@ const productsJson = JSON.stringify(products.map(p => ({
 
       await new Promise(resolve => setTimeout(resolve, 200))
 
+      console.log('[PNG Preview] Rendering with html2canvas...')
+
       const canvas = await html2canvas(tempContainer, {
         scale: 2,
         useCORS: true,
         logging: false,
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        allowTaint: true,
+        foreignObjectRendering: false
       })
+
+      console.log('[PNG Preview] Canvas created, cleaning up...')
 
       document.body.removeChild(tempContainer)
 
       // Convert to data URL and show in modal
       const dataUrl = canvas.toDataURL('image/png', 1.0)
       
+      console.log('[PNG Preview] Displaying image...')
+
       // Display PNG in modal (simple view - just image, scrollable)
       previewContentEl.innerHTML = `
         <div class="min-h-full bg-black/90 p-0 overflow-auto">
@@ -1272,8 +1288,10 @@ const productsJson = JSON.stringify(products.map(p => ({
         </div>
       `
 
+      console.log('[PNG Preview] Complete!')
+
     } catch (error) {
-      console.error('Error showing PNG preview:', error)
+      console.error('[PNG Preview] Error:', error)
       showToast(
         lang === 'vi' ? 'Có lỗi khi xem trước. Vui lòng thử lại.' : 
         lang === 'en' ? 'Error showing preview. Please try again.' : 
