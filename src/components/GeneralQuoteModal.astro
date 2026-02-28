@@ -49,31 +49,30 @@ const productsJson = JSON.stringify(products.map(p => ({
         </button>
       </div>
       
-      <!-- Progress - Desktop: Full view, Mobile: Compact -->
-      <div class="flex items-center gap-2 mt-4">
-        <!-- Desktop: Show all steps -->
-        <div class="hidden sm:flex items-center gap-2 flex-1">
-          <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-medium" id="step1-ind">1</div>
-          <div class="text-sm font-medium text-gray-900">{t.step1}</div>
-        </div>
-        <div class="hidden sm:block w-12 h-0.5 bg-gray-200" id="progress-line-1"></div>
-        <div class="hidden sm:flex items-center gap-2 flex-1">
-          <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-medium" id="step2-ind">2</div>
-          <div class="text-sm font-medium text-gray-500">{t.step2}</div>
-        </div>
-        <div class="hidden sm:block w-12 h-0.5 bg-gray-200" id="progress-line-2"></div>
-        <div class="hidden sm:flex items-center gap-2 flex-1">
-          <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-medium" id="step3-ind">3</div>
-          <div class="text-sm font-medium text-gray-500">{t.step3}</div>
+      <!-- Progress - Show all 3 steps, mobile shows text only for current step -->
+      <div class="flex items-center gap-1 sm:gap-2 mt-4">
+        <!-- Step 1 -->
+        <div class="flex items-center gap-1 sm:gap-2 flex-1">
+          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs sm:text-sm font-medium" id="step1-ind">1</div>
+          <div class="text-xs sm:text-sm font-medium text-gray-900 truncate" id="step1-text">{t.step1}</div>
         </div>
         
-        <!-- Mobile: Compact view - only current step -->
-        <div class="flex sm:hidden items-center justify-center gap-3 w-full">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-medium" id="step-ind-mobile">1</div>
-            <div class="text-sm font-medium text-gray-900" id="step-text-mobile">{t.step1}</div>
-          </div>
-          <div class="text-xs text-gray-500" id="step-count-mobile">1/3</div>
+        <!-- Line 1 -->
+        <div class="w-6 sm:w-12 h-0.5 bg-gray-200 flex-shrink-0" id="progress-line-1"></div>
+        
+        <!-- Step 2 -->
+        <div class="flex items-center gap-1 sm:gap-2 flex-1">
+          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs sm:text-sm font-medium" id="step2-ind">2</div>
+          <div class="hidden text-xs sm:text-sm font-medium text-gray-500 truncate" id="step2-text">{t.step2}</div>
+        </div>
+        
+        <!-- Line 2 -->
+        <div class="w-6 sm:w-12 h-0.5 bg-gray-200 flex-shrink-0" id="progress-line-2"></div>
+        
+        <!-- Step 3 -->
+        <div class="flex items-center gap-1 sm:gap-2 flex-1">
+          <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs sm:text-sm font-medium" id="step3-ind">3</div>
+          <div class="hidden text-xs sm:text-sm font-medium text-gray-500 truncate" id="step3-text">{t.step3}</div>
         </div>
       </div>
     </div>
@@ -83,22 +82,16 @@ const productsJson = JSON.stringify(products.map(p => ({
       <div id="step1-content" class="p-6" style="display:block">
         <!-- Tabs -->
         <div class="flex gap-2 mb-4 border-b border-gray-200">
-          <button id="tab-custom" class="px-4 py-2 text-sm font-medium border-b-2 border-blue-600 text-blue-600 transition-colors">
-            {t.tabCustom}
-          </button>
-          <button id="tab-capacity" class="px-4 py-2 text-sm font-medium border-b-2 border-transparent text-gray-600 hover:text-gray-900 transition-colors">
+          <button id="tab-capacity" class="px-4 py-2 text-sm font-medium border-b-2 border-blue-600 text-blue-600 transition-colors">
             {t.tabCapacity}
           </button>
+          <button id="tab-custom" class="px-4 py-2 text-sm font-medium border-b-2 border-transparent text-gray-600 hover:text-gray-900 transition-colors">
+            {t.tabCustom}
+          </button>
         </div>
 
-        <!-- Custom Quote Tab Content -->
-        <div id="custom-content" style="display:block">
-          <input type="text" id="product-search" placeholder={t.search} class="w-full px-4 py-2.5 border border-gray-300 rounded-lg mb-4 text-sm" />
-          <div id="product-list" class="space-y-2 mb-4 max-h-64 overflow-y-auto"></div>
-        </div>
-
-        <!-- Capacity Quote Tab Content -->
-        <div id="capacity-content" style="display:none">
+        <!-- Capacity Quote Tab Content (Default) -->
+        <div id="capacity-content" style="display:block">
           <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
             <p class="text-sm text-blue-800">{t.capacityNote}</p>
           </div>
@@ -182,6 +175,12 @@ const productsJson = JSON.stringify(products.map(p => ({
           </button>
 
           <div id="capacity-result" class="space-y-2 max-h-64 overflow-y-auto"></div>
+        </div>
+
+        <!-- Custom Quote Tab Content -->
+        <div id="custom-content" style="display:none">
+          <input type="text" id="product-search" placeholder={t.search} class="w-full px-4 py-2.5 border border-gray-300 rounded-lg mb-4 text-sm" />
+          <div id="product-list" class="space-y-2 mb-4 max-h-64 overflow-y-auto"></div>
         </div>
 
         <!-- Summary (shared) -->
@@ -537,9 +536,9 @@ const productsJson = JSON.stringify(products.map(p => ({
       modal.classList.add('flex')
       document.body.style.overflow = 'hidden'
       currentStep = 1
-      currentTab = 'custom'
+      currentTab = 'capacity'
       showStep(1)
-      switchTab('custom')
+      switchTab('capacity')
       renderProducts()
     }
   }
@@ -669,14 +668,12 @@ const productsJson = JSON.stringify(products.map(p => ({
     const step1Ind = document.getElementById('step1-ind')
     const step2Ind = document.getElementById('step2-ind')
     const step3Ind = document.getElementById('step3-ind')
+    const step1Text = document.getElementById('step1-text')
+    const step2Text = document.getElementById('step2-text')
+    const step3Text = document.getElementById('step3-text')
     const progressLine1 = document.getElementById('progress-line-1')
     const progressLine2 = document.getElementById('progress-line-2')
     const subtitle = document.getElementById('step-subtitle')
-    
-    // Mobile progress elements
-    const stepIndMobile = document.getElementById('step-ind-mobile')
-    const stepTextMobile = document.getElementById('step-text-mobile')
-    const stepCountMobile = document.getElementById('step-count-mobile')
 
     // Hide all steps
     if (step1) step1.style.display = 'none'
@@ -688,17 +685,14 @@ const productsJson = JSON.stringify(products.map(p => ({
       if (step1Ind) { step1Ind.classList.add('bg-blue-600', 'text-white'); step1Ind.classList.remove('bg-gray-200', 'text-gray-500', 'bg-green-600') }
       if (step2Ind) { step2Ind.classList.add('bg-gray-200', 'text-gray-500'); step2Ind.classList.remove('bg-blue-600', 'text-white') }
       if (step3Ind) { step3Ind.classList.add('bg-gray-200', 'text-gray-500'); step3Ind.classList.remove('bg-green-600', 'text-white') }
+      
+      // Show/hide text labels on mobile (desktop always shows via sm:block)
+      if (step1Text) { step1Text.classList.remove('hidden'); step1Text.classList.add('block', 'sm:block') }
+      if (step2Text) { step2Text.classList.add('hidden'); step2Text.classList.add('sm:block') }
+      if (step3Text) { step3Text.classList.add('hidden'); step3Text.classList.add('sm:block') }
+      
       if (progressLine1) { progressLine1.classList.remove('bg-blue-600'); progressLine1.classList.add('bg-gray-200') }
       if (progressLine2) { progressLine2.classList.remove('bg-green-600'); progressLine2.classList.add('bg-gray-200') }
-      
-      // Mobile progress
-      if (stepIndMobile) {
-        stepIndMobile.textContent = '1'
-        stepIndMobile.classList.add('bg-blue-600', 'text-white')
-        stepIndMobile.classList.remove('bg-gray-200', 'text-gray-500', 'bg-green-600')
-      }
-      if (stepTextMobile) stepTextMobile.textContent = t.step1
-      if (stepCountMobile) stepCountMobile.textContent = '1/3'
       
       // Mobile buttons
       if (nextButton) nextButton.classList.remove('hidden')
@@ -715,17 +709,14 @@ const productsJson = JSON.stringify(products.map(p => ({
       if (step2) step2.style.display = 'block'
       if (step2Ind) { step2Ind.classList.add('bg-blue-600', 'text-white'); step2Ind.classList.remove('bg-gray-200', 'text-gray-500') }
       if (step3Ind) { step3Ind.classList.add('bg-gray-200', 'text-gray-500'); step3Ind.classList.remove('bg-green-600', 'text-white') }
+      
+      // Show/hide text labels on mobile
+      if (step1Text) { step1Text.classList.add('hidden'); step1Text.classList.add('sm:block') }
+      if (step2Text) { step2Text.classList.remove('hidden'); step2Text.classList.add('block', 'sm:block') }
+      if (step3Text) { step3Text.classList.add('hidden'); step3Text.classList.add('sm:block') }
+      
       if (progressLine1) { progressLine1.classList.add('bg-blue-600'); progressLine1.classList.remove('bg-gray-200') }
       if (progressLine2) { progressLine2.classList.remove('bg-green-600'); progressLine2.classList.add('bg-gray-200') }
-      
-      // Mobile progress
-      if (stepIndMobile) {
-        stepIndMobile.textContent = '2'
-        stepIndMobile.classList.add('bg-blue-600', 'text-white')
-        stepIndMobile.classList.remove('bg-gray-200', 'text-gray-500', 'bg-green-600')
-      }
-      if (stepTextMobile) stepTextMobile.textContent = t.step2
-      if (stepCountMobile) stepCountMobile.textContent = '2/3'
       
       // Mobile buttons
       if (nextButton) nextButton.classList.add('hidden')
@@ -741,17 +732,14 @@ const productsJson = JSON.stringify(products.map(p => ({
     } else if (step === 3) {
       if (step3) step3.style.display = 'block'
       if (step3Ind) { step3Ind.classList.add('bg-green-600', 'text-white'); step3Ind.classList.remove('bg-gray-200', 'text-gray-500') }
+      
+      // Show/hide text labels on mobile
+      if (step1Text) { step1Text.classList.add('hidden'); step1Text.classList.add('sm:block') }
+      if (step2Text) { step2Text.classList.add('hidden'); step2Text.classList.add('sm:block') }
+      if (step3Text) { step3Text.classList.remove('hidden'); step3Text.classList.add('block', 'sm:block') }
+      
       if (progressLine1) { progressLine1.classList.add('bg-blue-600'); progressLine1.classList.remove('bg-gray-200') }
       if (progressLine2) { progressLine2.classList.add('bg-green-600'); progressLine2.classList.remove('bg-gray-200') }
-      
-      // Mobile progress
-      if (stepIndMobile) {
-        stepIndMobile.textContent = '3'
-        stepIndMobile.classList.add('bg-green-600', 'text-white')
-        stepIndMobile.classList.remove('bg-gray-200', 'text-gray-500', 'bg-blue-600')
-      }
-      if (stepTextMobile) stepTextMobile.textContent = t.step3
-      if (stepCountMobile) stepCountMobile.textContent = '3/3'
       
       // Mobile buttons
       if (nextButton) nextButton.classList.add('hidden')
