@@ -288,7 +288,6 @@ export default function VideoTestimonials({ section }: VideoTestimonialsProps) {
                     onEnded={() => closeVideo(testimonial.id)}
                     playsInline
                     preload="none"
-                    loading="lazy"
                   >
                     <source src={testimonial.videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.

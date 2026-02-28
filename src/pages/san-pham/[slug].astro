@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getProductBySlug, getProducts, getCategories } from '../../lib/supabase'
+import GeneralQuoteModal from '../../components/GeneralQuoteModal.astro'
 
 // Generate static paths for all products
 export async function getStaticPaths() {
@@ -35,12 +36,100 @@ const relatedProducts = allProducts
 function formatPrice(price: number): string {
   return new Intl.NumberFormat('vi-VN').format(price)
 }
+
+// SEO: Generate keywords from product data
+const generateKeywords = () => {
+  const keywords = [
+    product.name,
+    productCategory?.name || '',
+    'nhôm A6005',
+    'nhôm công nghiệp',
+    'phụ kiện năng lượng mặt trời',
+    'Quang Minh',
+    'nhôm chất lượng cao'
+  ]
+  if (product.code) keywords.push(product.code)
+  return keywords.filter(Boolean)
+}
+
+// SEO: Generate rich description
+const seoDescription = product.description 
+  ? `${product.description.slice(0, 150)}... | Quang Minh - Nhà sản xuất nhôm A6005 hàng đầu Việt Nam`
+  : `${product.name} - Sản phẩm nhôm công nghiệp chất lượng cao từ Quang Minh. Liên hệ 0947 776 662 để nhận báo giá tốt nhất.`
+
+// SEO: Structured Data - Product Schema
+const productSchema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": product.name,
+  "image": product.image_url || `${Astro.url.origin}/appejv-logo.png`,
+  "description": product.description || `${product.name} - Sản phẩm chất lượng cao từ Quang Minh`,
+  "sku": product.code || product.slug,
+  "brand": {
+    "@type": "Brand",
+    "name": "Quang Minh"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "Công ty Cổ phần Nhôm Quang Minh"
+  },
+  ...(product.price !== null && {
+    "offers": {
+      "@type": "Offer",
+      "url": `${Astro.url.origin}/san-pham/${product.slug}`,
+      "priceCurrency": "VND",
+      "price": product.price,
+      "priceValidUntil": new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Quang Minh"
+      }
+    }
+  }),
+  ...(productCategory && {
+    "category": productCategory.name
+  })
+}
+
+// SEO: Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trang chủ",
+      "item": Astro.url.origin
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Sản phẩm",
+      "item": `${Astro.url.origin}/san-pham`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": product.name,
+      "item": `${Astro.url.origin}/san-pham/${product.slug}`
+    }
+  ]
+}
 ---
 
 <BaseLayout 
-  title={`${product.name} - Quang Minh`} 
-  description={product.description || `${product.name} - Sản phẩm chất lượng cao từ Quang Minh`}
+  title={`${product.name} | Nhôm A6005 Quang Minh - Giá Tốt Nhất 2026`}
+  description={seoDescription}
+  keywords={generateKeywords()}
+  canonical={`/san-pham/${product.slug}`}
+  ogImage={product.image_url || '/appejv-logo.png'}
 >
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
   <!-- Breadcrumb -->
   <nav class="pt-20 pb-4 bg-white border-b border-gray-200">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,7 +148,7 @@ function formatPrice(price: number): string {
   </nav>
 
   <!-- Product Detail -->
-  <section class="py-12 md:py-16 bg-white">
+  <article class="py-12 md:py-16 bg-white" itemscope itemtype="https://schema.org/Product">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         <!-- Product Image -->
@@ -68,11 +157,13 @@ function formatPrice(price: number): string {
             {product.image_url ? (
               <img 
                 src={product.image_url} 
-                alt={product.name}
+                alt={`${product.name} - ${productCategory?.name || 'Sản phẩm'} chất lượng cao từ Quang Minh`}
+                title={product.name}
                 class="w-full h-full object-contain"
+                itemprop="image"
               />
             ) : (
-              <svg class="w-32 h-32 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-32 h-32 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Hình ảnh sản phẩm">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
               </svg>
             )}
@@ -82,33 +173,36 @@ function formatPrice(price: number): string {
         <!-- Product Info -->
         <div class="order-2">
           {productCategory && (
-            <div class="text-[13px] font-medium text-[#175ead] mb-2 uppercase tracking-wide">
+            <div class="text-[13px] font-medium text-[#175ead] mb-2 uppercase tracking-wide" itemprop="category">
               {productCategory.name}
             </div>
           )}
           
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-4 tracking-tight leading-tight">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-4 tracking-tight leading-tight" itemprop="name">
             {product.name}
           </h1>
           
           {product.code && (
             <div class="text-[13px] text-gray-600 mb-6">
-              Mã: <span class="font-mono">{product.code}</span>
+              Mã: <span class="font-mono" itemprop="sku">{product.code}</span>
             </div>
           )}
           
           {product.description && (
-            <p class="text-[17px] text-gray-600 mb-8 leading-relaxed">
+            <p class="text-[17px] text-gray-600 mb-8 leading-relaxed" itemprop="description">
               {product.description}
             </p>
           )}
 
           {/* Price */}
-          <div class="mb-8 pb-8 border-b border-gray-200">
+          <div class="mb-8 pb-8 border-b border-gray-200" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="VND" />
+            <meta itemprop="availability" content="https://schema.org/InStock" />
+            <link itemprop="url" href={`${Astro.url.origin}/san-pham/${product.slug}`} />
             {product.price !== null ? (
               <>
                 <div class="flex items-baseline gap-2 mb-1">
-                  <span class="text-4xl font-semibold text-gray-900">
+                  <span class="text-4xl font-semibold text-gray-900" itemprop="price" content={product.price.toString()}>
                     {formatPrice(product.price)}đ
                   </span>
                   {product.unit && (
@@ -136,7 +230,7 @@ function formatPrice(price: number): string {
           {/* Specifications */}
           {product.specifications && (
             <div class="mb-8 pb-8 border-b border-gray-200">
-              <h3 class="text-[17px] font-semibold text-gray-900 mb-4">Thông số kỹ thuật</h3>
+              <h2 class="text-[17px] font-semibold text-gray-900 mb-4">Thông số kỹ thuật</h2>
               <div class="text-[15px] text-gray-600 leading-relaxed whitespace-pre-line">
                 {product.specifications}
               </div>
@@ -189,61 +283,61 @@ function formatPrice(price: number): string {
         </div>
       </div>
     </div>
-  </section>
+  </article>
 
   {/* Related Products */}
   {relatedProducts.length > 0 && (
-    <section class="py-12 md:py-16 bg-[#f5f5f7]">
+    <section class="py-12 md:py-16 bg-[#f5f5f7]" aria-label="Sản phẩm liên quan">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-8 tracking-tight">
           Sản phẩm liên quan
         </h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {relatedProducts.map((relatedProduct) => (
-            <a
-              href={`/san-pham/${relatedProduct.slug}`}
-              class="group bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
-            >
-              <div class="aspect-square bg-[#f5f5f7] overflow-hidden">
-                {relatedProduct.image_url ? (
-                  <img 
-                    src={relatedProduct.image_url} 
-                    alt={relatedProduct.name}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div class="w-full h-full flex items-center justify-center">
-                    <svg class="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-              <div class="p-4">
-                <h3 class="text-[15px] font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                  {relatedProduct.name}
-                </h3>
-                <div class="flex items-baseline gap-2">
-                  {relatedProduct.price !== null ? (
-                    <>
-                      <span class="text-[17px] font-semibold text-gray-900">
-                        {formatPrice(relatedProduct.price)}đ
-                      </span>
-                      {relatedProduct.unit && (
-                        <span class="text-[13px] text-gray-500">
-                          /{relatedProduct.unit}
-                        </span>
-                      )}
-                    </>
+            <article class="group bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
+              <a href={`/san-pham/${relatedProduct.slug}`} class="block">
+                <div class="aspect-square bg-[#f5f5f7] overflow-hidden">
+                  {relatedProduct.image_url ? (
+                    <img 
+                      src={relatedProduct.image_url} 
+                      alt={`${relatedProduct.name} - ${productCategory?.name || 'Sản phẩm'} Quang Minh`}
+                      title={relatedProduct.name}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
                   ) : (
-                    <span class="text-[15px] font-medium text-blue-600">
-                      Liên hệ
-                    </span>
+                    <div class="w-full h-full flex items-center justify-center">
+                      <svg class="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Hình ảnh sản phẩm">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                      </svg>
+                    </div>
                   )}
                 </div>
-              </div>
-            </a>
+                <div class="p-4">
+                  <h3 class="text-[15px] font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    {relatedProduct.name}
+                  </h3>
+                  <div class="flex items-baseline gap-2">
+                    {relatedProduct.price !== null ? (
+                      <>
+                        <span class="text-[17px] font-semibold text-gray-900">
+                          {formatPrice(relatedProduct.price)}đ
+                        </span>
+                        {relatedProduct.unit && (
+                          <span class="text-[13px] text-gray-500">
+                            /{relatedProduct.unit}
+                          </span>
+                        )}
+                      </>
+                    ) : (
+                      <span class="text-[15px] font-medium text-blue-600">
+                        Liên hệ
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </a>
+            </article>
           ))}
         </div>
       </div>
@@ -268,4 +362,7 @@ function formatPrice(price: number): string {
       overflow: hidden;
     }
   </style>
+
+  <!-- Quote Modal -->
+  <GeneralQuoteModal products={allProducts} lang="vi" />
 </BaseLayout>

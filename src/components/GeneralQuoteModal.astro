@@ -1,9 +1,15 @@
 ---
+import { quoteModalTranslations } from '../data/quote-modal-translations'
+
 interface Product {
   id: string
   name: string
   price: number | null
   unit: string
+  specifications?: string
+  image_url?: string
+  image?: string
+  imageUrl?: string
 }
 
 interface Props {
@@ -13,121 +19,7 @@ interface Props {
 
 const { lang = 'vi', products = [] } = Astro.props
 
-const translations = {
-  vi: {
-    title: 'Nhận báo giá',
-    step1: 'Bước 1: Chọn sản phẩm',
-    step2: 'Bước 2: Thông tin liên hệ',
-    subtitle: 'Vui lòng điền thông tin để nhận báo giá chi tiết',
-    name: 'Họ và tên',
-    namePlaceholder: 'Nguyễn Văn A',
-    phone: 'Số điện thoại',
-    phonePlaceholder: '0912 345 678',
-    email: 'Email',
-    emailPlaceholder: 'email@example.com',
-    company: 'Công ty',
-    companyPlaceholder: 'Tên công ty (không bắt buộc)',
-    message: 'Ghi chú',
-    messagePlaceholder: 'Yêu cầu đặc biệt...',
-    next: 'Tiếp theo',
-    back: 'Quay lại',
-    submit: 'Gửi yêu cầu báo giá',
-    cancel: 'Hủy',
-    required: 'Bắt buộc',
-    search: 'Tìm sản phẩm...',
-    noProducts: 'Chưa chọn sản phẩm',
-    total: 'Tổng cộng',
-    vat: 'VAT (10%)',
-    grandTotal: 'Tổng thanh toán',
-    tabCustom: 'Báo giá tùy chỉnh',
-    tabCapacity: 'Báo giá theo công suất',
-    systemCapacity: 'Công suất hệ thống',
-    capacityPlaceholder: 'Nhập công suất (kW)',
-    panelType: 'Loại tấm pin',
-    panelCount: 'Số tấm pin',
-    autoCalculate: 'Tự động tính toán',
-    capacityNote: 'Hệ thống sẽ tự động tính số lượng vật tư dựa trên công suất',
-    downloadPDF: 'Tải PDF báo giá',
-    downloadPNG: 'Tải PNG báo giá',
-    previewQuote: 'Xem trước báo giá'
-  },
-  en: {
-    title: 'Request Quote',
-    step1: 'Step 1: Select Products',
-    step2: 'Step 2: Contact Information',
-    subtitle: 'Please fill in the information to receive a detailed quote',
-    name: 'Full Name',
-    namePlaceholder: 'John Doe',
-    phone: 'Phone Number',
-    phonePlaceholder: '+84 912 345 678',
-    email: 'Email',
-    emailPlaceholder: 'email@example.com',
-    company: 'Company',
-    companyPlaceholder: 'Company name (optional)',
-    message: 'Notes',
-    messagePlaceholder: 'Special requirements...',
-    next: 'Next',
-    back: 'Back',
-    submit: 'Send Quote Request',
-    cancel: 'Cancel',
-    required: 'Required',
-    search: 'Search products...',
-    noProducts: 'No products selected',
-    total: 'Subtotal',
-    vat: 'VAT (10%)',
-    grandTotal: 'Total',
-    tabCustom: 'Custom Quote',
-    tabCapacity: 'Quote by Capacity',
-    systemCapacity: 'System Capacity',
-    capacityPlaceholder: 'Enter capacity (kW)',
-    panelType: 'Panel Type',
-    panelCount: 'Panel Count',
-    autoCalculate: 'Auto Calculate',
-    capacityNote: 'System will automatically calculate materials based on capacity',
-    downloadPDF: 'Download PDF Quote',
-    downloadPNG: 'Download PNG Quote',
-    previewQuote: 'Preview Quote'
-  },
-  cn: {
-    title: '获取报价',
-    step1: '步骤1：选择产品',
-    step2: '步骤2：联系信息',
-    subtitle: '请填写信息以获取详细报价',
-    name: '姓名',
-    namePlaceholder: '张三',
-    phone: '电话号码',
-    phonePlaceholder: '+84 912 345 678',
-    email: '电子邮件',
-    emailPlaceholder: 'email@example.com',
-    company: '公司',
-    companyPlaceholder: '公司名称（可选）',
-    message: '备注',
-    messagePlaceholder: '特殊要求...',
-    next: '下一步',
-    back: '返回',
-    submit: '发送报价请求',
-    cancel: '取消',
-    required: '必填',
-    search: '搜索产品...',
-    noProducts: '未选择产品',
-    total: '小计',
-    vat: '增值税 (10%)',
-    grandTotal: '总计',
-    tabCustom: '自定义报价',
-    tabCapacity: '按容量报价',
-    systemCapacity: '系统容量',
-    capacityPlaceholder: '输入容量 (kW)',
-    panelType: '面板类型',
-    panelCount: '面板数量',
-    autoCalculate: '自动计算',
-    capacityNote: '系统将根据容量自动计算材料',
-    downloadPDF: '下载PDF报价',
-    downloadPNG: '下载PNG报价',
-    previewQuote: '预览报价'
-  }
-}
-
-const t = translations[lang]
+const t = quoteModalTranslations[lang]
 const productsJson = JSON.stringify(products.map(p => ({ 
   id: p.id, 
   name: p.name, 
@@ -138,19 +30,20 @@ const productsJson = JSON.stringify(products.map(p => ({
 })))
 ---
 
-<!-- General Quote Modal -->
-<div id="general-quote-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+<!-- General Quote Modal - Mobile Optimized -->
+<div id="general-quote-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-0 sm:p-4">
   <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="general-modal-backdrop"></div>
   
-  <div class="relative bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-    <div class="bg-white border-b border-gray-200 px-6 py-4">
+  <div class="relative bg-white rounded-none sm:rounded-2xl shadow-2xl max-w-5xl w-full h-full sm:h-auto sm:max-h-[90vh] overflow-hidden flex flex-col">
+    <!-- Sticky Header - Mobile Optimized -->
+    <div class="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 safe-area-inset-top">
       <div class="flex items-center justify-between">
-        <div>
-          <h2 class="text-xl font-semibold text-gray-900">{t.title}</h2>
-          <p class="text-sm text-gray-600 mt-1" id="step-subtitle">{t.step1}</p>
+        <div class="flex-1 min-w-0">
+          <h2 class="text-lg sm:text-xl font-semibold text-gray-900 truncate">{t.title}</h2>
+          <p class="text-xs sm:text-sm text-gray-600 mt-0.5 sm:mt-1 truncate" id="step-subtitle">{t.step1}</p>
         </div>
-        <button id="close-general-modal" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="close-general-modal" class="flex-shrink-0 p-2 hover:bg-gray-100 rounded-lg transition-colors touch-manipulation ml-2" aria-label="Close modal">
+          <svg class="w-6 h-6 sm:w-5 sm:h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -162,10 +55,15 @@ const productsJson = JSON.stringify(products.map(p => ({
           <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-medium" id="step1-ind">1</div>
           <div class="text-sm font-medium text-gray-900">{t.step1}</div>
         </div>
-        <div class="w-12 h-0.5 bg-gray-200" id="progress-line"></div>
+        <div class="w-12 h-0.5 bg-gray-200" id="progress-line-1"></div>
         <div class="flex items-center gap-2 flex-1">
           <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-medium" id="step2-ind">2</div>
           <div class="text-sm font-medium text-gray-500">{t.step2}</div>
+        </div>
+        <div class="w-12 h-0.5 bg-gray-200" id="progress-line-2"></div>
+        <div class="flex items-center gap-2 flex-1">
+          <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-medium" id="step3-ind">3</div>
+          <div class="text-sm font-medium text-gray-500">{t.step3}</div>
         </div>
       </div>
     </div>
@@ -322,6 +220,108 @@ const productsJson = JSON.stringify(products.map(p => ({
         <textarea name="message" placeholder={t.messagePlaceholder} rows="3" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all text-sm resize-none"></textarea>
       </div>
       </form>
+
+      <!-- Step 3: Success -->
+      <div id="step3-content" class="p-6" style="display:none">
+        <div class="max-w-2xl mx-auto">
+          <!-- Success Icon -->
+          <div class="flex justify-center mb-6">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Success Title -->
+          <h3 class="text-2xl font-bold text-center text-gray-900 mb-3">{t.successTitle}</h3>
+          <p class="text-center text-gray-600 mb-6">{t.successMessage}</p>
+
+          <!-- Customer Email Display -->
+          <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-xl p-5 mb-6">
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium text-green-800 mb-1">{t.yourEmail}:</p>
+                <p class="text-base font-bold text-green-900 break-all" id="customer-email">customer@email.com</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quote Info Card -->
+          <div class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 mb-6 border border-cyan-200">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between pb-3 border-b border-cyan-200">
+                <span class="text-sm text-gray-600">{t.quoteNumber}:</span>
+                <span class="text-base font-bold text-cyan-700" id="quote-number">QM-2025-001</span>
+              </div>
+              <div class="pt-2">
+                <p class="text-sm font-semibold text-gray-700 mb-2">{t.supportTitle}:</p>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-600">{t.supportEmail}:</span>
+                    <a href="mailto:info@qmalu.com" class="text-sm font-medium text-cyan-600 hover:text-cyan-700">info@qmalu.com</a>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-600">{t.supportPhone}:</span>
+                    <a href="tel:0947776662" class="text-sm font-medium text-cyan-600 hover:text-cyan-700">0947 776 662</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Steps -->
+          <div class="bg-white rounded-xl p-5 border border-gray-200 mb-6">
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">{t.nextSteps}:</h4>
+            <div class="space-y-3">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
+                  <span class="text-xs font-bold text-cyan-700">1</span>
+                </div>
+                <p class="text-sm text-gray-700 flex-1 pt-0.5">{t.nextStep1}</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
+                  <span class="text-xs font-bold text-cyan-700">2</span>
+                </div>
+                <p class="text-sm text-gray-700 flex-1 pt-0.5">{t.nextStep2}</p>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center">
+                  <span class="text-xs font-bold text-cyan-700">3</span>
+                </div>
+                <p class="text-sm text-gray-700 flex-1 pt-0.5">{t.nextStep3}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="space-y-3">
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" id="download-quote-success" class="px-4 py-3 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>{t.downloadQuote}</span>
+              </button>
+              <button type="button" id="share-quote-success" class="px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all text-sm font-medium flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+                <span>{t.shareQuote}</span>
+              </button>
+            </div>
+            <button type="button" id="close-success" class="w-full px-4 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all text-sm font-medium">
+              {t.closeWindow}
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="border-t border-gray-200 px-6 py-4 bg-gray-50">
@@ -584,30 +584,60 @@ const productsJson = JSON.stringify(products.map(p => ({
   function showStep(step) {
     const step1 = document.getElementById('step1-content')
     const step2 = document.querySelector('[data-step="2"]')
+    const step3 = document.getElementById('step3-content')
     const step1Ind = document.getElementById('step1-ind')
     const step2Ind = document.getElementById('step2-ind')
-    const progressLine = document.getElementById('progress-line')
+    const step3Ind = document.getElementById('step3-ind')
+    const progressLine1 = document.getElementById('progress-line-1')
+    const progressLine2 = document.getElementById('progress-line-2')
     const subtitle = document.getElementById('step-subtitle')
+
+    // Hide all steps
+    if (step1) step1.style.display = 'none'
+    if (step2) step2.style.display = 'none'
+    if (step3) step3.style.display = 'none'
 
     if (step === 1) {
       if (step1) step1.style.display = 'block'
-      if (step2) step2.style.display = 'none'
       if (step1Ind) { step1Ind.classList.add('bg-blue-600', 'text-white'); step1Ind.classList.remove('bg-gray-200', 'text-gray-500') }
       if (step2Ind) { step2Ind.classList.add('bg-gray-200', 'text-gray-500'); step2Ind.classList.remove('bg-blue-600', 'text-white') }
-      if (progressLine) { progressLine.classList.remove('bg-blue-600'); progressLine.classList.add('bg-gray-200') }
+      if (step3Ind) { step3Ind.classList.add('bg-gray-200', 'text-gray-500'); step3Ind.classList.remove('bg-green-600', 'text-white') }
+      if (progressLine1) { progressLine1.classList.remove('bg-blue-600'); progressLine1.classList.add('bg-gray-200') }
+      if (progressLine2) { progressLine2.classList.remove('bg-green-600'); progressLine2.classList.add('bg-gray-200') }
       if (nextButton) nextButton.classList.remove('hidden')
       if (submitButton) submitButton.classList.add('hidden')
       if (backButton) backButton.classList.add('hidden')
       if (subtitle) subtitle.textContent = t.step1
-    } else {
-      if (step1) step1.style.display = 'none'
+    } else if (step === 2) {
       if (step2) step2.style.display = 'block'
       if (step2Ind) { step2Ind.classList.add('bg-blue-600', 'text-white'); step2Ind.classList.remove('bg-gray-200', 'text-gray-500') }
-      if (progressLine) { progressLine.classList.add('bg-blue-600'); progressLine.classList.remove('bg-gray-200') }
+      if (step3Ind) { step3Ind.classList.add('bg-gray-200', 'text-gray-500'); step3Ind.classList.remove('bg-green-600', 'text-white') }
+      if (progressLine1) { progressLine1.classList.add('bg-blue-600'); progressLine1.classList.remove('bg-gray-200') }
+      if (progressLine2) { progressLine2.classList.remove('bg-green-600'); progressLine2.classList.add('bg-gray-200') }
       if (nextButton) nextButton.classList.add('hidden')
       if (submitButton) submitButton.classList.remove('hidden')
       if (backButton) backButton.classList.remove('hidden')
       if (subtitle) subtitle.textContent = t.step2
+    } else if (step === 3) {
+      if (step3) step3.style.display = 'block'
+      if (step3Ind) { step3Ind.classList.add('bg-green-600', 'text-white'); step3Ind.classList.remove('bg-gray-200', 'text-gray-500') }
+      if (progressLine1) { progressLine1.classList.add('bg-blue-600'); progressLine1.classList.remove('bg-gray-200') }
+      if (progressLine2) { progressLine2.classList.add('bg-green-600'); progressLine2.classList.remove('bg-gray-200') }
+      if (nextButton) nextButton.classList.add('hidden')
+      if (submitButton) submitButton.classList.add('hidden')
+      if (backButton) backButton.classList.add('hidden')
+      if (subtitle) subtitle.textContent = t.step3
+      
+      // Generate quote number
+      const quoteNum = `QM-${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}${String(new Date().getDate()).padStart(2, '0')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`
+      const quoteNumberEl = document.getElementById('quote-number')
+      if (quoteNumberEl) quoteNumberEl.textContent = quoteNum
+      
+      // Display customer email
+      const customerEmailEl = document.getElementById('customer-email')
+      if (customerEmailEl && contactInfo.email) {
+        customerEmailEl.textContent = contactInfo.email
+      }
     }
   }
 
@@ -696,7 +726,23 @@ const productsJson = JSON.stringify(products.map(p => ({
 
   if (tabCustom) tabCustom.addEventListener('click', () => switchTab('custom'))
   if (tabCapacity) tabCapacity.addEventListener('click', () => switchTab('capacity'))
-  if (calculateBtn) calculateBtn.addEventListener('click', calculateByCapacity)
+  
+  // Auto-calculate when capacity or panel type changes
+  const capacityInput = document.getElementById('system-capacity')
+  const panelTypeSelect = document.getElementById('panel-type')
+  
+  if (capacityInput) {
+    capacityInput.addEventListener('input', () => {
+      calculateByCapacity()
+    })
+  }
+  
+  if (panelTypeSelect) {
+    panelTypeSelect.addEventListener('change', () => {
+      calculateByCapacity()
+    })
+  }
+  
   if (downloadPDFButton) downloadPDFButton.addEventListener('click', downloadPDF)
   if (downloadPNGButton) downloadPNGButton.addEventListener('click', downloadPNG)
   if (previewButton) previewButton.addEventListener('click', showPreview)
@@ -767,8 +813,11 @@ const productsJson = JSON.stringify(products.map(p => ({
       e.preventDefault()
       contactInfo = Object.fromEntries(new FormData(form).entries())
       console.log('Quote:', { contact: contactInfo, products: selectedProducts })
-      alert('Cảm ơn! Chúng tôi sẽ gửi báo giá chi tiết qua email trong vòng 24h.')
-      closeModal()
+      
+      // TODO: Send quote data to backend
+      // Move to step 3 (success page)
+      currentStep = 3
+      showStep(3)
     })
   }
 
@@ -1169,4 +1218,182 @@ const productsJson = JSON.stringify(products.map(p => ({
       }
     }
   }
+
+  // Step 3 button handlers
+  const downloadQuoteSuccess = document.getElementById('download-quote-success')
+  const shareQuoteSuccess = document.getElementById('share-quote-success')
+  const closeSuccess = document.getElementById('close-success')
+  
+  if (downloadQuoteSuccess) {
+    downloadQuoteSuccess.addEventListener('click', () => {
+      downloadPDF()
+    })
+  }
+  
+  if (shareQuoteSuccess) {
+    shareQuoteSuccess.addEventListener('click', async () => {
+      // Show loading state
+      const originalText = shareQuoteSuccess.innerHTML
+      shareQuoteSuccess.disabled = true
+      shareQuoteSuccess.innerHTML = `
+        <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+        <span>${lang === 'vi' ? 'Đang tạo...' : lang === 'en' ? 'Generating...' : '正在生成...'}</span>
+      `
+      
+      try {
+        const quoteNum = document.getElementById('quote-number')?.textContent || 'N/A'
+        const customerEmail = document.getElementById('customer-email')?.textContent || ''
+        
+        // Share text with greeting from quote template
+        const shareText = lang === 'vi' 
+          ? `Kính gửi Quý khách hàng,\n\nCông ty Cổ phần Kỹ thuật và Công nghệ Quang Minh xin trân trọng gửi tới Quý khách hàng lời chào trân trọng nhất và lời cảm ơn chân thành về sự quan tâm, ủng hộ sản phẩm của chúng tôi.\n\nMã báo giá: ${quoteNum}\n\nTrân trọng!`
+          : lang === 'en'
+          ? `Dear Valued Customer,\n\nQuang Minh Technology Joint Stock Company would like to send our most sincere greetings and thanks for your interest and support of our products.\n\nQuote Reference: ${quoteNum}\n\nBest regards!`
+          : `尊敬的客户，\n\nQuang Minh技术股份公司向您致以最诚挚的问候，感谢您对我们产品的关注和支持。\n\n报价编号: ${quoteNum}\n\n此致敬礼！`
+        
+        // Generate PNG file
+        let pngFile = null
+        
+        if (typeof window.html2canvas !== 'undefined') {
+          const htmlContent = generateQuotationHTML()
+          const tempContainer = document.createElement('div')
+          tempContainer.style.position = 'absolute'
+          tempContainer.style.left = '-9999px'
+          tempContainer.style.top = '0'
+          tempContainer.innerHTML = htmlContent
+          document.body.appendChild(tempContainer)
+          
+          await new Promise(resolve => setTimeout(resolve, 200))
+          
+          const canvas = await html2canvas(tempContainer, {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            backgroundColor: '#ffffff'
+          })
+          
+          document.body.removeChild(tempContainer)
+          
+          const pngBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png', 1.0))
+          if (pngBlob) {
+            pngFile = new File([pngBlob], `BaoGia_QuangMinh_${quoteNum}.png`, { type: 'image/png' })
+          }
+        }
+        
+        // Try Web Share API with file
+        if (pngFile && navigator.canShare && navigator.canShare({ files: [pngFile] })) {
+          await navigator.share({
+            title: t.emailSubject,
+            text: shareText,
+            files: [pngFile]
+          })
+          showToast(
+            lang === 'vi' ? 'Chia sẻ thành công!' : lang === 'en' ? 'Shared successfully!' : '分享成功！',
+            'success'
+          )
+        } else if (navigator.share) {
+          // Fallback: Share without file
+          await navigator.share({
+            title: t.emailSubject,
+            text: shareText,
+            url: window.location.href
+          })
+          showToast(
+            lang === 'vi' ? 'Đã chia sẻ link' : lang === 'en' ? 'Link shared' : '已分享链接',
+            'info'
+          )
+        } else {
+          // Very old browsers - download file
+          if (pngFile) {
+            const url = URL.createObjectURL(pngFile)
+            const link = document.createElement('a')
+            link.href = url
+            link.download = pngFile.name
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+            URL.revokeObjectURL(url)
+            showToast(
+              lang === 'vi' ? 'Đã tải file PNG' : lang === 'en' ? 'PNG downloaded' : 'PNG已下载',
+              'success'
+            )
+          }
+        }
+      } catch (err) {
+        console.error('Share error:', err)
+        if (err.name !== 'AbortError') {
+          showToast(
+            lang === 'vi' ? 'Không thể chia sẻ' : lang === 'en' ? 'Cannot share' : '无法分享',
+            'error'
+          )
+        }
+      } finally {
+        shareQuoteSuccess.disabled = false
+        shareQuoteSuccess.innerHTML = originalText
+      }
+    })
+  }
+  
+  if (closeSuccess) {
+    closeSuccess.addEventListener('click', () => {
+      closeModal()
+    })
+  }
 </script>
+
+
+<style>
+  /* Mobile-specific optimizations */
+  @media (max-width: 640px) {
+    /* Prevent zoom on input focus on iOS */
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="email"],
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+    
+    /* Smooth scrolling for modal content */
+    #general-quote-modal .overflow-y-auto {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+    
+    /* Safe area insets for notched devices */
+    .safe-area-inset-top {
+      padding-top: max(0.75rem, env(safe-area-inset-top));
+    }
+    
+    .safe-area-inset-bottom {
+      padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+    }
+    
+    /* Prevent overscroll bounce */
+    .overscroll-contain {
+      overscroll-behavior: contain;
+    }
+    
+    /* Touch-friendly active states */
+    .touch-manipulation {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .active\:scale-98:active {
+      transform: scale(0.98);
+    }
+    
+    .active\:scale-95:active {
+      transform: scale(0.95);
+    }
+  }
+  
+  /* Webkit scrolling optimization */
+  .-webkit-overflow-scrolling-touch {
+    -webkit-overflow-scrolling: touch;
+  }
+</style>

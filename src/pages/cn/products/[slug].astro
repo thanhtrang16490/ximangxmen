@@ -2,6 +2,7 @@
 const lang = 'cn'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 import { getProductBySlug, getProducts, getCategories } from '../../../lib/supabase'
+import GeneralQuoteModal from '../../../components/GeneralQuoteModal.astro'
 
 // Generate static paths for all products
 export async function getStaticPaths() {
@@ -240,4 +241,7 @@ function formatPrice(price: number | null): string {
       overflow: hidden;
     }
   </style>
+
+  <!-- Quote Modal -->
+  <GeneralQuoteModal products={allProducts} lang="cn" />
 </BaseLayout>

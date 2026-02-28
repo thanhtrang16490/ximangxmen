@@ -1,2 +1,15 @@
 {
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "astro.typescript.enabled": true,
+  "astro.typescript.allowArbitraryAttributes": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "files.associations": {
+    "*.astro": "astro"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+}
 }

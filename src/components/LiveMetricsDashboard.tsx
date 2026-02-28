@@ -19,7 +19,7 @@ export default function LiveMetricsDashboard({ section }: LiveMetricsDashboardPr
   const [metrics, setMetrics] = useState<Metric[]>(initialMetrics);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Simulate metric updates with random data
   const updateMetrics = () => {
