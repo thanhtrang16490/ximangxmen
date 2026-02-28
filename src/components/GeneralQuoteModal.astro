@@ -49,21 +49,31 @@ const productsJson = JSON.stringify(products.map(p => ({
         </button>
       </div>
       
-      <!-- Progress -->
+      <!-- Progress - Desktop: Full view, Mobile: Compact -->
       <div class="flex items-center gap-2 mt-4">
-        <div class="flex items-center gap-2 flex-1">
+        <!-- Desktop: Show all steps -->
+        <div class="hidden sm:flex items-center gap-2 flex-1">
           <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-medium" id="step1-ind">1</div>
           <div class="text-sm font-medium text-gray-900">{t.step1}</div>
         </div>
-        <div class="w-12 h-0.5 bg-gray-200" id="progress-line-1"></div>
-        <div class="flex items-center gap-2 flex-1">
+        <div class="hidden sm:block w-12 h-0.5 bg-gray-200" id="progress-line-1"></div>
+        <div class="hidden sm:flex items-center gap-2 flex-1">
           <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-medium" id="step2-ind">2</div>
           <div class="text-sm font-medium text-gray-500">{t.step2}</div>
         </div>
-        <div class="w-12 h-0.5 bg-gray-200" id="progress-line-2"></div>
-        <div class="flex items-center gap-2 flex-1">
+        <div class="hidden sm:block w-12 h-0.5 bg-gray-200" id="progress-line-2"></div>
+        <div class="hidden sm:flex items-center gap-2 flex-1">
           <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-medium" id="step3-ind">3</div>
           <div class="text-sm font-medium text-gray-500">{t.step3}</div>
+        </div>
+        
+        <!-- Mobile: Compact view - only current step -->
+        <div class="flex sm:hidden items-center justify-center gap-3 w-full">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-medium" id="step-ind-mobile">1</div>
+            <div class="text-sm font-medium text-gray-900" id="step-text-mobile">{t.step1}</div>
+          </div>
+          <div class="text-xs text-gray-500" id="step-count-mobile">1/3</div>
         </div>
       </div>
     </div>
@@ -96,21 +106,41 @@ const productsJson = JSON.stringify(products.map(p => ({
           <!-- Quick capacity buttons -->
           <div class="mb-4">
             <label class="block text-sm font-medium text-gray-900 mb-2">{t.systemCapacity}</label>
-            <div class="grid grid-cols-3 md:grid-cols-5 gap-2 mb-2">
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="5">5 kW</button>
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="10">10 kW</button>
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="20">20 kW</button>
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="30">30 kW</button>
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="50">50 kW</button>
-            </div>
-            <div class="grid grid-cols-3 md:grid-cols-5 gap-2">
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="100">100 kW</button>
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="200">200 kW</button>
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="500">500 kW</button>
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="1000">1 MW</button>
-              <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="custom">
+            
+            <!-- Mobile: 3 columns, 4 rows grid -->
+            <div class="grid grid-cols-3 gap-2 md:hidden">
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="5">5 kW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="10">10 kW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="20">20 kW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="30">30 kW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="50">50 kW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="100">100 kW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="200">200 kW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="500">500 kW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation" data-capacity="1000">1 MW</button>
+              <button type="button" class="capacity-btn px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 active:scale-95 transition-all text-sm font-medium touch-manipulation col-span-3" data-capacity="custom">
                 {lang === 'vi' ? 'Khác' : lang === 'en' ? 'Custom' : '自定义'}
               </button>
+            </div>
+            
+            <!-- Desktop: Two rows, 5 columns grid -->
+            <div class="hidden md:block">
+              <div class="grid grid-cols-5 gap-2 mb-2">
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="5">5 kW</button>
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="10">10 kW</button>
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="20">20 kW</button>
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="30">30 kW</button>
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="50">50 kW</button>
+              </div>
+              <div class="grid grid-cols-5 gap-2">
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="100">100 kW</button>
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="200">200 kW</button>
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="500">500 kW</button>
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="1000">1 MW</button>
+                <button type="button" class="capacity-btn px-4 py-2 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:bg-blue-50 transition-colors text-sm font-medium" data-capacity="custom">
+                  {lang === 'vi' ? 'Khác' : lang === 'en' ? 'Custom' : '自定义'}
+                </button>
+              </div>
             </div>
           </div>
           
@@ -324,60 +354,101 @@ const productsJson = JSON.stringify(products.map(p => ({
       </div>
     </div>
 
-    <div class="border-t border-gray-200 px-6 py-4 bg-gray-50">
-      <div class="flex gap-3">
+    <!-- Sticky Footer - Mobile Optimized -->
+    <div class="sticky bottom-0 border-t border-gray-200 px-4 sm:px-6 py-3 sm:py-4 bg-white safe-area-inset-bottom shadow-lg sm:shadow-none">
+      <!-- Mobile: Simplified layout -->
+      <div class="flex sm:hidden flex-col gap-2">
+        <!-- Primary action row -->
+        <div class="flex gap-2">
+          <button type="button" id="back-button" class="hidden flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:scale-98 transition-all text-sm font-medium touch-manipulation">{t.back}</button>
+          <button type="button" id="next-button" class="flex-1 px-4 py-3.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-98 transition-all text-sm font-medium touch-manipulation">{t.next}</button>
+          <button type="submit" id="submit-button" form="general-quote-form" class="hidden flex-1 px-4 py-3.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-98 transition-all text-sm font-medium touch-manipulation">{t.submit}</button>
+        </div>
+        
+        <!-- Download actions row -->
+        <div class="flex gap-2">
+          <button type="button" id="preview-quote-button" class="flex-1 px-3 py-2.5 border border-gray-600 text-gray-700 rounded-lg hover:bg-gray-50 active:scale-98 transition-all text-xs font-medium flex items-center justify-center gap-1.5 touch-manipulation">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            <span>Xem</span>
+          </button>
+          <button type="button" id="download-pdf-button" class="flex-1 px-3 py-2.5 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 active:scale-98 transition-all text-xs font-medium flex items-center justify-center gap-1.5 touch-manipulation">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>PDF</span>
+          </button>
+          <button type="button" id="download-png-button" class="flex-1 px-3 py-2.5 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 active:scale-98 transition-all text-xs font-medium flex items-center justify-center gap-1.5 touch-manipulation">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span>PNG</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Desktop: Original layout -->
+      <div class="hidden sm:flex gap-3">
         <button type="button" id="cancel-general-button" class="px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium">{t.cancel}</button>
-        <button type="button" id="preview-quote-button" class="px-4 py-2.5 border border-gray-600 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium flex items-center gap-2">
+        <button type="button" class="flex px-4 py-2.5 border border-gray-600 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium items-center gap-2" id="preview-quote-button-desktop">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
           </svg>
           {t.previewQuote}
         </button>
-        <button type="button" id="download-pdf-button" class="px-4 py-2.5 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors text-sm font-medium flex items-center gap-2">
+        <button type="button" class="flex px-4 py-2.5 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors text-sm font-medium items-center gap-2" id="download-pdf-button-desktop">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
           {t.downloadPDF}
         </button>
-        <button type="button" id="download-png-button" class="px-4 py-2.5 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors text-sm font-medium flex items-center gap-2">
+        <button type="button" class="flex px-4 py-2.5 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors text-sm font-medium items-center gap-2" id="download-png-button-desktop">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
           {t.downloadPNG}
         </button>
-        <button type="button" id="back-button" class="hidden px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium">{t.back}</button>
-        <div class="flex-1"></div>
-        <button type="button" id="next-button" class="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">{t.next}</button>
-        <button type="submit" id="submit-button" form="general-quote-form" class="hidden px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">{t.submit}</button>
+        <button type="button" id="back-button-desktop" class="hidden px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium">{t.back}</button>
+        <div class="flex flex-1"></div>
+        <button type="button" id="next-button-desktop" class="hidden inline-block px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">{t.next}</button>
+        <button type="submit" id="submit-button-desktop" form="general-quote-form" class="hidden inline-block px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">{t.submit}</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Preview Modal -->
-<div id="preview-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4">
+<!-- Preview Modal - Mobile Optimized -->
+<div id="preview-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-0 sm:p-4">
   <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="preview-backdrop"></div>
   
-  <div class="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-    <div class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-      <h2 class="text-xl font-semibold text-gray-900">{t.previewQuote}</h2>
-      <button id="close-preview-modal" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <div class="relative bg-white rounded-none sm:rounded-2xl shadow-2xl max-w-4xl w-full h-full sm:h-auto sm:max-h-[90vh] overflow-hidden flex flex-col">
+    <div class="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between safe-area-inset-top">
+      <h2 class="text-lg sm:text-xl font-semibold text-gray-900">{t.previewQuote}</h2>
+      <button id="close-preview-modal" class="p-2 hover:bg-gray-100 rounded-lg transition-colors touch-manipulation" aria-label="Close preview">
+        <svg class="w-6 h-6 sm:w-5 sm:h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
 
-    <div id="preview-content" class="flex-1 overflow-y-auto p-6 bg-gray-50">
+    <div id="preview-content" class="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 bg-gray-50 -webkit-overflow-scrolling-touch">
       <!-- Preview content will be inserted here -->
     </div>
 
-    <div class="border-t border-gray-200 px-6 py-4 bg-white flex gap-3 justify-end">
-      <button id="close-preview-button" class="px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium">
+    <div class="sticky bottom-0 border-t border-gray-200 px-4 sm:px-6 py-3 sm:py-4 bg-white flex flex-col sm:flex-row gap-2 sm:gap-3 justify-end safe-area-inset-bottom shadow-lg sm:shadow-none">
+      <button id="close-preview-button" class="w-full sm:w-auto px-4 py-3 sm:py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 active:scale-98 transition-all text-sm font-medium touch-manipulation">
         {t.cancel}
       </button>
-      <button id="download-png-from-preview" class="px-4 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium flex items-center gap-2">
+      <button id="download-png-from-preview" class="w-full sm:w-auto px-4 py-3 sm:py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 active:scale-98 transition-all text-sm font-medium flex items-center justify-center gap-2 touch-manipulation">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        {t.downloadPNG}
+      </button>
+      <button id="download-from-preview" class="w-full sm:w-auto px-4 py-3 sm:py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-98 transition-all text-sm font-medium flex items-center justify-center gap-2 touch-manipulation">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
@@ -410,12 +481,22 @@ const productsJson = JSON.stringify(products.map(p => ({
   const cancelButton = document.getElementById('cancel-general-button')
   const backdrop = document.getElementById('general-modal-backdrop')
   const form = document.getElementById('general-quote-form')
+  
+  // Mobile buttons
   const nextButton = document.getElementById('next-button')
   const backButton = document.getElementById('back-button')
   const submitButton = document.getElementById('submit-button')
   const downloadPDFButton = document.getElementById('download-pdf-button')
   const downloadPNGButton = document.getElementById('download-png-button')
   const previewButton = document.getElementById('preview-quote-button')
+  
+  // Desktop buttons
+  const nextButtonDesktop = document.getElementById('next-button-desktop')
+  const backButtonDesktop = document.getElementById('back-button-desktop')
+  const submitButtonDesktop = document.getElementById('submit-button-desktop')
+  const downloadPDFButtonDesktop = document.getElementById('download-pdf-button-desktop')
+  const downloadPNGButtonDesktop = document.getElementById('download-png-button-desktop')
+  const previewButtonDesktop = document.getElementById('preview-quote-button-desktop')
 
   // Preview modal elements
   const previewModal = document.getElementById('preview-modal')
@@ -591,6 +672,11 @@ const productsJson = JSON.stringify(products.map(p => ({
     const progressLine1 = document.getElementById('progress-line-1')
     const progressLine2 = document.getElementById('progress-line-2')
     const subtitle = document.getElementById('step-subtitle')
+    
+    // Mobile progress elements
+    const stepIndMobile = document.getElementById('step-ind-mobile')
+    const stepTextMobile = document.getElementById('step-text-mobile')
+    const stepCountMobile = document.getElementById('step-count-mobile')
 
     // Hide all steps
     if (step1) step1.style.display = 'none'
@@ -599,14 +685,31 @@ const productsJson = JSON.stringify(products.map(p => ({
 
     if (step === 1) {
       if (step1) step1.style.display = 'block'
-      if (step1Ind) { step1Ind.classList.add('bg-blue-600', 'text-white'); step1Ind.classList.remove('bg-gray-200', 'text-gray-500') }
+      if (step1Ind) { step1Ind.classList.add('bg-blue-600', 'text-white'); step1Ind.classList.remove('bg-gray-200', 'text-gray-500', 'bg-green-600') }
       if (step2Ind) { step2Ind.classList.add('bg-gray-200', 'text-gray-500'); step2Ind.classList.remove('bg-blue-600', 'text-white') }
       if (step3Ind) { step3Ind.classList.add('bg-gray-200', 'text-gray-500'); step3Ind.classList.remove('bg-green-600', 'text-white') }
       if (progressLine1) { progressLine1.classList.remove('bg-blue-600'); progressLine1.classList.add('bg-gray-200') }
       if (progressLine2) { progressLine2.classList.remove('bg-green-600'); progressLine2.classList.add('bg-gray-200') }
+      
+      // Mobile progress
+      if (stepIndMobile) {
+        stepIndMobile.textContent = '1'
+        stepIndMobile.classList.add('bg-blue-600', 'text-white')
+        stepIndMobile.classList.remove('bg-gray-200', 'text-gray-500', 'bg-green-600')
+      }
+      if (stepTextMobile) stepTextMobile.textContent = t.step1
+      if (stepCountMobile) stepCountMobile.textContent = '1/3'
+      
+      // Mobile buttons
       if (nextButton) nextButton.classList.remove('hidden')
       if (submitButton) submitButton.classList.add('hidden')
       if (backButton) backButton.classList.add('hidden')
+      
+      // Desktop buttons
+      if (nextButtonDesktop) nextButtonDesktop.classList.remove('hidden')
+      if (submitButtonDesktop) submitButtonDesktop.classList.add('hidden')
+      if (backButtonDesktop) backButtonDesktop.classList.add('hidden')
+      
       if (subtitle) subtitle.textContent = t.step1
     } else if (step === 2) {
       if (step2) step2.style.display = 'block'
@@ -614,18 +717,52 @@ const productsJson = JSON.stringify(products.map(p => ({
       if (step3Ind) { step3Ind.classList.add('bg-gray-200', 'text-gray-500'); step3Ind.classList.remove('bg-green-600', 'text-white') }
       if (progressLine1) { progressLine1.classList.add('bg-blue-600'); progressLine1.classList.remove('bg-gray-200') }
       if (progressLine2) { progressLine2.classList.remove('bg-green-600'); progressLine2.classList.add('bg-gray-200') }
+      
+      // Mobile progress
+      if (stepIndMobile) {
+        stepIndMobile.textContent = '2'
+        stepIndMobile.classList.add('bg-blue-600', 'text-white')
+        stepIndMobile.classList.remove('bg-gray-200', 'text-gray-500', 'bg-green-600')
+      }
+      if (stepTextMobile) stepTextMobile.textContent = t.step2
+      if (stepCountMobile) stepCountMobile.textContent = '2/3'
+      
+      // Mobile buttons
       if (nextButton) nextButton.classList.add('hidden')
       if (submitButton) submitButton.classList.remove('hidden')
       if (backButton) backButton.classList.remove('hidden')
+      
+      // Desktop buttons
+      if (nextButtonDesktop) nextButtonDesktop.classList.add('hidden')
+      if (submitButtonDesktop) submitButtonDesktop.classList.remove('hidden')
+      if (backButtonDesktop) backButtonDesktop.classList.remove('hidden')
+      
       if (subtitle) subtitle.textContent = t.step2
     } else if (step === 3) {
       if (step3) step3.style.display = 'block'
       if (step3Ind) { step3Ind.classList.add('bg-green-600', 'text-white'); step3Ind.classList.remove('bg-gray-200', 'text-gray-500') }
       if (progressLine1) { progressLine1.classList.add('bg-blue-600'); progressLine1.classList.remove('bg-gray-200') }
       if (progressLine2) { progressLine2.classList.add('bg-green-600'); progressLine2.classList.remove('bg-gray-200') }
+      
+      // Mobile progress
+      if (stepIndMobile) {
+        stepIndMobile.textContent = '3'
+        stepIndMobile.classList.add('bg-green-600', 'text-white')
+        stepIndMobile.classList.remove('bg-gray-200', 'text-gray-500', 'bg-blue-600')
+      }
+      if (stepTextMobile) stepTextMobile.textContent = t.step3
+      if (stepCountMobile) stepCountMobile.textContent = '3/3'
+      
+      // Mobile buttons
       if (nextButton) nextButton.classList.add('hidden')
       if (submitButton) submitButton.classList.add('hidden')
       if (backButton) backButton.classList.add('hidden')
+      
+      // Desktop buttons
+      if (nextButtonDesktop) nextButtonDesktop.classList.add('hidden')
+      if (submitButtonDesktop) submitButtonDesktop.classList.add('hidden')
+      if (backButtonDesktop) backButtonDesktop.classList.add('hidden')
+      
       if (subtitle) subtitle.textContent = t.step3
       
       // Generate quote number
@@ -743,9 +880,16 @@ const productsJson = JSON.stringify(products.map(p => ({
     })
   }
   
+  // Download and preview buttons - both mobile and desktop
   if (downloadPDFButton) downloadPDFButton.addEventListener('click', downloadPDF)
+  if (downloadPDFButtonDesktop) downloadPDFButtonDesktop.addEventListener('click', downloadPDF)
+  
   if (downloadPNGButton) downloadPNGButton.addEventListener('click', downloadPNG)
+  if (downloadPNGButtonDesktop) downloadPNGButtonDesktop.addEventListener('click', downloadPNG)
+  
   if (previewButton) previewButton.addEventListener('click', showPreview)
+  if (previewButtonDesktop) previewButtonDesktop.addEventListener('click', showPreview)
+  
   if (closePreviewModal) closePreviewModal.addEventListener('click', closePreview)
   if (closePreviewButton) closePreviewButton.addEventListener('click', closePreview)
   if (previewBackdrop) previewBackdrop.addEventListener('click', closePreview)
@@ -789,6 +933,7 @@ const productsJson = JSON.stringify(products.map(p => ({
     })
   })
 
+  // Next button - both mobile and desktop
   if (nextButton) {
     nextButton.addEventListener('click', () => {
       // Check if at least one product is selected
@@ -800,9 +945,29 @@ const productsJson = JSON.stringify(products.map(p => ({
       showStep(2)
     })
   }
+  
+  if (nextButtonDesktop) {
+    nextButtonDesktop.addEventListener('click', () => {
+      // Check if at least one product is selected
+      if (Object.keys(selectedProducts).length === 0) {
+        alert(lang === 'vi' ? 'Vui lòng chọn ít nhất một sản phẩm' : lang === 'en' ? 'Please select at least one product' : '请至少选择一个产品')
+        return
+      }
+      currentStep = 2
+      showStep(2)
+    })
+  }
 
+  // Back button - both mobile and desktop
   if (backButton) {
     backButton.addEventListener('click', () => {
+      currentStep = 1
+      showStep(1)
+    })
+  }
+  
+  if (backButtonDesktop) {
+    backButtonDesktop.addEventListener('click', () => {
       currentStep = 1
       showStep(1)
     })
@@ -841,6 +1006,62 @@ const productsJson = JSON.stringify(products.map(p => ({
       previewModal.classList.add('hidden')
       previewModal.classList.remove('flex')
     }
+  }
+  
+  function showToast(message, type = 'info') {
+    const toast = document.createElement('div')
+    toast.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white z-[70] transition-opacity duration-300 ${
+      type === 'success' ? 'bg-green-600' : 
+      type === 'error' ? 'bg-red-600' : 
+      'bg-blue-600'
+    }`
+    toast.textContent = message
+    document.body.appendChild(toast)
+    
+    setTimeout(() => {
+      toast.style.opacity = '0'
+      setTimeout(() => document.body.removeChild(toast), 300)
+    }, 3000)
+  }
+  
+  function generateQuotationHTML() {
+    const items = Object.entries(selectedProducts).map(([id, qty]) => {
+      const p = products.find(x => x.id === id)
+      return p ? { ...p, quantity: qty } : null
+    }).filter(Boolean)
+
+    const subtotal = items.reduce((sum, i) => sum + (i.price * i.quantity), 0)
+    const vat = subtotal * 0.1
+    const grandTotal = subtotal + vat
+    const today = new Date().toLocaleDateString('vi-VN')
+
+    return `
+      <div class="bg-white mx-auto shadow-lg" style="font-family: 'Times New Roman', Times, serif; max-width: 210mm; padding: 20px;">
+        <!-- Same HTML structure as in showPreview() -->
+        <div class="border-b-4 border-cyan-600 pb-3 mb-4">
+          <div class="flex justify-between items-center gap-4">
+            <div style="flex: 0 0 auto; width: 100px;">
+              <img src="/appejv-logo.png" alt="Quang Minh Logo" style="width: 100%; height: auto; max-width: 100px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div style="display: none; width: 100px; height: 70px; background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); border-radius: 8px; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px;">QM</div>
+            </div>
+            <div style="flex: 1; text-align: right;">
+              <p style="font-size: 13px; font-weight: bold; color: #0891b2; margin-bottom: 6px;">CÔNG TY CỔ PHẦN KỸ THUẬT CÔNG NGHỆ QUANG MINH</p>
+              <p style="font-size: 10px; color: #374151;">info@qmalu.com | qmalu.com | 0947776662</p>
+              <p style="font-size: 10px; color: #374151;">Lô CN09 KCN Nguyên Khê - Đông Anh - Hà Nội</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mb-4 py-3 bg-gradient-to-r from-cyan-50 to-cyan-100 rounded-lg border border-cyan-200">
+          <h2 class="text-xl font-bold text-cyan-700 mb-1 uppercase" style="letter-spacing: 2px;">
+            ${lang === 'vi' ? 'Bảng Báo Giá' : lang === 'en' ? 'Price Quotation' : '报价单'}
+          </h2>
+          <p class="text-xs text-gray-600 font-semibold">
+            ${lang === 'vi' ? 'PHỤ KIỆN HỆ THỐNG ĐIỆN MẶT TRỜI' : lang === 'en' ? 'SOLAR SYSTEM ACCESSORIES' : '太阳能系统配件'}
+          </p>
+        </div>
+        <!-- Rest of the quotation content would go here -->
+      </div>
+    `
   }
 
   function showPreview() {
@@ -926,7 +1147,14 @@ const productsJson = JSON.stringify(products.map(p => ({
               <strong class="text-cyan-700">${lang === 'vi' ? 'Kính gửi:' : lang === 'en' ? 'To:' : '致:'}</strong> 
               <span class="font-semibold text-sm">${contactInfo.company || (lang === 'vi' ? 'QUÝ KHÁCH HÀNG' : lang === 'en' ? 'VALUED CUSTOMER' : '尊贵的客户')}</span>
             </p>
-            <div class="text-xs leading-relaxed text-gray-700 text-justify" style="font-family: 'Times New Roman', Times, serif; line-height: 1.6; font-size: 10px;">
+            ${contactInfo.name || contactInfo.email || contactInfo.phone ? `
+              <div class="mt-2 pt-2 border-t border-gray-300" style="font-family: 'Times New Roman', Times, serif; font-size: 10px;">
+                ${contactInfo.name ? `<p class="mb-1"><strong>${lang === 'vi' ? 'Người liên hệ:' : lang === 'en' ? 'Contact Person:' : '联系人:'}</strong> ${contactInfo.name}</p>` : ''}
+                ${contactInfo.phone ? `<p class="mb-1"><strong>${lang === 'vi' ? 'Điện thoại:' : lang === 'en' ? 'Phone:' : '电话:'}</strong> ${contactInfo.phone}</p>` : ''}
+                ${contactInfo.email ? `<p class="mb-1"><strong>Email:</strong> ${contactInfo.email}</p>` : ''}
+              </div>
+            ` : ''}
+            <div class="text-xs leading-relaxed text-gray-700 text-justify mt-2" style="font-family: 'Times New Roman', Times, serif; line-height: 1.6; font-size: 10px;">
               ${lang === 'vi' 
                 ? 'Công ty Cổ phần Kỹ thuật và Công nghệ Quang Minh xin trân trọng gửi tới Quý khách hàng lời chào trân trọng nhất và lời cảm ơn chân thành về sự quan tâm, ủng hộ sản phẩm của chúng tôi. Căn cứ vào yêu cầu của Quý khách hàng, chúng tôi xin gửi tới Quý khách hàng bảng báo giá chi tiết như sau:'
                 : lang === 'en'
@@ -1363,6 +1591,27 @@ const productsJson = JSON.stringify(products.map(p => ({
       scroll-behavior: smooth;
     }
     
+    /* Horizontal scroll for capacity buttons */
+    .overflow-x-auto {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+    
+    .overflow-x-auto::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    .overflow-x-auto::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    .overflow-x-auto::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 2px;
+    }
+    
     /* Safe area insets for notched devices */
     .safe-area-inset-top {
       padding-top: max(0.75rem, env(safe-area-inset-top));
@@ -1395,5 +1644,24 @@ const productsJson = JSON.stringify(products.map(p => ({
   /* Webkit scrolling optimization */
   .-webkit-overflow-scrolling-touch {
     -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Thin scrollbar utility */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 2px;
   }
 </style>
