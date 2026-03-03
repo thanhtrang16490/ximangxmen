@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import LanguageSwitcher from '../components/LanguageSwitcher.astro'
+import BottomNav from '../components/BottomNav'
 import { getLangFromUrl, type Language } from '../i18n/languages'
 import { getLocalizedPath } from '../i18n/url-utils'
 
@@ -281,7 +282,7 @@ const websiteSchema = {
       />
     </noscript>
   </head>
-<body class="bg-white min-h-screen">
+<body class="bg-white min-h-screen has-bottom-nav">
     <!-- Skip Links for Accessibility -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300">
       {currentLang === 'en' ? 'Skip to main content' : currentLang === 'cn' ? '跳转到主要内容' : 'Chuyển đến nội dung chính'}
@@ -485,6 +486,9 @@ if (menuButton && menuClose && menu && overlay) {
     <main id="main-content" role="main" tabindex="-1">
       <slot />
     </main>
+
+    <!-- Mobile Bottom Navigation - Global -->
+    <BottomNav currentPath={Astro.url.pathname} client:load />
 
     <!-- Footer - Apple Style -->
     <footer class="bg-[#f5f5f7] text-gray-900 border-t border-gray-200">

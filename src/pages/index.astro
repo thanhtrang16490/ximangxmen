@@ -15,7 +15,6 @@ import CaseStudies from '../components/CaseStudies'
 import InteractiveMap from '../components/InteractiveMap'
 import ScrollProgress from '../components/ScrollProgress.astro'
 import GeneralQuoteModal from '../components/GeneralQuoteModal.astro'
-import BottomNav from '../components/BottomNav'
 import MobileQuoteFAB from '../components/MobileQuoteFAB'
 import { companyInfo } from '../data/company-info'
 import { homepageContent } from '../data/homepage-content'
@@ -1545,9 +1544,6 @@ const whyChooseUs = [
 
   <!-- General Quote Modal -->
   <GeneralQuoteModal products={allProducts} lang="vi" />
-
-  <!-- Mobile Bottom Navigation -->
-  <BottomNav currentPath="/" client:load />
 
   <!-- Mobile Quote FAB -->
   <MobileQuoteFAB client:load />
