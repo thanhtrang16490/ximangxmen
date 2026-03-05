@@ -25,12 +25,32 @@ export default function CertificatesCarousel() {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const autoRotateTimerRef = useRef<NodeJS.Timeout | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
   // Touch/swipe state
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+
+  // Detect mobile on mount
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768;
+      console.log('isMobile:', mobile, 'width:', window.innerWidth);
+      setIsMobile(mobile);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Log activeIndex changes
+  useEffect(() => {
+    console.log('activeIndex changed to:', activeIndex);
+  }, [activeIndex]);
 
   // Reset auto-rotate timer
   const resetAutoRotate = useCallback(() => {
@@ -47,18 +67,27 @@ export default function CertificatesCarousel() {
 
   // Navigate to next certificate
   const goToNext = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % certificates.length);
+    setActiveIndex((prev) => {
+      const next = (prev + 1) % certificates.length;
+      console.log('goToNext:', prev, '->', next);
+      return next;
+    });
     resetAutoRotate();
   }, [certificates.length, resetAutoRotate]);
 
   // Navigate to previous certificate
   const goToPrevious = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + certificates.length) % certificates.length);
+    setActiveIndex((prev) => {
+      const next = (prev - 1 + certificates.length) % certificates.length;
+      console.log('goToPrevious:', prev, '->', next);
+      return next;
+    });
     resetAutoRotate();
   }, [certificates.length, resetAutoRotate]);
 
   // Navigate to specific index
   const goToIndex = useCallback((index: number) => {
+    console.log('goToIndex:', activeIndex, '->', index);
     setActiveIndex(index);
     resetAutoRotate();
   }, [resetAutoRotate]);
@@ -150,7 +179,7 @@ export default function CertificatesCarousel() {
       diff += certificates.length;
     }
     
-    return diff * 300; // Spacing for portrait certificates
+    return diff * 280; // Spacing for portrait certificates
   };
 
   return (
@@ -175,8 +204,11 @@ export default function CertificatesCarousel() {
         {/* 3D Carousel Container */}
         <div
           ref={containerRef}
-          className="relative h-[380px] md:h-[450px] mb-8 md:mb-10"
-          style={{ perspective: '1500px', perspectiveOrigin: '50% 50%' }}
+          className="relative h-[380px] md:h-[450px] mb-8"
+          style={{ 
+            perspective: isMobile ? 'none' : '800px', 
+            perspectiveOrigin: '50% 50%' 
+          }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
@@ -195,46 +227,79 @@ export default function CertificatesCarousel() {
               const positionClass = getPositionClass(index);
               const transformOffset = getTransformOffset(index);
               
-              let scale = 0.65;
-              let translateZ = -250;
+              // Check if this is the active card
+              const isActive = index === activeIndex;
               
-              if (positionClass === 'active') {
-                scale = 1;
-                translateZ = 0;
-              } else if (positionClass === 'adjacent') {
-                scale = 0.85;
-                translateZ = -150;
+              // Simpler transforms for mobile, full 3D for desktop
+              let scale = 0.75;
+              let translateZ = -100;
+              let opacity = 0.5;
+              
+              if (isMobile) {
+                // Mobile: Stack all cards in center, only show active
+                if (isActive) {
+                  scale = 1;
+                  translateZ = 0;
+                  opacity = 1;
+                } else {
+                  scale = 0.9;
+                  translateZ = 0;
+                  opacity = 0;
+                }
+              } else {
+                // Desktop: Full 3D effect
+                if (positionClass === 'active') {
+                  scale = 1;
+                  translateZ = 0;
+                  opacity = 1;
+                } else if (positionClass === 'adjacent') {
+                  scale = 0.88;
+                  translateZ = -60;
+                  opacity = 0.75;
+                } else {
+                  scale = 0.75;
+                  translateZ = -100;
+                  opacity = 0.5;
+                }
               }
               
               return (
                 <div
                   key={cert.id}
-                  className={`carousel-card ${positionClass}`}
+                  className={`certificate-carousel-card ${positionClass}`}
                   style={{
                     position: 'absolute',
-                    width: '240px',
-                    height: '330px',
+                    width: isMobile ? '280px' : '240px',
+                    height: '320px',
+                    left: '50%',
+                    top: '50%',
+                    marginLeft: isMobile ? '-140px' : '0',
+                    marginTop: '-160px',
                     transformStyle: 'preserve-3d',
                     backfaceVisibility: 'hidden',
                     transition: 'all 700ms cubic-bezier(0.19, 1, 0.22, 1)',
-                    transform: `translateX(${transformOffset}px) translateZ(${translateZ}px) scale(${scale})`,
-                    opacity: positionClass === 'active' ? 1 : positionClass === 'adjacent' ? 0.6 : 0.3,
-                    zIndex: positionClass === 'active' ? 10 : positionClass === 'adjacent' ? 5 : 1,
-                    pointerEvents: positionClass === 'active' ? 'auto' : 'none',
+                    transform: isMobile 
+                      ? `scale(${scale})`
+                      : `translateX(${transformOffset}px) translateZ(${translateZ}px) scale(${scale})`,
+                    opacity: opacity,
+                    zIndex: isActive ? 10 : 1,
+                    pointerEvents: isActive ? 'auto' : 'none',
+                    visibility: isMobile && !isActive ? 'hidden' : 'visible',
                   }}
                   role="group"
                   aria-label={`Slide ${index + 1} of ${certificates.length}`}
                   aria-roledescription="slide"
-                  aria-hidden={positionClass !== 'active'}
+                  aria-hidden={!isActive}
                 >
                   {/* Certificate Card */}
-                  <div className="bg-white rounded-2xl shadow-2xl overflow-hidden h-full border border-gray-200">
-                    <div className="relative h-full bg-gradient-to-br from-gray-50 to-white p-3 flex items-center justify-center">
+                  <div className="bg-white rounded-xl md:rounded-2xl shadow-xl overflow-hidden h-full border border-gray-200">
+                    <div className="relative h-full bg-gradient-to-br from-gray-50 to-white p-4 flex items-center justify-center">
                       <img
                         src={cert.image}
                         alt={cert.alt}
                         className="w-full h-full object-contain"
-                        loading="lazy"
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        fetchPriority={index === 0 ? 'high' : 'auto'}
                       />
                     </div>
                   </div>
@@ -246,7 +311,7 @@ export default function CertificatesCarousel() {
           {/* Navigation Buttons */}
           <button
             onClick={goToPrevious}
-            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-primary/30"
+            className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg md:shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-primary/30"
             aria-label="Previous certificate"
           >
             <svg
@@ -266,7 +331,7 @@ export default function CertificatesCarousel() {
 
           <button
             onClick={goToNext}
-            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-primary/30"
+            className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg md:shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-primary/30"
             aria-label="Next certificate"
           >
             <svg

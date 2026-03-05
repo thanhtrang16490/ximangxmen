@@ -360,6 +360,27 @@
   }
 }
 
+/* Certificates Carousel - Mobile optimizations with unique class */
+@media (max-width: 768px) {
+  /* Ensure certificates carousel is visible */
+  section[aria-label="Certificates carousel"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Carousel container - ensure proper overflow */
+  section[aria-label="Certificates carousel"] > div > div:first-child {
+    height: 380px !important;
+    overflow: visible !important;
+  }
+  
+  /* Certificate cards use unique class to avoid conflicts */
+  .certificate-carousel-card {
+    /* No additional overrides needed - inline styles handle everything */
+  }
+}
+
 /* Case Studies - Mobile optimizations */
 @media (max-width: 768px) {
   .case-study-image {
