@@ -255,94 +255,88 @@ function validateComparisonOption(option: ComparisonOption): void {
 // ============================================================================
 
 export const homepageContent: HomepageContent = {
-  // 1. Process Timeline Section (6 steps) - B2B EPC Focus
+  // 1. Process Timeline Section (6 steps)
   processTimeline: {
-    title: 'Quy Trình Cung Ứng Dự Án',
-    subtitle: 'Từ thiết kế đến thi công, đồng hành cùng EPC trong mọi giai đoạn dự án',
+    title: 'Quy trình làm việc chuyên nghiệp',
+    subtitle: 'Từ tư vấn hệ thống lắp đặt điện mặt trời đến giao hàng, chúng tôi đồng hành cùng bạn trong mọi bước',
     steps: [
       {
         number: 1,
-        title: 'Tư vấn & Khảo sát',
-        description: 'Tư vấn giải pháp kết cấu, khảo sát hiện trường, báo giá dự án trong 24h',
-        icon: '📋'
+        title: 'Tư vấn & Báo giá',
+        description: 'Đội ngũ chuyên gia tư vấn giải pháp giá đỡ năng lượng mặt trời tối ưu và báo giá chi tiết trong 24h',
+        icon: '💬'
       },
       {
         number: 2,
         title: 'Thiết kế kỹ thuật',
-        description: 'Thiết kế bản vẽ kết cấu, tính toán tải trọng, tối ưu vật tư',
+        description: 'Thiết kế bản vẽ kỹ thuật 2D/3D chi tiết theo yêu cầu của khách hàng',
         icon: '📐'
       },
       {
         number: 3,
-        title: 'Sản xuất',
-        description: 'Sản xuất theo tiêu chuẩn, kiểm soát chất lượng từng công đoạn',
-        icon: '🏭'
-      },
-      {
-        number: 4,
-        title: 'Kiểm tra QC',
-        description: 'Kiểm tra 100% sản phẩm, đảm bảo tiêu chuẩn ISO 9001:2015',
+        title: 'Xác nhận mẫu',
+        description: 'Sản xuất mẫu thử để khách hàng kiểm tra và xác nhận trước khi sản xuất hàng loạt',
         icon: '✓'
       },
       {
+        number: 4,
+        title: 'Sản xuất',
+        description: 'Sản xuất phụ kiện nhôm solar với dây chuyền hiện đại, kiểm soát chất lượng nghiêm ngặt từng công đoạn',
+        icon: '⚙️'
+      },
+      {
         number: 5,
-        title: 'Giao hàng',
-        description: 'Giao hàng đúng tiến độ dự án, hỗ trợ logistics',
-        icon: '🚚'
+        title: 'Kiểm tra chất lượng',
+        description: 'Kiểm tra 100% sản phẩm theo tiêu chuẩn quốc tế trước khi đóng gói',
+        icon: '🔍'
       },
       {
         number: 6,
-        title: 'Hỗ trợ kỹ thuật',
-        description: 'Hỗ trợ thi công, bảo hành 10 năm, dịch vụ sau bán hàng',
-        icon: '🔧'
+        title: 'Giao hàng & Bảo hành',
+        description: 'Giao hàng đúng hạn và hỗ trợ bảo hành, bảo trì trong suốt quá trình sử dụng',
+        icon: '🚚'
       }
     ]
   },
 
-  // 2. Animated Number Counter (6 metrics) - B2B Focus
+  // 2. Animated Number Counter (4+ metrics)
   animatedCounter: {
-    title: 'Năng Lực Sản Xuất',
-    subtitle: 'Đối tác tin cậy cho các dự án điện mặt trời quy mô lớn',
+    title: 'Con số ấn tượng',
+    subtitle: 'Những thành tựu đáng tự hào trong sản xuất giá đỡ năng lượng mặt trời',
     metrics: [
       {
-        value: 16,
+        value: 15,
         label: 'Năm kinh nghiệm',
         suffix: '+',
         icon: '📅',
         trend: 'up'
       },
       {
-        value: 3000,
-        label: 'm² nhà máy',
-        icon: '🏭',
-        trend: 'up'
-      },
-      {
-        value: 1000,
-        label: 'Khách hàng B2B',
-        suffix: '+',
-        icon: '🤝',
-        trend: 'up'
-      },
-      {
-        value: 500,
+        value: 5000,
         label: 'Dự án hoàn thành',
         suffix: '+',
         icon: '✨',
         trend: 'up'
       },
       {
-        value: 10,
-        label: 'MWp/tháng',
+        value: 1200,
+        label: 'Khách hàng tin tưởng',
         suffix: '+',
-        icon: '☀️',
+        icon: '🤝',
         trend: 'up'
       },
       {
-        value: 100,
-        label: 'Đối tác EPC',
+        value: 98,
+        label: 'Tỷ lệ hài lòng',
+        suffix: '%',
+        icon: '⭐',
+        trend: 'up'
+      },
+      {
+        value: 50000,
+        label: 'Tấn nhôm định hình/năm',
         suffix: '+',
-        icon: '🔗',
+        icon: '🏭',
         trend: 'up'
       }
     ],
@@ -485,28 +479,71 @@ export const homepageContent: HomepageContent = {
     updateInterval: 5000
   },
 
-  // 6. Trust Badges Carousel (16 badges) - B2B Focus with Real Logos
+  // 6. Trust Badges Carousel (8+ badges)
   trustBadges: {
-    title: 'Chứng Nhận & Đối Tác',
-    subtitle: 'Được tin tưởng bởi các đối tác EPC hàng đầu và đạt chứng nhận quốc tế',
+    title: 'Đối tác & Chứng nhận',
+    subtitle: 'Được tin tưởng bởi các tổ chức uy tín trong lĩnh vực hệ thống lắp đặt điện mặt trời',
     badges: [
-      // Real partner logos from public/partner_brand
-      { id: 'partner-1', name: 'Đối tác 1', logo: '/partner_brand/partner-logo-1.png', type: 'partner' },
-      { id: 'partner-2', name: 'Đối tác 2', logo: '/partner_brand/partner-logo-2.png', type: 'partner' },
-      { id: 'partner-3', name: 'Đối tác 3', logo: '/partner_brand/partner-logo-3.png', type: 'partner' },
-      { id: 'partner-4', name: 'Đối tác 4', logo: '/partner_brand/partner-logo-4.png', type: 'partner' },
-      { id: 'partner-5', name: 'Đối tác 5', logo: '/partner_brand/partner-logo-5.png', type: 'partner' },
-      { id: 'partner-6', name: 'Đối tác 6', logo: '/partner_brand/partner-logo-6.png', type: 'partner' },
-      { id: 'partner-7', name: 'Đối tác 7', logo: '/partner_brand/partner-logo-7.png', type: 'partner' },
-      { id: 'partner-8', name: 'Đối tác 8', logo: '/partner_brand/partner-logo-8.png', type: 'partner' },
-      { id: 'partner-9', name: 'Đối tác 9', logo: '/partner_brand/partner-logo-9.png', type: 'partner' },
-      { id: 'partner-10', name: 'Đối tác 10', logo: '/partner_brand/partner-logo-10.png', type: 'partner' },
-      { id: 'partner-11', name: 'Đối tác 11', logo: '/partner_brand/partner-logo-11.png', type: 'partner' },
-      { id: 'partner-12', name: 'Đối tác 12', logo: '/partner_brand/partner-logo-12.png', type: 'partner' },
-      { id: 'partner-13', name: 'Đối tác 13', logo: '/partner_brand/partner-logo-13.png', type: 'partner' },
-      { id: 'partner-14', name: 'Đối tác 14', logo: '/partner_brand/partner-logo-14.png', type: 'partner' },
-      { id: 'partner-15', name: 'Đối tác 15', logo: '/partner_brand/partner-logo-15.png', type: 'partner' },
-      { id: 'partner-16', name: 'Đối tác 16', logo: '/partner_brand/partner-logo-16.png', type: 'partner' }
+      {
+        id: 'iso-9001',
+        name: 'ISO 9001:2015',
+        logo: '/partners/placeholder-logo.svg',
+        type: 'certification'
+      },
+      {
+        id: 'iso-14001',
+        name: 'ISO 14001:2015',
+        logo: '/partners/placeholder-logo.svg',
+        type: 'certification'
+      },
+      {
+        id: 'quacert',
+        name: 'Quacert',
+        logo: '/partners/placeholder-logo.svg',
+        type: 'certification'
+      },
+      {
+        id: 'vinacert',
+        name: 'Vinacert',
+        logo: '/partners/placeholder-logo.svg',
+        type: 'certification'
+      },
+      {
+        id: 'partner-tisco',
+        name: 'Tisco',
+        logo: '/partners/tisco.png',
+        type: 'partner'
+      },
+      {
+        id: 'partner-hoa-phat',
+        name: 'Hòa Phát',
+        logo: '/partners/hoa-phat.png',
+        type: 'partner'
+      },
+      {
+        id: 'partner-vinacomin',
+        name: 'Vinacomin',
+        logo: '/partners/vinacomin.png',
+        type: 'partner'
+      },
+      {
+        id: 'partner-vas',
+        name: 'VAS Steel',
+        logo: '/partners/vas-steel.png',
+        type: 'partner'
+      },
+      {
+        id: 'partner-komatsu',
+        name: 'Komatsu',
+        logo: '/partners/komatsu.png',
+        type: 'partner'
+      },
+      {
+        id: 'partner-scg',
+        name: 'SCG',
+        logo: '/partners/scg.png',
+        type: 'partner'
+      }
     ],
     speed: 50
   },

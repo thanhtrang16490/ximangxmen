@@ -160,8 +160,8 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ section }) => {
           </p>
         </div>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
+        {/* Metrics Grid - 6 columns on PC, 2 columns on mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 md:gap-8">
           {section.metrics.map((metric, index) => (
             <div
               key={index}
@@ -169,7 +169,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ section }) => {
             >
               {/* Icon */}
               {metric.icon && (
-                <div className="text-4xl md:text-5xl mb-4">{metric.icon}</div>
+                <div className="text-4xl md:text-5xl mb-4 text-center">{metric.icon}</div>
               )}
 
               {/* Value with prefix/suffix */}

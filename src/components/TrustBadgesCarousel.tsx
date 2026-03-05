@@ -26,6 +26,12 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            <span>Chứng nhận & Đối tác</span>
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             {title}
           </h2>
@@ -40,9 +46,9 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Gradient Overlays for fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+          {/* Gradient Overlays for fade effect - smaller on mobile */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 lg:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 lg:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling Track */}
           <div className="carousel-track-wrapper">
@@ -57,8 +63,8 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
                   <img
                     src={badge.logo}
                     alt={badge.name}
-                    className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                    loading="lazy"
+                    className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    loading="eager"
                     decoding="async"
                   />
                 </div>
@@ -89,9 +95,15 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
 
         .carousel-track {
           display: flex;
-          gap: 2rem;
+          gap: 1rem;
           width: fit-content;
           animation: scroll-infinite 40s linear infinite;
+        }
+
+        @media (min-width: 640px) {
+          .carousel-track {
+            gap: 1.5rem;
+          }
         }
 
         @media (min-width: 768px) {
@@ -106,16 +118,24 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
 
         .carousel-item {
           flex-shrink: 0;
-          width: 8rem;
-          height: 8rem;
+          width: 6rem;
+          height: 6rem;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 1rem;
+          padding: 0.75rem;
           background: white;
           border-radius: 1rem;
           box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
           transition: box-shadow 0.3s ease;
+        }
+
+        @media (min-width: 640px) {
+          .carousel-item {
+            width: 8rem;
+            height: 8rem;
+            padding: 1rem;
+          }
         }
 
         @media (min-width: 768px) {

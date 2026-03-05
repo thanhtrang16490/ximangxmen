@@ -1,10 +1,10 @@
-// Company information from QUANG MINH PROFILE FILE
+// Company information - B2B Focus
 export const companyInfo = {
   name: 'Công ty Cổ phần Kỹ thuật Công nghệ Quang Minh',
   shortName: 'Quang Minh',
   shortNameEn: 'QMTECH.,JSC',
-  englishName: 'Quang Minh Technology Joint Stock Company',
-  brand: 'QUANG MINH SOLAR',
+  englishName: 'Quang Minh Technology Engineering Joint Stock Company',
+  brand: 'QUANG MINH',
   logo: '/quang-minh-logo.svg',
   logoSvg: '/quang-minh-logo.svg',
   legalRepresentative: 'Đinh Xuân Kiên',
@@ -12,8 +12,8 @@ export const companyInfo = {
   
   // Thông tin liên hệ
   contact: {
-    factory: 'Lô CN09 KCN Nguyên Khê, Xã Phúc Thịnh, TP Hà Nội',
-    address: 'Lô CN09 Khu Công nghiệp Nguyên Khê, Xã Phúc Thịnh, Thành phố Hà Nội, Việt Nam',
+    factory: 'Lô CN09 – KCN Nguyên Khê – Đông Anh – Hà Nội',
+    address: 'Lô CN09 Khu Công nghiệp Nguyên Khê, Xã Phúc Thịnh, Đông Anh, Hà Nội, Việt Nam',
     taxCode: '0106124982',
     phone: '0947 776 662',
     email: 'info@qmalu.com',
@@ -24,124 +24,233 @@ export const companyInfo = {
   history: {
     founded: 2008,
     registeredDate: '2013-03-18',
-    location: 'Khu công nghiệp Nguyên Khê, Xã Phúc Thịnh, TP Hà Nội',
-    description: 'CÔNG TY CỔ PHẦN KỸ THUẬT CÔNG NGHỆ QUANG MINH được xây dựng tại khu công nghiệp Nguyên Khê, chuyên sản xuất, gia công các loại vật tư thiết bị phụ kiện điện năng lượng mặt trời tại thị trường Việt Nam.'
+    location: 'Khu công nghiệp Nguyên Khê, Đông Anh, Hà Nội',
+    description: 'Quang Minh là nhà sản xuất trực tiếp các sản phẩm kết cấu nhôm và phụ kiện cho hệ thống điện năng lượng mặt trời. Với nhà máy 3,000m² tại KCN Nguyên Khê, chúng tôi cung cấp giải pháp trọn gói cho các dự án EPC và nhà thầu điện mặt trời.'
   },
   
-  // Tầm nhìn - Sứ mệnh
-  vision: 'QUANG MINH mong muốn trở thành đối tác chiến lược của các khách hàng trong các ngành công nghiệp khác nhau, góp phần phát triển kinh tế xã hội của Việt Nam và khu vực.',
+  // Tầm nhìn - Sứ mệnh (B2B Focus)
+  vision: 'Trở thành đối tác tin cậy hàng đầu cho các dự án điện năng lượng mặt trời quy mô lớn tại Việt Nam và khu vực.',
   
-  mission: 'Cung cấp sản phẩm nhôm chất lượng cao, đáp ứng tốt các yêu cầu kỹ thuật của nhiều ngành nghề. Luôn chú trọng đẩy mạnh nghiên cứu và phát triển sản phẩm mới, cải tiến quy trình sản xuất, tăng cường quản lý chất lượng và phục vụ khách hàng tốt hơn nữa.',
+  mission: 'Cung cấp giải pháp kết cấu nhôm chất lượng cao, tối ưu chi phí và tiến độ cho các dự án MWp. Đồng hành cùng EPC và nhà thầu từ thiết kế đến thi công.',
   
-  slogan: 'HÒA HỢP CÙNG PHÁT TRIỂN',
+  slogan: 'ĐỐI TÁC TIN CẬY CHO DỰ ÁN CỦA BẠN',
   
-  motto: 'Sự tin tưởng của khách hàng là tài sản lớn nhất của chúng tôi và là động lực để chúng tôi ngày càng nâng cao chất lượng và phục vụ Quý Khách hàng, Quý đối tác được tốt hơn nữa.',
+  motto: 'Chất lượng sản phẩm và dịch vụ chuyên nghiệp là cam kết của chúng tôi với mọi dự án.',
   
-  // Giá trị cốt lõi - Tại sao chọn chúng tôi
+  // Lĩnh vực hoạt động
+  businessLines: [
+    {
+      title: 'Sản xuất kết cấu nhôm điện mặt trời',
+      description: 'Thanh ray, chân đỡ, kẹp pin và phụ kiện hoàn chỉnh cho hệ thống NLMT'
+    },
+    {
+      title: 'Cung cấp thang cáp & máng cáp',
+      description: 'Thang cáp, máng cáp mạ kẽm nhúng nóng cho dự án công nghiệp'
+    }
+  ],
+  
+  // Khách hàng mục tiêu
+  targetCustomers: [
+    'Nhà thầu EPC (Engineering, Procurement, Construction)',
+    'Nhà thầu điện mặt trời',
+    'Khu công nghiệp',
+    'Dự án quy mô lớn (MWp)',
+    'Nhà đầu tư năng lượng tái tạo'
+  ],
+  
+  // Giá trị cốt lõi - B2B Focus
   coreValues: [
     {
       title: 'Chi phí tối ưu',
-      description: 'Lược bỏ những bước không cần thiết, giảm chi phí đến mức tối ưu nhất'
+      description: 'Sản xuất trực tiếp, không qua trung gian. Giảm chi phí dự án đến 30%.',
+      icon: '💰'
     },
     {
-      title: 'Cam kết chất lượng',
-      description: 'Chất lượng công việc, dịch vụ thật sự hiệu quả, tiết kiệm thời gian'
-    },
-    {
-      title: 'Thương hiệu bền vững',
-      description: 'Tốc độ tăng trưởng của công ty luôn ổn định'
+      title: 'Chất lượng cam kết',
+      description: 'ISO 9001:2015. Nhôm hợp kim 6xxx đạt tiêu chuẩn quốc tế. Bảo hành 10 năm.',
+      icon: '✓'
     },
     {
       title: 'Thiết bị hiện đại',
-      description: 'Luôn áp dụng các công nghệ, máy móc hiện đại vào quy trình vận hành'
+      description: 'Máy đùn ép công suất lớn, dây chuyền xử lý bề mặt tự động.',
+      icon: '⚙️'
     },
     {
-      title: 'Dịch vụ tận tâm',
-      description: 'Khách hàng hoàn toàn thoải mái khi đặt niềm tin vào dịch vụ của công ty chúng tôi'
+      title: 'Dịch vụ kỹ thuật',
+      description: 'Hỗ trợ thiết kế, tính toán kết cấu, tư vấn thi công 24/7.',
+      icon: '🔧'
     },
     {
-      title: 'Năng lực nhân sự',
-      description: 'Đội ngũ chuyên gia, kỹ thuật viên được đào tạo bài bản. Tác phong lịch sự, chuyên nghiệp'
+      title: 'Cung ứng ổn định',
+      description: 'Năng lực sản xuất lớn, đáp ứng dự án MWp. Giao hàng đúng tiến độ.',
+      icon: '📦'
     }
   ],
   
-  // Năng lực sản xuất
+  // Năng lực sản xuất - B2B Focus
   capacity: {
     factoryArea: '3,000m²',
-    employees: '35+ nhân viên',
+    location: 'KCN Nguyên Khê, Đông Anh, Hà Nội',
+    employees: '50+ nhân viên',
+    engineers: '10+ kỹ sư',
+    productionLines: '3 dây chuyền sản xuất',
+    monthlyCapacity: 'Đáp ứng dự án 10+ MWp/tháng',
     departments: [
-      { name: 'Phòng Kinh doanh', staff: 10 },
-      { name: 'Phòng Kỹ thuật', staff: 5 },
-      { name: 'Phòng Sản xuất', staff: 10 },
-      { name: 'Phòng Hành chính', staff: 10 }
+      { name: 'Phòng Kỹ thuật & Thiết kế', staff: 10, role: 'Thiết kế khuôn, tính toán kết cấu' },
+      { name: 'Phòng Sản xuất', staff: 25, role: 'Đùn ép, xử lý bề mặt, gia công' },
+      { name: 'Phòng QC', staff: 5, role: 'Kiểm soát chất lượng' },
+      { name: 'Phòng Kinh doanh', staff: 10, role: 'Hỗ trợ khách hàng, báo giá dự án' }
     ]
   },
   
-  // Quy trình sản xuất
+  // Quy trình sản xuất khép kín
   productionProcess: [
     {
       step: 1,
-      name: 'Nhôm thỏi nguyên liệu',
-      description: 'Mẫu nhôm Grade 6063 T5, 6005 T5/6061 T6'
+      name: 'Thiết kế khuôn',
+      description: 'Thiết kế khuôn đùn theo yêu cầu kỹ thuật. Chế tạo khuôn chính xác cao.',
+      icon: '📐'
     },
     {
       step: 2,
-      name: 'Chế tạo khuôn',
-      description: 'Quang Minh luôn nghiên cứu chế tạo các khuôn mẫu mới, sản xuất những sản phẩm có tính ứng dụng cao'
+      name: 'Đùn ép nhôm',
+      description: 'Đùn ép profile nhôm 6005, 6061, 6063. Máy đùn công suất lớn.',
+      icon: '🏭'
     },
     {
       step: 3,
-      name: 'Xử lý nguyên liệu',
-      description: 'Đùn ép nhôm, Si mạ nhôm, Sơn tĩnh điện (độ dày lớp phủ từ 6µm đến 18µm)'
+      name: 'Xử lý bề mặt',
+      description: 'Anodizing, sơn tĩnh điện. Độ dày lớp phủ 6-18µm. Chống ăn mòn tốt.',
+      icon: '🎨'
     },
     {
       step: 4,
-      name: 'Gia công sản phẩm',
-      description: 'Sản phẩm được gia công chính xác, tỉ mỉ đến từng chi tiết'
+      name: 'Gia công CNC',
+      description: 'Cắt, khoan, dập theo bản vẽ. Độ chính xác cao.',
+      icon: '⚙️'
     },
     {
       step: 5,
-      name: 'Kiểm tra',
-      description: 'Kiểm tra chất lượng sản phẩm sau gia công'
+      name: 'Kiểm tra QC',
+      description: 'Kiểm tra kích thước, độ bền, lớp phủ. Đảm bảo tiêu chuẩn.',
+      icon: '✓'
     },
     {
       step: 6,
-      name: 'Đóng gói',
-      description: 'Quy trình đóng gói và lưu trữ chuyên nghiệp'
+      name: 'Đóng gói & Giao hàng',
+      description: 'Đóng gói chuyên nghiệp. Giao hàng đúng tiến độ dự án.',
+      icon: '📦'
     }
   ],
   
-  // Sản phẩm chính
+  // Sản phẩm chính - B2B Focus
   mainProducts: [
-    'Nhôm định hình A6005 (hợp kim kết cấu có độ bền tốt)',
-    'Vật tư thiết bị phụ kiện điện năng lượng mặt trời',
-    'Nhôm đùn ép các loại',
-    'Nhôm sơn tĩnh điện',
-    'Nhôm si mạ'
+    {
+      category: 'Thanh ray nhôm điện mặt trời',
+      products: ['Profile nhôm 6005-T6', 'Rail connector', 'Splice kit'],
+      application: 'Kết cấu chính của hệ giá đỡ pin'
+    },
+    {
+      category: 'Chân đỡ & kết cấu mái',
+      products: ['L-feet', 'Triangle bracket', 'Tile hook', 'Flat roof mount'],
+      application: 'Cố định hệ thống lên mái nghiêng, mái bằng, mái tôn'
+    },
+    {
+      category: 'Kẹp pin',
+      products: ['Mid clamp', 'End clamp', 'Kliplock clamp', 'Seamlock clamp'],
+      application: 'Cố định tấm pin lên thanh ray'
+    },
+    {
+      category: 'Phụ kiện tiếp địa & bulong',
+      products: ['Grounding clip', 'Grounding lug', 'Bulong Inox 304/316', 'Đệm cao su EPDM'],
+      application: 'Tiếp địa an toàn, lắp ráp kết cấu'
+    },
+    {
+      category: 'Thang cáp & máng cáp',
+      products: ['Thang cáp mạ kẽm', 'Máng cáp mạ kẽm', 'Máng cáp DC/AC', 'Phụ kiện đi dây'],
+      application: 'Hệ thống dây cáp DC/AC cho dự án công nghiệp'
+    },
+    {
+      category: 'Thang leo & sàn thao tác',
+      products: ['Thang leo mái', 'Sàn thao tác (Walkway)', 'Lan can an toàn', 'Phụ kiện lắp đặt'],
+      application: 'Đảm bảo an toàn thi công và bảo trì hệ thống trên mái'
+    }
   ],
   
-  // Đặc điểm sản phẩm
-  productFeatures: [
-    'Siêu bền dưới mọi thời tiết',
-    'Dễ vệ sinh',
-    'Chống cháy',
-    'Sử dụng 100% hợp kim nhôm dòng 6xxx',
-    'Độ cứng, độ bền, khả năng chống mài mòn cao',
-    'Dẻo và định hình phù hợp'
-  ],
+  // Giải pháp EPC
+  epcSolutions: {
+    title: 'Giải pháp trọn gói cho dự án EPC',
+    description: 'Cung cấp đầy đủ hệ giá đỡ pin NLMT từ thiết kế đến thi công',
+    features: [
+      {
+        title: 'Cung cấp trọn bộ',
+        description: 'Đầy đủ thanh ray, chân đỡ, kẹp pin, phụ kiện',
+        icon: '📦'
+      },
+      {
+        title: 'Đồng bộ vật tư',
+        description: 'Tất cả sản phẩm từ một nguồn, dễ quản lý',
+        icon: '🔗'
+      },
+      {
+        title: 'Tối ưu thi công',
+        description: 'Thiết kế dễ lắp đặt, tiết kiệm thời gian 50%',
+        icon: '⚡'
+      },
+      {
+        title: 'Kiểm soát chi phí',
+        description: 'Giá sản xuất trực tiếp, tiết kiệm 30%',
+        icon: '💰'
+      },
+      {
+        title: 'Hỗ trợ kỹ thuật',
+        description: 'Tư vấn thiết kế, tính toán kết cấu miễn phí',
+        icon: '🔧'
+      },
+      {
+        title: 'Phù hợp MWp',
+        description: 'Đáp ứng dự án quy mô lớn, giao hàng đúng hạn',
+        icon: '☀️'
+      }
+    ],
+    benefits: [
+      'Giảm 30% chi phí so với nhập khẩu',
+      'Rút ngắn 50% thời gian thi công',
+      'Bảo hành 10 năm kết cấu',
+      'Hỗ trợ kỹ thuật 24/7',
+      'Giao hàng đúng tiến độ dự án'
+    ]
+  },
   
-  // Ứng dụng
-  applications: [
-    'Các yếu tố kết cấu',
-    'Cột buồm thuyền',
-    'Ứng dụng đường sắt',
-    'Toa tàu',
-    'Kết cấu xe buýt và xe tải',
-    'Năng lượng mặt trời'
-  ],
+  // Số liệu năng lực
+  statistics: {
+    customers: '1,000+',
+    experience: '16+',
+    factoryArea: '3,000',
+    partners: '100+',
+    products: '50+',
+    projects: '500+',
+    capacity: '10+'
+  },
+  
+  statisticsLabels: {
+    customers: 'Khách hàng',
+    experience: 'Năm kinh nghiệm',
+    factoryArea: 'm² nhà máy',
+    partners: 'Đối tác',
+    products: 'Dòng sản phẩm',
+    projects: 'Dự án hoàn thành',
+    capacity: 'MWp/tháng'
+  },
   
   // Chứng nhận & Giấy phép
   certifications: [
+    {
+      name: 'ISO 9001:2015',
+      nameVi: 'Chứng nhận hệ thống quản lý chất lượng',
+      issuedBy: 'Tổ chức chứng nhận quốc tế',
+      description: 'Đảm bảo quy trình sản xuất đạt tiêu chuẩn quốc tế'
+    },
     {
       name: 'Giấy chứng nhận đăng ký kinh doanh',
       code: '0106124982',
@@ -150,20 +259,13 @@ export const companyInfo = {
     },
     {
       name: 'Certificate of Quality',
-      nameVi: 'Giấy chứng nhận chất lượng',
-      description: 'Chứng nhận chất lượng sản phẩm nhôm và thiết bị năng lượng mặt trời'
+      nameVi: 'Giấy chứng nhận chất lượng sản phẩm',
+      description: 'Chứng nhận chất lượng nhôm và thiết bị năng lượng mặt trời'
     },
     {
-      name: 'Giấy chứng nhận chất lượng bền vững',
-      description: 'Chứng nhận sản phẩm đạt tiêu chuẩn chất lượng bền vững'
-    },
-    {
-      name: 'Kết quả kiểm nghiệm',
-      description: 'Kết quả kiểm nghiệm chất lượng sản phẩm từ các cơ quan có thẩm quyền'
-    },
-    {
-      name: 'Giấy chứng nhận KNA',
-      description: 'Chứng nhận đạt tiêu chuẩn kỹ thuật ngành nhôm'
+      name: 'Test Report',
+      nameVi: 'Báo cáo kiểm nghiệm',
+      description: 'Kết quả kiểm nghiệm từ các phòng thí nghiệm có thẩm quyền'
     }
   ]
 }
