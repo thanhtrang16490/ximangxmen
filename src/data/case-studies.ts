@@ -44,8 +44,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote: 'Hệ thống giá đỡ của Quang Minh chất lượng tốt, lắp đặt nhanh chóng và chuyên nghiệp. Sau khi đưa vào vận hành, nhà máy tiết kiệm được 40% chi phí điện hàng tháng.',
-      author: 'Đại diện Công ty',
-      role: 'Giám đốc - Công ty TNHH Huế Anh'
+      author: 'Công ty TNHH Huế Anh',
+      role: 'Khách hàng'
     }
   },
   {
@@ -65,8 +65,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote: 'Quang Minh cung cấp giải pháp tối ưu cho nhà xưởng của chúng tôi. Hệ thống lắp đặt nhanh, không ảnh hưởng đến sản xuất, và giúp tiết kiệm đáng kể chi phí điện.',
-      author: 'Đại diện Công ty',
-      role: 'Giám đốc - Công ty TNHH May Mặc Hoàng Tùng'
+      author: 'Công ty TNHH May Mặc Hoàng Tùng',
+      role: 'Khách hàng'
     }
   },
   {
@@ -86,8 +86,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote: 'Hệ thống giá đỡ của Quang Minh không chỉ chất lượng tốt mà còn đẹp mắt, phù hợp với tiêu chuẩn cao của nhà máy chúng tôi. Đội ngũ thi công chuyên nghiệp và cẩn thận.',
-      author: 'Đại diện Công ty',
-      role: 'Giám đốc - Công ty Jinyi Jewelry'
+      author: 'Công ty Jinyi Jewelry',
+      role: 'Khách hàng'
     }
   },
   {
@@ -107,8 +107,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote: 'Quang Minh hiểu rõ yêu cầu của showroom cao cấp. Hệ thống lắp đặt đẹp mắt, hài hòa với kiến trúc, và giúp chúng tôi tiết kiệm chi phí điện đáng kể.',
-      author: 'Đại diện Công ty',
-      role: 'Giám đốc - Công ty MG Thanh Hóa'
+      author: 'Công ty MG Thanh Hóa',
+      role: 'Khách hàng'
     }
   },
   {
@@ -128,8 +128,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote: 'Hệ thống của Quang Minh hoạt động rất tốt trong môi trường nước mặn khắc nghiệt. Giúp tôi tiết kiệm 50% chi phí điện cho hệ thống sục khí và máy bơm.',
-      author: 'Anh Vương',
-      role: 'Chủ đầm tôm'
+      author: 'Chủ đầm tôm',
+      role: 'Khách hàng'
     }
   },
   {
@@ -149,8 +149,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     testimonial: {
       quote: 'Quang Minh thực hiện dự án rất chuyên nghiệp. Hệ thống lắp đặt đẹp, an toàn, và giúp khu đô thị tiết kiệm chi phí điện chung đáng kể.',
-      author: 'Ban quản lý',
-      role: 'Đại diện Ban quản lý Vinhome'
+      author: 'Khu đô thị Vinhome',
+      role: 'Khách hàng'
     }
   }
 ];
