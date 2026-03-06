@@ -308,3 +308,262 @@ export const aluminumA6005 = {
     hardness: '85-90 HBW'
   }
 }
+
+
+// English version
+export const companyInfoEn = {
+  ...companyInfo,
+  name: 'Quang Minh Technology Engineering Joint Stock Company',
+  shortName: 'Quang Minh',
+  brand: 'QUANG MINH',
+  
+  history: {
+    ...companyInfo.history,
+    description: 'Quang Minh is a direct manufacturer of aluminum structural products and accessories for solar power systems. With a 3,000m² factory at Nguyen Khe Industrial Park, we provide complete solutions for EPC projects and solar contractors.'
+  },
+  
+  vision: 'To become the leading trusted partner for large-scale solar power projects in Vietnam and the region.',
+  mission: 'Provide high-quality aluminum structural solutions, optimizing costs and schedules for MWp projects. Partner with EPCs and contractors from design to construction.',
+  slogan: 'TRUSTED PARTNER FOR YOUR PROJECT',
+  motto: 'Product quality and professional service are our commitment to every project.',
+  
+  businessLines: [
+    {
+      title: 'Solar aluminum structure manufacturing',
+      description: 'Rails, mounting brackets, panel clamps and complete accessories for solar systems'
+    },
+    {
+      title: 'Cable tray & cable ladder supply',
+      description: 'Hot-dip galvanized cable trays and ladders for industrial projects'
+    }
+  ],
+  
+  targetCustomers: [
+    'EPC Contractors (Engineering, Procurement, Construction)',
+    'Solar power contractors',
+    'Industrial parks',
+    'Large-scale projects (MWp)',
+    'Renewable energy investors'
+  ],
+  
+  coreValues: [
+    {
+      title: 'Optimized Cost',
+      description: 'Direct manufacturing, no intermediaries. Reduce project costs by up to 30%.',
+      icon: '💰'
+    },
+    {
+      title: 'Committed Quality',
+      description: 'ISO 9001:2015. 6xxx aluminum alloy meets international standards. 10-year warranty.',
+      icon: '✓'
+    },
+    {
+      title: 'Modern Equipment',
+      description: 'High-capacity extrusion machines, automated surface treatment lines.',
+      icon: '⚙️'
+    },
+    {
+      title: 'Technical Service',
+      description: 'Design support, structural calculations, 24/7 construction consulting.',
+      icon: '🔧'
+    },
+    {
+      title: 'Stable Supply',
+      description: 'Large production capacity, meeting MWp projects. On-time delivery.',
+      icon: '📦'
+    }
+  ],
+  
+  capacity: {
+    factoryArea: '3,000m²',
+    location: 'Nguyen Khe Industrial Park, Dong Anh, Hanoi',
+    employees: '50+ employees',
+    engineers: '10+ engineers',
+    productionLines: '3 production lines',
+    monthlyCapacity: 'Meeting 10+ MWp/month projects',
+    departments: [
+      { name: 'Engineering & Design', staff: 10, role: 'Mold design, structural calculations' },
+      { name: 'Production', staff: 25, role: 'Extrusion, surface treatment, processing' },
+      { name: 'QC', staff: 5, role: 'Quality control' },
+      { name: 'Sales', staff: 10, role: 'Customer support, project quotation' }
+    ]
+  },
+  
+  productionProcess: [
+    {
+      step: 1,
+      name: 'Aluminum ingot raw material',
+      description: 'Grade 6063 T5, 6005 T5/6061 T6 aluminum samples. Premium aluminum raw materials ensure output product quality.',
+      icon: '📦'
+    },
+    {
+      step: 2,
+      name: 'Mold manufacturing',
+      description: 'Quang Minh continuously researches and manufactures new molds, producing highly applicable products that bring optimal efficiency to customers.',
+      icon: '🔧'
+    },
+    {
+      step: 3,
+      name: 'Raw material processing',
+      description: 'Quang Minh products have suitable wire loops up to 18 µm. In addition, powder-coated products are guaranteed quality and durability as required.',
+      icon: '⚙️'
+    },
+    {
+      step: 4,
+      name: 'Product processing',
+      description: 'Products are processed accurately and meticulously down to every detail.',
+      icon: '🔨'
+    },
+    {
+      step: 5,
+      name: 'Inspection',
+      description: 'Quality inspection of products after processing.',
+      icon: '✓'
+    },
+    {
+      step: 6,
+      name: 'Packaging',
+      description: 'Professional packaging and storage process.',
+      icon: '📦'
+    }
+  ],
+  
+  statisticsLabels: {
+    customers: 'Customers',
+    experience: 'Years Experience',
+    factoryArea: 'm² Factory',
+    partners: 'Partners',
+    products: 'Product Lines',
+    projects: 'Projects Completed',
+    capacity: 'MWp/month'
+  }
+}
+
+// Chinese version
+export const companyInfoCn = {
+  ...companyInfo,
+  name: '光明技术工程股份公司',
+  shortName: '光明',
+  brand: 'QUANG MINH',
+  
+  history: {
+    ...companyInfo.history,
+    description: '光明是太阳能系统铝结构产品和配件的直接制造商。在阮溪工业园拥有3,000平方米的工厂，我们为EPC项目和太阳能承包商提供完整的解决方案。'
+  },
+  
+  vision: '成为越南和地区大型太阳能项目的领先可信赖合作伙伴。',
+  mission: '提供高质量的铝结构解决方案，优化MWp项目的成本和进度。从设计到施工与EPC和承包商合作。',
+  slogan: '您项目的可信赖合作伙伴',
+  motto: '产品质量和专业服务是我们对每个项目的承诺。',
+  
+  businessLines: [
+    {
+      title: '太阳能铝结构制造',
+      description: '导轨、安装支架、面板夹具和太阳能系统的完整配件'
+    },
+    {
+      title: '电缆桥架和电缆梯供应',
+      description: '工业项目用热浸镀锌电缆桥架和梯子'
+    }
+  ],
+  
+  targetCustomers: [
+    'EPC承包商（工程、采购、施工）',
+    '太阳能承包商',
+    '工业园区',
+    '大型项目（MWp）',
+    '可再生能源投资者'
+  ],
+  
+  coreValues: [
+    {
+      title: '优化成本',
+      description: '直接制造，无中间商。降低项目成本高达30%。',
+      icon: '💰'
+    },
+    {
+      title: '承诺质量',
+      description: 'ISO 9001:2015。6xxx铝合金符合国际标准。10年保修。',
+      icon: '✓'
+    },
+    {
+      title: '现代设备',
+      description: '大容量挤压机，自动化表面处理生产线。',
+      icon: '⚙️'
+    },
+    {
+      title: '技术服务',
+      description: '设计支持，结构计算，24/7施工咨询。',
+      icon: '🔧'
+    },
+    {
+      title: '稳定供应',
+      description: '大生产能力，满足MWp项目。准时交货。',
+      icon: '📦'
+    }
+  ],
+  
+  capacity: {
+    factoryArea: '3,000平方米',
+    location: '河内东英阮溪工业园',
+    employees: '50+员工',
+    engineers: '10+工程师',
+    productionLines: '3条生产线',
+    monthlyCapacity: '满足10+ MWp/月项目',
+    departments: [
+      { name: '工程与设计', staff: 10, role: '模具设计，结构计算' },
+      { name: '生产', staff: 25, role: '挤压，表面处理，加工' },
+      { name: '质量控制', staff: 5, role: '质量控制' },
+      { name: '销售', staff: 10, role: '客户支持，项目报价' }
+    ]
+  },
+  
+  productionProcess: [
+    {
+      step: 1,
+      name: '铝锭原材料',
+      description: '6063 T5、6005 T5/6061 T6级铝样品。优质铝原材料确保输出产品质量。',
+      icon: '📦'
+    },
+    {
+      step: 2,
+      name: '模具制造',
+      description: '光明不断研究和制造新模具，生产高度适用的产品，为客户带来最佳效率。',
+      icon: '🔧'
+    },
+    {
+      step: 3,
+      name: '原材料加工',
+      description: '光明产品具有高达18微米的合适线圈。此外，粉末涂层产品保证按要求的质量和耐用性。',
+      icon: '⚙️'
+    },
+    {
+      step: 4,
+      name: '产品加工',
+      description: '产品加工精确细致，每个细节都很到位。',
+      icon: '🔨'
+    },
+    {
+      step: 5,
+      name: '检验',
+      description: '加工后产品的质量检验。',
+      icon: '✓'
+    },
+    {
+      step: 6,
+      name: '包装',
+      description: '专业的包装和存储流程。',
+      icon: '📦'
+    }
+  ],
+  
+  statisticsLabels: {
+    customers: '客户',
+    experience: '年经验',
+    factoryArea: '平方米工厂',
+    partners: '合作伙伴',
+    products: '产品线',
+    projects: '完成项目',
+    capacity: 'MWp/月'
+  }
+}
