@@ -1,13 +1,13 @@
 /**
  * TrustBadgesCarousel Component
  * 
- * Infinite auto-scrolling carousel displaying partner logos and certifications.
- * Features seamless loop, pause on hover, and grayscale-to-color transition.
+ * Scroll-driven carousel displaying partner logos and certifications.
+ * Features scroll-based animation, pause on hover, and grayscale-to-color transition.
  * 
  * Requirements: 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { TrustBadgesCarouselSection } from '../data/homepage-content';
 
 interface TrustBadgesCarouselProps {
@@ -17,12 +17,48 @@ interface TrustBadgesCarouselProps {
 export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProps) {
   const { title, subtitle, badges } = section;
   const [isPaused, setIsPaused] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   // Triple the badges for seamless infinite loop
   const triplicatedBadges = [...badges, ...badges, ...badges];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current || isPaused) return;
+
+      const section = sectionRef.current;
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate scroll progress when section is in viewport
+      // Progress goes from 0 to 1 as user scrolls through the section
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
+      
+      // Start animating when section enters viewport
+      if (sectionTop < windowHeight && sectionTop + sectionHeight > 0) {
+        // Calculate progress based on how much of the section has been scrolled
+        const scrolled = windowHeight - sectionTop;
+        const total = windowHeight + sectionHeight;
+        const progress = Math.max(0, Math.min(1, scrolled / total));
+        
+        setScrollProgress(progress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isPaused]);
+
+  // Calculate transform based on scroll progress
+  // Move from 0 to -33.33% (one full set of badges)
+  const translateX = -scrollProgress * 33.33;
+
   return (
-    <section className="py-16 md:py-24 bg-gray-50 overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -53,7 +89,11 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
           {/* Scrolling Track */}
           <div className="carousel-track-wrapper">
             <div
-              className={`carousel-track ${isPaused ? 'paused' : ''}`}
+              className="carousel-track"
+              style={{
+                transform: `translateX(${translateX}%)`,
+                transition: isPaused ? 'none' : 'transform 0.1s linear'
+              }}
             >
               {triplicatedBadges.map((badge, index) => (
                 <div
@@ -63,7 +103,7 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
                   <img
                     src={badge.logo}
                     alt={badge.name}
-                    className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-110"
                     loading="eager"
                     decoding="async"
                   />
@@ -86,7 +126,7 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
         </div>
       </div>
 
-      {/* CSS Animation */}
+      {/* CSS Styles */}
       <style>{`
         .carousel-track-wrapper {
           overflow: hidden;
@@ -97,7 +137,7 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
           display: flex;
           gap: 1rem;
           width: fit-content;
-          animation: scroll-infinite 40s linear infinite;
+          will-change: transform;
         }
 
         @media (min-width: 640px) {
@@ -110,10 +150,6 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
           .carousel-track {
             gap: 3rem;
           }
-        }
-
-        .carousel-track.paused {
-          animation-play-state: paused;
         }
 
         .carousel-item {
@@ -150,15 +186,6 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        @keyframes scroll-infinite {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-100% / 3));
-          }
-        }
-
         /* Screen reader only utility */
         .sr-only {
           position: absolute;
@@ -170,13 +197,6 @@ export default function TrustBadgesCarousel({ section }: TrustBadgesCarouselProp
           clip: rect(0, 0, 0, 0);
           white-space: nowrap;
           border-width: 0;
-        }
-
-        /* Respect reduced motion preference */
-        @media (prefers-reduced-motion: reduce) {
-          .carousel-track {
-            animation: none;
-          }
         }
       `}</style>
     </section>

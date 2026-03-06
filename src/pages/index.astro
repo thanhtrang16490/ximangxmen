@@ -5,8 +5,7 @@ import DNA3DHelix from '../components/DNA3DHelix'
 import ParticleWave3D from '../components/ParticleWave3D'
 import AnimatedSphere3D from '../components/AnimatedSphere3D'
 import AnimatedCounter from '../components/AnimatedCounter'
-import TrustBadgesCarousel from '../components/TrustBadgesCarousel'
-import CertificatesCarousel from '../components/CertificatesCarousel'
+import CertificatesAndPartners from '../components/CertificatesAndPartners'
 import CaseStudies from '../components/CaseStudies'
 import InteractiveMap from '../components/InteractiveMap'
 import ScrollProgress from '../components/ScrollProgress.astro'
@@ -552,7 +551,7 @@ const whyChooseUs = [
   </section>
 
   <!-- Company Introduction Section - NEW B2B Feature -->
-  <section class="py-32 px-4 relative overflow-hidden bg-white">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-white to-gray-50/40">
     <div class="container mx-auto relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Left: Image/Visual -->
@@ -661,14 +660,17 @@ const whyChooseUs = [
     </div>
   </section>
 
-  <!-- Trust Badges Carousel Section - MOVED UP from position #9 -->
-  <TrustBadgesCarousel section={homepageContent.trustBadges} client:visible />
-
-  <!-- Certificates & Quality Control Section - Carousel -->
-  <CertificatesCarousel client:load />
+  <!-- Certificates & Partners Combined Section -->
+  <CertificatesAndPartners 
+    title="Chứng nhận & Đối tác"
+    subtitle="Đạt tiêu chuẩn quốc tế ISO 9001:2015, test reports đầy đủ, cam kết chất lượng dài hạn"
+    badge="Chứng nhận & Đối tác"
+    partnersSection={homepageContent.trustBadges}
+    client:load 
+  />
 
   <!-- Stats Section - Animated Counter -->
-  <section class="py-32 relative overflow-hidden">
+  <section class="py-16 md:py-20 relative overflow-hidden bg-gradient-to-b from-gray-50/40 to-white">
     <!-- Multi-layer background -->
     <div class="absolute inset-0 bg-neutral-50"></div>
     
@@ -685,7 +687,7 @@ const whyChooseUs = [
   </section>
 
   <!-- Products Section - Apple-Style with Category Cards - MOVED UP from position #10 -->
-  <section class="py-32 px-4 relative overflow-hidden">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-white to-gray-50/40">
     <!-- Base gradient -->
     <div class="absolute inset-0 bg-white" data-parallax="0.3"></div>
     
@@ -801,7 +803,7 @@ const whyChooseUs = [
   </section>
 
   <!-- Bảng Giá Tham Khảo Section -->
-  <section class="py-32 px-4 relative overflow-hidden bg-gradient-to-b from-neutral-50 to-white">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-gray-50/40 to-white">
     <div class="container mx-auto max-w-6xl relative z-10">
       <div class="text-center mb-16 scroll-reveal">
         <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
@@ -1014,7 +1016,7 @@ const whyChooseUs = [
   </section>
 
   <!-- Năng Lực Cốt Lõi Section - MERGED (Core Capabilities + EPC Solutions) -->
-  <section class="py-32 px-4 relative overflow-hidden bg-gradient-to-b from-white to-neutral-50">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-white to-blue-50/20">
     <div class="container mx-auto relative z-10">
       <div class="text-center mb-16 scroll-reveal">
         <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
@@ -1245,7 +1247,7 @@ const whyChooseUs = [
   </section>
 
   <!-- Quy Trình Đặt Hàng Section -->
-  <section class="py-32 px-4 relative overflow-hidden bg-white">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-gray-50/40 to-white">
     <div class="container mx-auto max-w-6xl relative z-10">
       <div class="text-center mb-16 scroll-reveal">
         <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
@@ -1412,7 +1414,7 @@ const whyChooseUs = [
   </section>
 
   <!-- Why Choose Us - Enhanced Section -->
-  <section class="py-32 px-4 relative overflow-hidden" id="production-capacity">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-white to-gray-50/40" id="production-capacity">
     <div class="absolute inset-0 bg-gradient-to-b from-neutral-50 to-white"></div>
     
     <!-- Animated background -->
@@ -1530,7 +1532,7 @@ const whyChooseUs = [
   <CaseStudies caseStudies={caseStudies.slice(0, 3)} client:visible />
 
   <!-- Final CTA Section - B2B Focus -->
-  <section class="py-32 px-4 relative overflow-hidden bg-gradient-to-br from-primary/5 via-white to-blue-50">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-gray-50/40 to-blue-50/30">
     <!-- Animated background -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
@@ -1651,7 +1653,7 @@ const whyChooseUs = [
   </section>
 
   <!-- FAQ Section - Apple Style Enhanced -->
-  <section class="py-32 px-4 relative overflow-hidden">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-white to-gray-50/40">
     <!-- Gradient background - smooth transition from gray-50 -->
     <div class="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-white"></div>
     
@@ -1687,7 +1689,7 @@ const whyChooseUs = [
   </section>
 
   <!-- Interactive Map Section -->
-  <section class="py-32 px-4 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+  <section class="py-16 md:py-20 px-4 relative overflow-hidden bg-gradient-to-b from-gray-50/40 to-white">
     <div class="container mx-auto relative z-10">
       <div class="text-center mb-16 scroll-reveal">
         <h2 class="text-5xl md:text-6xl font-semibold text-gray-900 mb-6 tracking-tight">
