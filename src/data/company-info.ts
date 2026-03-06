@@ -112,38 +112,38 @@ export const companyInfo = {
   productionProcess: [
     {
       step: 1,
-      name: 'Thiết kế khuôn',
-      description: 'Thiết kế khuôn đùn theo yêu cầu kỹ thuật. Chế tạo khuôn chính xác cao.',
-      icon: '📐'
+      name: 'Nhôm thỏi nguyên liệu',
+      description: 'Mẫu nhôm Grade 6063 T5 6005 T5/6061 T6. Nguyên liệu nhôm cao cấp đảm bảo chất lượng sản phẩm đầu ra.',
+      icon: '📦'
     },
     {
       step: 2,
-      name: 'Đùn ép nhôm',
-      description: 'Đùn ép profile nhôm 6005, 6061, 6063. Máy đùn công suất lớn.',
-      icon: '🏭'
+      name: 'Chế tạo khuôn',
+      description: 'Quang Minh luôn nghiên cứu chế tạo các khuôn mẫu mới, sản xuất những sản phẩm có tính ứng dụng cao, mang lại hiệu quả tối ưu cho các khách hàng.',
+      icon: '🔧'
     },
     {
       step: 3,
-      name: 'Xử lý bề mặt',
-      description: 'Anodizing, sơn tĩnh điện. Độ dày lớp phủ 6-18µm. Chống ăn mòn tốt.',
-      icon: '🎨'
-    },
-    {
-      step: 4,
-      name: 'Gia công CNC',
-      description: 'Cắt, khoan, dập theo bản vẽ. Độ chính xác cao.',
+      name: 'Xử lý nguyên liệu',
+      description: 'Sản phẩm của Quang Minh vật đó dây lặp phù hợp đến 18 µm. Ngoài ra, Các sản phẩm được sơn tĩnh được đảm bảo chất lượng, độ bền theo yêu cầu.',
       icon: '⚙️'
     },
     {
+      step: 4,
+      name: 'Gia công sản phẩm',
+      description: 'Sản phẩm được gia công chính xác, tỉ mỉ đến từng chi tiết.',
+      icon: '🔨'
+    },
+    {
       step: 5,
-      name: 'Kiểm tra QC',
-      description: 'Kiểm tra kích thước, độ bền, lớp phủ. Đảm bảo tiêu chuẩn.',
+      name: 'Kiểm tra',
+      description: 'Kiểm tra chất lượng sản phẩm sau gia công.',
       icon: '✓'
     },
     {
       step: 6,
-      name: 'Đóng gói & Giao hàng',
-      description: 'Đóng gói chuyên nghiệp. Giao hàng đúng tiến độ dự án.',
+      name: 'Đóng gói',
+      description: 'Quy trình đóng gói và lưu trữ chuyên nghiệp.',
       icon: '📦'
     }
   ],

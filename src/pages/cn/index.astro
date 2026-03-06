@@ -727,24 +727,36 @@ const whyChooseUs = [
           </div>
         </div>
 
-        <!-- Capability 2: Closed Process -->
-        <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex items-start gap-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Quy Trình Khép Kín</h3>
-            <p class="text-gray-600 leading-relaxed mb-3">
-              Từ thiết kế khuôn, đùn ép, xử lý bề mặt đến gia công CNC và kiểm tra QC. Kiểm soát toàn bộ chất lượng.
+        <!-- Capability 2: Professional Production Process -->
+        <div class="col-span-full">
+          <div class="text-center mb-8">
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">专业生产流程</h3>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+              从优质铝原材料到成品。全程质量控制，确保产品标准一致。
             </p>
-            <div class="flex items-center gap-2 text-sm text-blue-600 font-semibold">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span>6 công đoạn chuẩn</span>
-            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {companyInfo.productionProcess.map((process) => (
+              <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group">
+                {/* Step number badge */}
+                <div class="absolute top-4 right-4 w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  {process.step}
+                </div>
+                
+                {/* Icon */}
+                <div class="w-14 h-14 bg-gradient-to-br from-green-50 to-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span class="text-3xl">{process.icon}</span>
+                </div>
+                
+                {/* Content */}
+                <h4 class="text-xl font-bold text-gray-900 mb-3 pr-12">{process.name}</h4>
+                <p class="text-gray-600 text-sm leading-relaxed">{process.description}</p>
+                
+                {/* Decorative element */}
+                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -1280,8 +1292,8 @@ const whyChooseUs = [
   <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-200 py-4 px-4 z-40 transform translate-y-full transition-transform duration-300 hidden md:block">
     <div class="container mx-auto flex items-center justify-between">
       <div>
-        <div class="font-semibold text-gray-900">准备提高铝生产效率？</div>
-        <div class="text-sm text-gray-600">立即联系获取专家免费咨询</div>
+        <div class="font-semibold text-gray-900">需要太阳能项目报价？</div>
+        <div class="text-sm text-gray-600">立即联系获取技术支持和详细报价</div>
       </div>
       <div class="flex gap-3">
         <a href="tel:+84947776662" class="magnetic-button px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full font-medium transition-colors inline-flex items-center gap-2 shadow-sm">
@@ -1291,7 +1303,7 @@ const whyChooseUs = [
           立即致电
         </a>
         <a href="/lien-he" class="magnetic-button px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-full font-medium transition-colors shadow-sm">
-          注册咨询
+          获取报价
         </a>
       </div>
     </div>
@@ -1762,7 +1774,7 @@ const whyChooseUs = [
   </style>
 
   <script>
-    // Note: scroll-animations.ts, parallax.ts, custom-cursor.ts, magnetic-buttons.ts, 
+    // Note: scroll-animations.ts, parallax.ts, magnetic-buttons.ts, 
     // and section-transitions.ts already have auto-initialization built-in.
     // They will initialize automatically when the page loads.
     
@@ -1844,11 +1856,10 @@ const whyChooseUs = [
   </script>
   
   <!-- Load effect libraries - they auto-initialize -->
-  <script src="../lib/scroll-animations.ts"></script>
-  <script src="../lib/parallax.ts"></script>
-  <script src="../lib/custom-cursor.ts"></script>
-  <script src="../lib/magnetic-buttons.ts"></script>
-  <script src="../lib/section-transitions.ts"></script>
+  <script src="../../lib/scroll-animations.ts"></script>
+  <script src="../../lib/parallax.ts"></script>
+  <script src="../../lib/magnetic-buttons.ts"></script>
+  <script src="../../lib/section-transitions.ts"></script>
 
   <!-- Script to open quote modal -->
   <script>
