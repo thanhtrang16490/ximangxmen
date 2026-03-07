@@ -23,25 +23,11 @@ interface AnimatedCounterProps {
 
 const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ section }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [animatedValues, setAnimatedValues] = useState<number[]>(
     section.metrics.map(() => 0)
   );
   const sectionRef = useRef<HTMLDivElement>(null);
   const animationFrameIds = useRef<number[]>([]);
-
-  // Mobile detection
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Mobile optimization: Show only 2 most important metrics
-  const displayedMetrics = isMobile ? section.metrics.slice(0, 2) : section.metrics;
 
   // Cubic easing function: starts fast, decelerates
   const cubicEasing = (t: number): number => {
@@ -119,7 +105,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ section }) => {
     if (isVisible) {
       const duration = section.duration || 2000;
 
-      displayedMetrics.forEach((metric, index) => {
+      section.metrics.forEach((metric, index) => {
         animateValue(index, 0, metric.value, duration);
       });
     }
@@ -130,7 +116,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ section }) => {
         if (id) cancelAnimationFrame(id);
       });
     };
-  }, [isVisible, displayedMetrics, section.duration]);
+  }, [isVisible, section.metrics, section.duration]);
 
   // Get trend indicator color
   const getTrendColor = (trend?: 'up' | 'down' | 'neutral'): string => {
@@ -176,7 +162,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ section }) => {
 
         {/* Metrics Grid - 4 columns on desktop, 2 columns on mobile */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
-          {displayedMetrics.map((metric, index) => (
+          {section.metrics.map((metric, index) => (
             <div
               key={index}
               className="bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-normal hover:-translate-y-2"
