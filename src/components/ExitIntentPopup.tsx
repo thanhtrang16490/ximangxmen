@@ -91,12 +91,12 @@ export default function ExitIntentPopup() {
 
         {!isSuccess ? (
           <>
-            <div className="bg-gradient-to-br from-green-600 to-green-700 p-8 text-white text-center">
+            <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-8 text-white text-center">
               <div className="text-5xl mb-4">🤝</div>
               <h3 className="text-2xl md:text-3xl font-bold mb-2">
                 Trở thành đại lý APPE
               </h3>
-              <p className="text-green-100 text-lg">
+              <p className="text-blue-100 text-lg">
                 Cơ hội kinh doanh hấp dẫn
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function ExitIntentPopup() {
                 </h4>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <div>
@@ -122,7 +122,7 @@ export default function ExitIntentPopup() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <div>
@@ -136,7 +136,7 @@ export default function ExitIntentPopup() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <div>
@@ -159,7 +159,7 @@ export default function ExitIntentPopup() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Tên doanh nghiệp / Cá nhân"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   />
                 </div>
 
@@ -168,14 +168,14 @@ export default function ExitIntentPopup() {
                     type="tel"
                     placeholder="Số điện thoại"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -196,14 +196,14 @@ export default function ExitIntentPopup() {
                 </button>
               </form>
 
-              <div className="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
-                <p className="text-sm text-green-800 text-center font-medium">
+              <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                <p className="text-sm text-blue-800 text-center font-medium">
                   ⚡ Chỉ còn 10 suất đại lý tháng này
                 </p>
               </div>
 
               <p className="text-xs text-gray-500 text-center mt-4">
-                Hoặc gọi ngay: <a href="tel:+84351359520" className="text-green-600 font-semibold">035 135 9520</a>
+                Hoặc gọi ngay: <a href="tel:+84351359520" className="text-blue-600 font-semibold">035 135 9520</a>
               </p>
             </div>
           </>

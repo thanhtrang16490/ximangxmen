@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css'
-import BottomNav from '../components/BottomNav'
 import QuickContactModal from '../components/QuickContactModal'
 
 interface Props {
@@ -194,7 +193,7 @@ const websiteSchema = {
     <!-- Preload critical assets -->
     <link rel="preload" href="/cx-men-logo.svg" as="image" type="image/svg+xml" />
   </head>
-<body class="bg-white min-h-screen has-bottom-nav">
+<body class="bg-white min-h-screen">
     <!-- Skip Links for Accessibility -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300">
       Chuyển đến nội dung chính
@@ -391,11 +390,27 @@ if (menuButton && menuClose && menu && overlay) {
       <slot />
     </main>
 
-    <!-- Mobile Bottom Navigation -->
-    <BottomNav currentPath={Astro.url.pathname} client:load />
-
     <!-- Quick Contact Modal -->
     <QuickContactModal client:load />
+
+    <!-- Hotline FAB -->
+    <a
+      href="tel:0962352394"
+      id="hotline-fab"
+      aria-label="Gọi hotline 096.2352.394"
+      class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-red-600 text-white pl-4 pr-5 py-3 rounded-full shadow-2xl font-bold text-sm transition-transform hover:scale-105 active:scale-95"
+    >
+      <!-- Ping rings -->
+      <span class="relative flex h-5 w-5 flex-shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-50"></span>
+        <span class="relative inline-flex rounded-full h-5 w-5 bg-white items-center justify-center">
+          <svg class="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
+          </svg>
+        </span>
+      </span>
+      <span>096.2352.394</span>
+    </a>
 
     <!-- Footer -->
     <footer class="bg-[#f5f5f7] text-gray-900 border-t border-gray-200">

@@ -26,7 +26,7 @@ export default function MultiStepLeadForm() {
     { value: 'pig', label: 'Heo', icon: '🐷', color: 'from-pink-500 to-red-500' },
     { value: 'poultry', label: 'Gia cầm', icon: '🐔', color: 'from-yellow-500 to-orange-500' },
     { value: 'fish', label: 'Thủy sản', icon: '🐟', color: 'from-blue-500 to-cyan-500' },
-    { value: 'all', label: 'Tất cả', icon: '🌾', color: 'from-green-500 to-emerald-500' }
+    { value: 'all', label: 'Tất cả', icon: '🌾', color: 'from-blue-500 to-emerald-500' }
   ]
 
   const farmSizes = [

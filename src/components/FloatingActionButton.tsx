@@ -83,7 +83,7 @@ export default function FloatingActionButton({
       {/* Primary FAB Button */}
       <button
         onClick={handlePrimaryClick}
-        className="w-14 h-14 rounded-full bg-gradient-to-br from-primary-600 to-green-500 text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-primary-600/30"
+        className="w-14 h-14 rounded-full bg-gradient-to-br from-primary-600 to-blue-500 text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-primary-600/30"
         style={{
           animation: 'fabEnter 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
         }}

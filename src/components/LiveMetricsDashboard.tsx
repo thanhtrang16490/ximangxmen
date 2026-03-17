@@ -31,7 +31,7 @@ export default function LiveMetricsDashboard({ section }: LiveMetricsDashboardPr
   const getTrendColor = (trend: 'up' | 'down' | 'neutral'): string => {
     switch (trend) {
       case 'up':
-        return 'text-green-600';
+        return 'text-blue-600';
       case 'down':
         return 'text-red-600';
       case 'neutral':

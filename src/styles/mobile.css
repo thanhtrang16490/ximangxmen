@@ -294,13 +294,8 @@
      ======================================== */
   
   /* Add padding for bottom nav on mobile only */
-  body.has-bottom-nav {
-    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
-  }
-  
-  /* Ensure footer is not hidden behind bottom nav */
-  body.has-bottom-nav footer {
-    margin-bottom: calc(4rem + env(safe-area-inset-bottom));
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
   }
   
   /* ========================================

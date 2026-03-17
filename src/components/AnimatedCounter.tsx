@@ -122,7 +122,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ section }) => {
   const getTrendColor = (trend?: 'up' | 'down' | 'neutral'): string => {
     switch (trend) {
       case 'up':
-        return 'text-accent-green-500';
+        return 'text-accent-blue-500';
       case 'down':
         return 'text-accent-red-500';
       case 'neutral':

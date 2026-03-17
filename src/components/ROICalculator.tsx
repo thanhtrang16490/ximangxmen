@@ -129,7 +129,7 @@ export default function ROICalculator() {
 
         {/* Results */}
         {showResult && result && (
-          <div className="mt-6 p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl border border-green-200 animate-fadeIn">
+          <div className="mt-6 p-6 bg-gradient-to-br from-blue-50 to-blue-50 rounded-2xl border border-blue-200 animate-fadeIn">
             <div className="text-center mb-4">
               <div className="text-4xl mb-2">💰</div>
               <h4 className="text-xl font-semibold text-gray-900 mb-1">
@@ -155,7 +155,7 @@ export default function ROICalculator() {
                 </span>
               </div>
 
-              <div className="flex justify-between items-center p-4 bg-gradient-to-r from-green-500 to-green-600 rounded-xl text-white">
+              <div className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl text-white">
                 <span className="font-medium">Tiết kiệm/tháng:</span>
                 <span className="text-2xl font-bold">
                   {formatCurrency(result.savings)}
@@ -164,7 +164,7 @@ export default function ROICalculator() {
 
               <div className="flex justify-between items-center p-3 bg-white rounded-xl">
                 <span className="text-gray-600">Tiết kiệm/năm:</span>
-                <span className="font-semibold text-green-600 text-lg">
+                <span className="font-semibold text-blue-600 text-lg">
                   {formatCurrency(result.savings * 12)}
                 </span>
               </div>
@@ -173,7 +173,7 @@ export default function ROICalculator() {
                 <div className="text-sm text-gray-600 mb-1">
                   Giảm chi phí thức ăn
                 </div>
-                <div className="text-3xl font-bold text-green-600">
+                <div className="text-3xl font-bold text-blue-600">
                   {result.savingsPercent.toFixed(0)}%
                 </div>
               </div>
@@ -206,13 +206,13 @@ export default function ROICalculator() {
       <div className="mt-6 pt-6 border-t border-gray-200">
         <div className="flex items-center justify-center gap-6 text-sm text-gray-600">
           <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>1,500+ khách hàng</span>
           </div>
           <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>Tiết kiệm thực tế</span>
