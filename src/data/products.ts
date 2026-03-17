@@ -178,7 +178,7 @@ Nước sạch: 5-8 lít
     specifications: `Ứng dụng: Seno, máng nước, mái hiên
 Vật liệu: Xi măng CX Men + lưới thủy tinh
 Bảo hành: Theo thỏa thuận
-Hotline tư vấn: 0962.916.488`,
+Hotline tư vấn: 096.2352.394`,
     created_at: '2025-01-01T00:00:00Z'
   },
   // Ứng dụng nhà vệ sinh & bể nước
@@ -196,7 +196,7 @@ Hotline tư vấn: 0962.916.488`,
     specifications: `Ứng dụng: Nhà vệ sinh, sàn vệ sinh
 Vật liệu: Xi măng CX Men + lưới thủy tinh
 Thi công: Trát tường + cán nền
-Hotline tư vấn: 0962.916.488`,
+Hotline tư vấn: 096.2352.394`,
     created_at: '2025-01-01T00:00:00Z'
   },
   {
@@ -214,7 +214,7 @@ Hotline tư vấn: 0962.916.488`,
 Vật liệu: Xi măng CX Men
 Thi công: Trát thành bể + cán đáy bể
 An toàn cho nước sinh hoạt
-Hotline tư vấn: 0962.916.488`,
+Hotline tư vấn: 096.2352.394`,
     created_at: '2025-01-01T00:00:00Z'
   },
   {
@@ -231,7 +231,7 @@ Hotline tư vấn: 0962.916.488`,
     specifications: `Ứng dụng: Ban công, lô gia
 Vật liệu: Xi măng CX Men + lưới thủy tinh
 Thi công: Cán vữa chống thấm
-Hotline tư vấn: 0962.916.488`,
+Hotline tư vấn: 096.2352.394`,
     created_at: '2025-01-01T00:00:00Z'
   },
   // Ứng dụng tường & bê tông
@@ -249,7 +249,7 @@ Hotline tư vấn: 0962.916.488`,
     specifications: `Ứng dụng: Tường ngoài, chân tường tầng 1
 Vật liệu: Xi măng CX Men
 Thi công: Xây trát tường chống thấm
-Hotline tư vấn: 0962.916.488`,
+Hotline tư vấn: 096.2352.394`,
     created_at: '2025-01-01T00:00:00Z'
   },
   {
@@ -267,7 +267,7 @@ Hotline tư vấn: 0962.916.488`,
 Loại: Xi măng pooclang PCB 40
 Cường độ sớm cao, tháo ván khuôn sớm
 Tiết kiệm thời gian và chi phí thi công
-Hotline tư vấn: 0962.916.488`,
+Hotline tư vấn: 096.2352.394`,
     created_at: '2025-01-01T00:00:00Z'
   }
 ]

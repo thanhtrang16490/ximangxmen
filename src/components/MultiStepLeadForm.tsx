@@ -221,7 +221,7 @@ export default function MultiStepLeadForm() {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="0962.916.488"
+                placeholder="096.2352.394"
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
               />
             </div>

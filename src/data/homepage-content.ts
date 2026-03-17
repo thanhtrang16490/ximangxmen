@@ -541,7 +541,7 @@ export const homepageContent: HomepageContent = {
       lng: 105.7852,
       name: 'Tổng Kho Sơn Và Chống Thấm CX Men',
       address: 'Hà Nội, Việt Nam',
-      phone: '0962.916.488',
+      phone: '096.2352.394',
       photo: '/images/factory/exterior.jpg'
     },
     zoom: 15,

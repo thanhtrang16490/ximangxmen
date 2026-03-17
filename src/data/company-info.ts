@@ -13,7 +13,7 @@ export const companyInfo = {
   // Thông tin liên hệ
   contact: {
     taxCode: '0100000000',
-    phone: '0962916488',
+    phone: '0962352394',
     email: 'info@cxmen.com',
     coordinates: {
       lat: 20.9719,

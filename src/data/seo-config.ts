@@ -39,7 +39,7 @@ export const SITE_CONFIG = {
     longitude: 105.9189,
   },
   contact: {
-    phone: '+84-962-916-488',
+    phone: '+84-962-352-394',
     email: 'info@cxmen.com',
   },
   social: {

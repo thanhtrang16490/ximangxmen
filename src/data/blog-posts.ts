@@ -47,7 +47,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Kết quả</h2>
       <p>Sau khi thi công đúng quy trình, sàn mái sẽ chống thấm hoàn hảo, không bị nứt, bong tróc. Tuổi thọ lên đến 20 năm.</p>
 
-      <p>Liên hệ <strong>0962916488</strong> để được tư vấn chi tiết!</p>
+      <p>Liên hệ <strong>0962352394</strong> để được tư vấn chi tiết!</p>
     `
   },
   {
@@ -79,7 +79,7 @@ export const blogPosts: BlogPost[] = [
       <h2>5. Giá cả hợp lý</h2>
       <p>Giá thành cạnh tranh, phù hợp với mọi quy mô công trình.</p>
 
-      <p>Liên hệ ngay <strong>0962916488</strong> để được tư vấn và báo giá!</p>
+      <p>Liên hệ ngay <strong>0962352394</strong> để được tư vấn và báo giá!</p>
     `
   },
   {
@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
         <li>Bảo dưỡng 7 ngày</li>
       </ol>
 
-      <p>Liên hệ <strong>0962916488</strong> để được hỗ trợ kỹ thuật!</p>
+      <p>Liên hệ <strong>0962352394</strong> để được hỗ trợ kỹ thuật!</p>
     `
   }
 ]

@@ -50,7 +50,7 @@ export default function QuoteRequestModal({
       successTitle: 'Gửi thành công!',
       successMessage: 'Chúng tôi đã nhận được yêu cầu báo giá của bạn. Nhân viên sẽ liên hệ trong vòng 24h.',
       errorTitle: 'Có lỗi xảy ra',
-      errorMessage: 'Vui lòng thử lại hoặc liên hệ hotline: 0962.916.488',
+      errorMessage: 'Vui lòng thử lại hoặc liên hệ hotline: 096.2352.394',
       close: 'Đóng',
       required: 'Bắt buộc'
     },
@@ -76,7 +76,7 @@ export default function QuoteRequestModal({
       successTitle: 'Sent Successfully!',
       successMessage: 'We have received your quote request. Our team will contact you within 24 hours.',
       errorTitle: 'An Error Occurred',
-      errorMessage: 'Please try again or contact hotline: 0962.916.488',
+      errorMessage: 'Please try again or contact hotline: 096.2352.394',
       close: 'Close',
       required: 'Required'
     },
@@ -102,7 +102,7 @@ export default function QuoteRequestModal({
       successTitle: '发送成功！',
       successMessage: '我们已收到您的报价请求。我们的团队将在24小时内与您联系。',
       errorTitle: '发生错误',
-      errorMessage: '请重试或联系热线：0962.916.488',
+      errorMessage: '请重试或联系热线：096.2352.394',
       close: '关闭',
       required: '必填'
     }

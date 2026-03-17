@@ -26,9 +26,9 @@ export const SITE_CONFIG = {
 
 // Contact Information
 export const CONTACT_CONFIG = {
-  phone: '+84-962-916-488',
-  phoneDisplay: '0962.916.488',
-  phoneShort: '0962916488',
+  phone: '+84-962-352-394',
+  phoneDisplay: '096.2352.394',
+  phoneShort: '0962352394',
   email: 'info@cxmen.com',
   taxCode: '0106124982',
   address: {
@@ -53,7 +53,7 @@ export const SOCIAL_CONFIG = {
   facebook: 'https://www.facebook.com/quangminhsolar',
   youtube: '#',
   linkedin: '#',
-  zalo: 'https://zalo.me/0962916488',
+  zalo: 'https://zalo.me/0962352394',
   website: 'https://qmalu.com',
 } as const
 

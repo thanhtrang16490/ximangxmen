@@ -14,7 +14,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
       title: 'Liên hệ nhanh',
       subtitle: 'Chọn phương thức liên hệ',
       phone: 'Gọi điện thoại',
-      phoneNumber: '0962.916.488',
+      phoneNumber: '096.2352.394',
       zalo: 'Nhắn tin Zalo',
       messenger: 'Nhắn tin Messenger',
       email: 'Gửi Email',
@@ -24,7 +24,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
       title: 'Quick Contact',
       subtitle: 'Choose contact method',
       phone: 'Call Phone',
-      phoneNumber: '0962.916.488',
+      phoneNumber: '096.2352.394',
       zalo: 'Message Zalo',
       messenger: 'Message Messenger',
       email: 'Send Email',
@@ -34,7 +34,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
       title: '快速联系',
       subtitle: '选择联系方式',
       phone: '拨打电话',
-      phoneNumber: '0962.916.488',
+      phoneNumber: '096.2352.394',
       zalo: 'Zalo消息',
       messenger: 'Messenger消息',
       email: '发送邮件',
@@ -54,12 +54,12 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
   };
 
   const handleCall = () => {
-    window.location.href = 'tel:0962916488';
+    window.location.href = 'tel:0962352394';
   };
 
   const handleZalo = () => {
     // Zalo link format: https://zalo.me/PHONE_NUMBER
-    window.open('https://zalo.me/0962916488', '_blank');
+    window.open('https://zalo.me/0962352394', '_blank');
   };
 
   const handleMessenger = () => {
