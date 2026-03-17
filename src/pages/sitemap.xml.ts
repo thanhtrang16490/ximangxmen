@@ -9,7 +9,7 @@ interface SitemapPage {
 }
 
 export const GET: APIRoute = async () => {
-  const SITE_URL = 'https://qmalu.com'
+  const SITE_URL = 'https://ximangcxmengiare.com'
   const products = await getProducts()
   
   const staticPages: SitemapPage[] = [

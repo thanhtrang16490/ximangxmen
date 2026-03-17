@@ -16,8 +16,8 @@ export const SITE_CONFIG = {
   description: 'Quang Minh chuyên sản xuất, gia công các loại vật tư thiết bị phụ kiện điện năng lượng mặt trời và nhôm công nghiệp. Sản phẩm siêu bền dưới mọi thời tiết, dễ vệ sinh, chống cháy.',
   descriptionEn: 'Quang Minh specializes in manufacturing equipment and accessories for solar energy and industrial aluminum. Super durable products in all weather conditions.',
   descriptionCn: '光明专业生产太阳能设备配件和工业铝材。产品在各种天气条件下超耐用。',
-  url: 'https://qmalu.com',
-  appUrl: 'https://app.qmalu.com',
+  url: 'https://ximangcxmengiare.com',
+  appUrl: 'https://ximangcxmengiare.com',
   foundedYear: '2008',
   establishedYear: 2008,
   registeredDate: '2013-03-18',
@@ -29,7 +29,7 @@ export const CONTACT_CONFIG = {
   phone: '+84-962-352-394',
   phoneDisplay: '096.2352.394',
   phoneShort: '0962352394',
-  email: 'info@cxmen.com',
+  email: 'ximangcxmen@gmail.com',
   taxCode: '0106124982',
   address: {
     street: 'Lô CN09 Khu Công nghiệp Nguyên Khê',
@@ -54,7 +54,7 @@ export const SOCIAL_CONFIG = {
   youtube: '#',
   linkedin: '#',
   zalo: 'https://zalo.me/0962352394',
-  website: 'https://qmalu.com',
+  website: 'https://ximangcxmengiare.com',
 } as const
 
 // SEO Configuration

@@ -26,7 +26,7 @@ const brandDetails: Record<string, {
       'Thức ăn cho thủy sản',
       'Tư vấn kỹ thuật chăn nuôi'
     ],
-    website: 'https://qmalu.com',
+    website: 'https://ximangcxmengiare.com',
     highlights: [
       'ISO 9001:2015 & HACCP',
       '50,000+ tấn/năm',

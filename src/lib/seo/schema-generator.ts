@@ -79,7 +79,7 @@ export class SchemaGenerator {
    *   name: 'Solar Mounting Rail',
    *   description: 'High-quality aluminum rail for solar panels',
    *   image: '/images/rail.jpg',
-   *   url: 'https://qmalu.com/products/rail',
+   *   url: 'https://ximangcxmengiare.com/products/rail',
    *   price: '150000',
    *   currency: 'VND',
    *   availability: 'InStock',
@@ -271,9 +271,9 @@ export class SchemaGenerator {
    * ```typescript
    * const schema = generator.generateBreadcrumbSchema({
    *   items: [
-   *     { name: 'Home', url: 'https://qmalu.com/' },
-   *     { name: 'Products', url: 'https://qmalu.com/products' },
-   *     { name: 'Solar Rails', url: 'https://qmalu.com/products/rails' }
+   *     { name: 'Home', url: 'https://ximangcxmengiare.com/' },
+   *     { name: 'Products', url: 'https://ximangcxmengiare.com/products' },
+   *     { name: 'Solar Rails', url: 'https://ximangcxmengiare.com/products/rails' }
    *   ]
    * });
    * ```

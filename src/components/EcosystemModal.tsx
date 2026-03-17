@@ -47,7 +47,7 @@ export default function EcosystemModal({ brands }: EcosystemModalProps) {
         'Thức ăn cho thủy sản',
         'Tư vấn kỹ thuật chăn nuôi'
       ],
-      website: 'https://qmalu.com',
+      website: 'https://ximangcxmengiare.com',
       highlights: [
         'ISO 9001:2015 & HACCP',
         '50,000+ tấn/năm',

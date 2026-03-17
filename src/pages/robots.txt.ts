@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 
 export const GET: APIRoute = () => {
-  const SITE_URL = 'https://qmalu.com'
+  const SITE_URL = 'https://ximangcxmengiare.com'
   
   const robotsTxt = `# robots.txt for Nhôm Quang Minh
 # Generated: ${new Date().toISOString()}

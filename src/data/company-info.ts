@@ -14,7 +14,7 @@ export const companyInfo = {
   contact: {
     taxCode: '0100000000',
     phone: '0962352394',
-    email: 'info@cxmen.com',
+    email: 'ximangcxmen@gmail.com',
     coordinates: {
       lat: 20.9719,
       lng: 105.7852

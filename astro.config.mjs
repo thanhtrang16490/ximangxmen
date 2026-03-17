@@ -17,7 +17,7 @@ export default defineConfig({
     }),
   ],
   output: 'static',
-  site: 'https://qmalu.com',
+  site: 'https://ximangcxmengiare.com',
   
   // Security Headers - Applied at build time for static hosting
   // For additional security, configure these at your CDN/edge (Cloudflare, Vercel, Nginx)

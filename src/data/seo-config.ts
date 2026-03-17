@@ -25,7 +25,7 @@ export const SECONDARY_KEYWORDS = [
 export const SITE_CONFIG = {
   name: 'Nhôm Quang Minh',
   alternateName: 'Công ty Cổ phần Nhôm Quang Minh',
-  url: 'https://qmalu.com',
+  url: 'https://ximangcxmengiare.com',
   logo: '/quang-minh-logo.svg',
   foundingDate: '2008',
   address: {
@@ -40,7 +40,7 @@ export const SITE_CONFIG = {
   },
   contact: {
     phone: '+84-962-352-394',
-    email: 'info@cxmen.com',
+    email: 'ximangcxmen@gmail.com',
   },
   social: {
     facebook: 'https://www.facebook.com/appevn',

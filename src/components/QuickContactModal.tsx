@@ -68,7 +68,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
   };
 
   const handleEmail = () => {
-    window.location.href = 'mailto:info@cxmen.com';
+    window.location.href = 'mailto:ximangcxmen@gmail.com';
   };
 
   return (
@@ -180,7 +180,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
             </div>
             <div className="flex-1 text-left">
               <div className="font-semibold text-gray-900">{t.email}</div>
-              <div className="text-sm text-gray-700 font-medium">info@cxmen.com</div>
+              <div className="text-sm text-gray-700 font-medium">ximangcxmen@gmail.com</div>
             </div>
             <svg className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
