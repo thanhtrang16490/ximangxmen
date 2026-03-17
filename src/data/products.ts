@@ -73,7 +73,7 @@ export const products: Product[] = [
     price: null,
     unit: 'bao',
     stock: 5000,
-    image_url: '/products/cx-men-25kg.jpg',
+    image_url: '/ximangcxman.png',
     description: 'Xi măng chống thấm CX Men PCB 40 đa dụng cao cấp – công nghệ siêu kỵ nước (hiệu ứng lá sen), chống thấm vĩnh cửu theo tuổi thọ công trình.',
     specifications: `Mã sản phẩm: CX-MEN-25
 Trọng lượng: 25kg/bao
@@ -109,7 +109,7 @@ CẤP PHỐI VỮA:
     price: null,
     unit: 'bao',
     stock: 3000,
-    image_url: '/products/cx-men-50kg.jpg',
+    image_url: '/ximangcxman.png',
     description: 'Xi măng chống thấm CX Men bao 50kg – tiết kiệm hơn cho công trình lớn. Công nghệ siêu kỵ nước, chống thấm vĩnh cửu.',
     specifications: `Mã sản phẩm: CX-MEN-50
 Trọng lượng: 50kg/bao
