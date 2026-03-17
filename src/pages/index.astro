@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import ScrollProgress from '../components/ScrollProgress.astro'
+import { Image } from 'astro:assets'
+import productImg from '../../public/ximangcxman.png'
 
 const seoTitle = "Xi Măng Chống Thấm CX-MEN Chính Hãng | Thách Thức Mọi Thời Tiết"
 const seoDescription = "Xi măng chống thấm CX-MEN PCB 40 – công nghệ siêu kỵ nước, chống thấm vĩnh cửu. Dùng cho sàn mái, nhà vệ sinh, bể nước, tường ngoài. Hotline: 096.2352.394. Giao hàng toàn quốc."
@@ -124,11 +126,14 @@ const productSchema = {
         <div class="flex justify-center md:justify-end">
           <div class="relative">
             <div class="absolute inset-0 bg-red-100 rounded-3xl blur-2xl opacity-40 scale-110"></div>
-            <img
-              src="/ximangcxman.png"
+            <Image
+              src={productImg}
               alt="Xi măng chống thấm CX-MEN chính hãng"
               class="relative w-full max-w-sm md:max-w-md rounded-3xl shadow-2xl object-contain"
               loading="eager"
+              fetchpriority="high"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 400px, 600px"
             />
             <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-4 py-3 border border-gray-100">
               <div class="text-xs text-gray-500 font-medium">Kiểm nghiệm TCVN</div>
