@@ -1,9 +1,9 @@
 // Company information - B2B Focus
 export const companyInfo = {
-  name: 'Công ty Cổ phần Mozart Việt Nam',
+  name: 'CX-MEN',
   shortName: 'CX-MEN',
-  shortNameEn: 'MOZART VIETNAM.,JSC',
-  englishName: 'Mozart Vietnam Joint Stock Company',
+  shortNameEn: 'CX-MEN',
+  englishName: 'CX-MEN',
   brand: 'CX-MEN',
   logo: '/cx-men-logo.svg',
   logoSvg: '/cx-men-logo.svg',
@@ -12,12 +12,9 @@ export const companyInfo = {
   
   // Thông tin liên hệ
   contact: {
-    factory: 'Số 790 Quang Trung – Hà Đông – Hà Nội',
-    address: 'Số 790 Quang Trung, Quận Hà Đông, Hà Nội, Việt Nam',
     taxCode: '0100000000',
     phone: '0962916488',
-    email: 'chongthamtoanquoc24h@gmail.com',
-    website: 'https://phugiachongtham24h.com',
+    email: 'info@cxmen.com',
     coordinates: {
       lat: 20.9719,
       lng: 105.7852
@@ -29,8 +26,7 @@ export const companyInfo = {
   history: {
     founded: 2000,
     registeredDate: '2000-01-01',
-    location: 'Số 790 Quang Trung, Hà Đông, Hà Nội',
-    description: 'CX-MEN là thương hiệu xi măng chống thấm hàng đầu Việt Nam, sản xuất và phân phối bởi Công ty Cổ phần Mozart Việt Nam. Xi măng chống thấm CX-MEN là xi măng Pooclang PCB 40 đa dụng cao cấp với công nghệ siêu kỵ nước (hiệu ứng lá sen), mang đến giải pháp bảo vệ toàn diện và vĩnh cửu cho mọi công trình.'
+    description: 'CX-MEN là thương hiệu xi măng chống thấm hàng đầu Việt Nam. Xi măng chống thấm CX-MEN là xi măng Pooclang PCB 40 đa dụng cao cấp với công nghệ siêu kỵ nước (hiệu ứng lá sen), mang đến giải pháp bảo vệ toàn diện và vĩnh cửu cho mọi công trình.'
   },
   
   // Tầm nhìn - Sứ mệnh (B2B Focus)
@@ -95,7 +91,6 @@ export const companyInfo = {
   // Năng lực sản xuất - B2B Focus
   capacity: {
     factoryArea: 'Kho hàng rộng rãi',
-    location: 'Số 790 Quang Trung, Hà Đông, Hà Nội',
     employees: '20+ nhân viên',
     engineers: '5+ kỹ sư',
     productionLines: 'Phân phối chính hãng',

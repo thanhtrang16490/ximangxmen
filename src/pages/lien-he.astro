@@ -1,29 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import InteractiveMap from '../components/InteractiveMap'
 import { companyInfo } from '../data/company-info'
 
 const seoTitle = "Liên hệ - CX-MEN | Tư vấn xi măng chống thấm chuyên nghiệp"
-const seoDescription = "Liên hệ CX-MEN để được tư vấn và hỗ trợ về xi măng chống thấm. Hotline: 0962916488. Email: chongthamtoanquoc24h@gmail.com. Địa chỉ: Số 790 Quang Trung, Hà Đông, Hà Nội."
+const seoDescription = "Liên hệ CX-MEN để được tư vấn và hỗ trợ về xi măng chống thấm. Hotline: 0962.916.488. Email: info@cxmen.com. Hỗ trợ 7h–22h tất cả các ngày."
 const seoKeywords = [
   "liên hệ CX-MEN",
   "tư vấn xi măng chống thấm",
   "hotline CX-MEN",
-  "địa chỉ CX-MEN Hà Nội",
   "email CX-MEN",
   "hỗ trợ khách hàng",
   "đặt hàng xi măng chống thấm"
 ]
-
-// Map location data
-const mapLocation = {
-  lat: companyInfo.contact.coordinates.lat,
-  lng: companyInfo.contact.coordinates.lng,
-  name: companyInfo.name,
-  address: companyInfo.contact.factory,
-  phone: companyInfo.contact.phone,
-  photo: '/cx-men-logo.svg'
-}
 ---
 
 <BaseLayout 
@@ -52,7 +40,7 @@ const mapLocation = {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         <!-- Phone -->
         <a 
-          href="tel:+84947776662" 
+          href="tel:+84962916488" 
           class="group bg-[#f5f5f7] hover:bg-[#e8e8ed] rounded-2xl p-6 md:p-8 transition-all duration-200"
         >
           <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
@@ -61,13 +49,13 @@ const mapLocation = {
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Điện thoại</h3>
-          <p class="text-[15px] text-primary font-medium mb-1">0947 776 662</p>
+          <p class="text-[15px] text-primary font-medium mb-1">0962.916.488</p>
           <p class="text-[13px] text-gray-600">Hỗ trợ trong giờ làm việc</p>
         </a>
 
         <!-- Zalo -->
         <a 
-          href="https://zalo.me/0947776662" 
+          href="https://zalo.me/0962916488" 
           target="_blank"
           class="group bg-[#f5f5f7] hover:bg-[#e8e8ed] rounded-2xl p-6 md:p-8 transition-all duration-200"
         >
@@ -83,7 +71,7 @@ const mapLocation = {
 
         <!-- Email -->
         <a 
-          href="mailto:info@qmalu.com" 
+          href="mailto:info@cxmen.com" 
           class="group bg-[#f5f5f7] hover:bg-[#e8e8ed] rounded-2xl p-6 md:p-8 transition-all duration-200 sm:col-span-2 lg:col-span-1"
         >
           <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center mb-4">
@@ -92,7 +80,7 @@ const mapLocation = {
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Email</h3>
-          <p class="text-[15px] text-gray-900 font-medium mb-1">info@qmalu.com</p>
+          <p class="text-[15px] text-gray-900 font-medium mb-1">info@cxmen.com</p>
           <p class="text-[13px] text-gray-600">Phản hồi trong 24 giờ</p>
         </a>
       </div>
@@ -102,36 +90,7 @@ const mapLocation = {
   <!-- Office Info -->
   <section class="py-12 md:py-16 bg-[#f5f5f7]">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-        <!-- Address -->
-        <div class="bg-white rounded-2xl p-6 md:p-8">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-[17px] font-semibold text-gray-900 mb-2">Địa chỉ nhà máy</h3>
-              <p class="text-[15px] text-gray-600 leading-relaxed">
-                {companyInfo.contact.factory}
-              </p>
-              <a 
-                href={companyInfo.contact.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-1 text-primary hover:text-primary-dark text-sm mt-2"
-              >
-                <span>Xem bản đồ</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
+      <div class="max-w-md mx-auto">
         <!-- Working Hours -->
         <div class="bg-white rounded-2xl p-6 md:p-8">
           <div class="flex items-start gap-4">
@@ -143,9 +102,8 @@ const mapLocation = {
             <div>
               <h3 class="text-[17px] font-semibold text-gray-900 mb-2">Giờ làm việc</h3>
               <p class="text-[15px] text-gray-600 leading-relaxed">
-                Thứ 2 - Thứ 6: 8:00 - 17:00<br />
-                Thứ 7: 8:00 - 12:00<br />
-                Chủ nhật: Nghỉ
+                Tất cả các ngày trong tuần<br />
+                7:00 – 22:00
               </p>
             </div>
           </div>
@@ -261,47 +219,4 @@ const mapLocation = {
     </div>
   </section>
 
-  <!-- Map Section - Using InteractiveMap Component -->
-  <section class="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
-          Tìm đường đến nhà máy
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          {mapLocation.address}
-        </p>
-      </div>
-      
-      <div class="max-w-5xl mx-auto">
-        <InteractiveMap 
-          location={mapLocation}
-          zoom={15}
-          fallbackImage="/quang-minh-logo.svg"
-          client:visible
-        />
-      </div>
-
-      <!-- Location Details -->
-      <div class="mt-12 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-sm ring-1 ring-gray-900/5">
-          <div class="text-3xl mb-3">📍</div>
-          <h3 class="font-semibold text-gray-900 mb-2">Địa chỉ</h3>
-          <p class="text-gray-600 text-sm">{mapLocation.address}</p>
-        </div>
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-sm ring-1 ring-gray-900/5">
-          <div class="text-3xl mb-3">📞</div>
-          <h3 class="font-semibold text-gray-900 mb-2">Điện thoại</h3>
-          <a href={`tel:${mapLocation.phone}`} class="text-primary hover:text-primary-dark font-medium">
-            {mapLocation.phone}
-          </a>
-        </div>
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-sm ring-1 ring-gray-900/5">
-          <div class="text-3xl mb-3">🏭</div>
-          <h3 class="font-semibold text-gray-900 mb-2">Quy mô</h3>
-          <p class="text-gray-600 text-sm">Nhà máy {companyInfo.capacity.factoryArea}</p>
-        </div>
-      </div>
-    </div>
-  </section>
 </BaseLayout>

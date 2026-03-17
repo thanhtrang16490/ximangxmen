@@ -14,7 +14,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
       title: 'Liên hệ nhanh',
       subtitle: 'Chọn phương thức liên hệ',
       phone: 'Gọi điện thoại',
-      phoneNumber: '0947 776 662',
+      phoneNumber: '0962.916.488',
       zalo: 'Nhắn tin Zalo',
       messenger: 'Nhắn tin Messenger',
       email: 'Gửi Email',
@@ -24,7 +24,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
       title: 'Quick Contact',
       subtitle: 'Choose contact method',
       phone: 'Call Phone',
-      phoneNumber: '0947 776 662',
+      phoneNumber: '0962.916.488',
       zalo: 'Message Zalo',
       messenger: 'Message Messenger',
       email: 'Send Email',
@@ -34,7 +34,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
       title: '快速联系',
       subtitle: '选择联系方式',
       phone: '拨打电话',
-      phoneNumber: '0947 776 662',
+      phoneNumber: '0962.916.488',
       zalo: 'Zalo消息',
       messenger: 'Messenger消息',
       email: '发送邮件',
@@ -54,12 +54,12 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
   };
 
   const handleCall = () => {
-    window.location.href = 'tel:0947776662';
+    window.location.href = 'tel:0962916488';
   };
 
   const handleZalo = () => {
     // Zalo link format: https://zalo.me/PHONE_NUMBER
-    window.open('https://zalo.me/0947776662', '_blank');
+    window.open('https://zalo.me/0962916488', '_blank');
   };
 
   const handleMessenger = () => {
@@ -68,7 +68,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
   };
 
   const handleEmail = () => {
-    window.location.href = 'mailto:info@qmalu.com';
+    window.location.href = 'mailto:info@cxmen.com';
   };
 
   return (
@@ -180,7 +180,7 @@ export default function QuickContactModal({ lang = 'vi' }: QuickContactModalProp
             </div>
             <div className="flex-1 text-left">
               <div className="font-semibold text-gray-900">{t.email}</div>
-              <div className="text-sm text-gray-700 font-medium">info@qmalu.com</div>
+              <div className="text-sm text-gray-700 font-medium">info@cxmen.com</div>
             </div>
             <svg className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />

@@ -540,8 +540,8 @@ export const homepageContent: HomepageContent = {
       lat: 20.9719,
       lng: 105.7852,
       name: 'Tổng Kho Sơn Và Chống Thấm CX Men',
-      address: 'Số 790 Quang Trung, Quận Hà Đông, Hà Nội',
-      phone: '0919.229.227',
+      address: 'Hà Nội, Việt Nam',
+      phone: '0962.916.488',
       photo: '/images/factory/exterior.jpg'
     },
     zoom: 15,

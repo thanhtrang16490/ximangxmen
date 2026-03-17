@@ -39,8 +39,8 @@ export const SITE_CONFIG = {
     longitude: 105.9189,
   },
   contact: {
-    phone: '+84-947-776-662',
-    email: 'info@qmalu.com',
+    phone: '+84-962-916-488',
+    email: 'info@cxmen.com',
   },
   social: {
     facebook: 'https://www.facebook.com/appevn',
