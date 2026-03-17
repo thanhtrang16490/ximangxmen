@@ -1,4 +1,4 @@
-// Static product data for Nhôm Quang Minh - Based on actual quotations
+// Static product data for Xi Măng Chống Thấm CX Men
 export interface Product {
   id: string
   code?: string
@@ -25,653 +25,252 @@ export interface Category {
   display_order?: number
 }
 
-// Categories - Based on Quang Minh's actual products
+// Categories - Xi Măng Chống Thấm CX Men
 export const categories: Category[] = [
   {
-    id: 'solar-rails',
-    name: 'Thanh Ray Nhôm Solar',
-    slug: 'thanh-ray-nhom-solar',
-    description: 'Thanh ray nhôm A6005-T6 cho hệ thống năng lượng mặt trời',
-    icon: '☀️',
+    id: 'xi-mang-chong-tham',
+    name: 'Xi Măng Chống Thấm CX Men',
+    slug: 'xi-mang-chong-tham',
+    description: 'Xi măng pooclang PCB 40 đa dụng, chống thấm, chống co ngót, rạn nứt hoàn hảo',
+    icon: '💧',
     display_order: 1
   },
   {
-    id: 'solar-clamps',
-    name: 'Kẹp & Phụ Kiện Solar',
-    slug: 'kep-phu-kien-solar',
-    description: 'Kẹp giữa, kẹp biên, kẹp seamlook và phụ kiện lắp đặt',
-    icon: '🔧',
+    id: 'ung-dung-san-mai',
+    name: 'Ứng Dụng Sàn Mái',
+    slug: 'ung-dung-san-mai',
+    description: 'Chống thấm sàn mái, sân thượng, ban công, seno',
+    icon: '🏠',
     display_order: 2
   },
   {
-    id: 'mounting-brackets',
-    name: 'Chân Đế & Giá Đỡ',
-    slug: 'chan-de-gia-do',
-    description: 'Chân L, giá đỡ và kết cấu lắp đặt tấm pin',
-    icon: '🏗️',
+    id: 'ung-dung-nha-ve-sinh',
+    name: 'Ứng Dụng Nhà Vệ Sinh',
+    slug: 'ung-dung-nha-ve-sinh',
+    description: 'Chống thấm nhà vệ sinh, bể nước, bể bơi, hố pit',
+    icon: '🚿',
     display_order: 3
   },
   {
-    id: 'grounding-accessories',
-    name: 'Phụ Kiện Tiếp Địa',
-    slug: 'phu-kien-tiep-dia',
-    description: 'Kẹp tiếp địa, lá tiếp địa và phụ kiện an toàn điện',
-    icon: '⚡',
+    id: 'ung-dung-tuong',
+    name: 'Ứng Dụng Tường & Bê Tông',
+    slug: 'ung-dung-tuong-be-tong',
+    description: 'Xây trát tường ngoài, đổ bê tông chống thấm, chân tường tầng 1',
+    icon: '🧱',
     display_order: 4
   }
 ]
 
-// Products - Based on actual Quang Minh quotations
+// Products - Xi Măng Chống Thấm CX Men
 export const products: Product[] = [
-  // Solar Rails
+  // Xi Măng Chống Thấm CX Men - Sản phẩm chính
   {
     id: '1',
-    code: 'QM-001',
-    name: 'Thanh Ray Nhôm 26x45mm',
-    slug: 'thanh-ray-nhom-26x45mm',
-    category_id: 'solar-rails',
-    price: 218500,
-    unit: 'thanh',
-    stock: 1000,
-    image_url: '/products/rail-26x45.jpg',
-    description: 'Thanh ray nhôm A6005-T6 dài 4.2m, anod 10-12µm, cứng vững và chịu tải tốt',
-    specifications: `Mã sản phẩm: QM-001
-Kích thước: 26x45mm
-Chiều dài: 4.2m/thanh
-Tỉ trọng: 0.52kg/m (±5%)
-Vật liệu: A6005-T6
-Bề mặt: Anod 10-12µm
-Đặc điểm: Cứng vững, rãnh cân, chịu tải tốt
-Xuất xứ: QM Solar`,
+    code: 'CX-MEN-25',
+    name: 'Xi Măng Chống Thấm CX Men 25kg',
+    slug: 'xi-mang-chong-tham-cx-men-25kg',
+    category_id: 'xi-mang-chong-tham',
+    price: null,
+    unit: 'bao',
+    stock: 5000,
+    image_url: '/products/cx-men-25kg.jpg',
+    description: 'Xi măng chống thấm CX Men PCB 40 đa dụng cao cấp – công nghệ siêu kỵ nước (hiệu ứng lá sen), chống thấm vĩnh cửu theo tuổi thọ công trình. Sản xuất bởi Công ty Cổ phần Mozart Việt Nam.',
+    specifications: `Mã sản phẩm: CX-MEN-25
+Trọng lượng: 25kg/bao
+Loại: Xi măng Pooclang PCB 40 đa dụng cao cấp
+Nhà sản xuất: Công ty Cổ phần Mozart Việt Nam
+
+ĐẶC TÍNH KỸ THUẬT:
+• Công nghệ siêu kỵ nước – hiệu ứng "Lá Sen"
+• Chống thấm thuận và nghịch cực tốt
+• Chống nồm ẩm, kiềm hóa và muối tuyết triệt để
+• Tạo nguyên khối liên kết bền chặt, không tách lớp, không bong tróc
+• Cường độ sớm cao, rút ngắn thời gian thi công
+• Tuổi thọ vĩnh cửu theo tuổi thọ công trình
+
+KẾT QUẢ THÍ NGHIỆM (TCVN):
+• Cường độ nén tỷ lệ 1:1 (TCVN 3121-11:2003): ~30,81 N/mm²
+• Cường độ nén tỷ lệ 1:3 (TCVN 3121-11:2003): ~27,41 N/mm²
+• Độ chống thấm (TCVN 3116:2022): 0/6 mẫu thấm ở áp lực 2–19 daN/cm²
+
+CẤP PHỐI VỮA:
+• Vữa M100: 1 bao CX Men (25kg) + 3 xô cát 18L
+• Vữa M75: 1 bao CX Men (25kg) + 5 xô cát 18L
+
+ỨNG DỤNG: Sân thượng, ban công, nhà vệ sinh, bể nước, bể cá, hồ bơi, phần ngầm, tường ngoài`,
     created_at: '2025-01-01T00:00:00Z'
   },
   {
     id: '2',
-    code: 'QM-001-52',
-    name: 'Thanh Ray Nhôm 26x52mm',
-    slug: 'thanh-ray-nhom-26x52mm',
-    category_id: 'solar-rails',
-    price: 61500,
-    unit: 'mét',
-    stock: 1000,
-    image_url: '/products/thanh-ray-nhom-rail-26x53mm.png',
-    description: 'Thanh ray nhôm A6005-T6 dài 4.2m, tỉ trọng 0.65kg/m, chịu tải cao',
-    specifications: `Mã sản phẩm: QM-001
-Kích thước: 26x52mm
-Chiều dài: 4.2m/thanh
-Tỉ trọng: 0.65kg/m (±5%)
-Vật liệu: A6005-T6
-Bề mặt: Anod 10-12µm
-Đặc điểm: Cứng vững, rãnh cân, chịu tải tốt
-Xuất xứ: QM Solar`,
+    code: 'CX-MEN-50',
+    name: 'Xi Măng Chống Thấm CX Men 50kg',
+    slug: 'xi-mang-chong-tham-cx-men-50kg',
+    category_id: 'xi-mang-chong-tham',
+    price: null,
+    unit: 'bao',
+    stock: 3000,
+    image_url: '/products/cx-men-50kg.jpg',
+    description: 'Xi măng chống thấm CX Men bao 50kg – tiết kiệm hơn cho công trình lớn. Công nghệ siêu kỵ nước, chống thấm vĩnh cửu.',
+    specifications: `Mã sản phẩm: CX-MEN-50
+Trọng lượng: 50kg/bao
+Loại: Xi măng Pooclang PCB 40 đa dụng cao cấp
+Nhà sản xuất: Công ty Cổ phần Mozart Việt Nam
+
+ĐẶC TÍNH KỸ THUẬT:
+• Công nghệ siêu kỵ nước – hiệu ứng "Lá Sen"
+• Chống thấm thuận và nghịch cực tốt
+• Cường độ nén tỷ lệ 1:1: ~30,81 N/mm² | tỷ lệ 1:3: ~27,41 N/mm²
+• Độ chống thấm: 0/6 mẫu thấm ở áp lực 2–19 daN/cm²
+
+CẤP PHỐI VỮA:
+• Vữa M100: 1 bao CX Men (25kg) + 3 xô cát 18L
+• Vữa M75: 1 bao CX Men (25kg) + 5 xô cát 18L`,
     created_at: '2025-01-01T00:00:00Z'
   },
+  // Ứng dụng sàn mái
   {
     id: '3',
-    code: 'QM-001-50',
-    name: 'Thanh Ray Nhôm 26x50mm',
-    slug: 'thanh-ray-nhom-26x50mm',
-    category_id: 'solar-rails',
-    price: 60000,
-    unit: 'mét',
+    code: 'CX-VUA-MAC150',
+    name: 'Vữa Cán Mái Mác 150',
+    slug: 'vua-can-mai-mac-150',
+    category_id: 'ung-dung-san-mai',
+    price: null,
+    unit: 'bộ',
     stock: 1000,
-    image_url: '/products/rail-26x50.jpg',
-    description: 'Thanh ray nhôm A6005-T5 dài 4.2m, phổ biến nhất cho dự án solar',
-    specifications: `Kích thước: 26x50mm
-Chiều dài: 4.2m/thanh
-Vật liệu: A6005-T5
-Bề mặt: Anod
-Đặc điểm: Thông dụng, giá tốt
-Xuất xứ: QM Solar`,
+    image_url: '/products/vua-can-mai-mac150.jpg',
+    description: 'Vữa cán mái mác 150 dùng xi măng CX Men – chống thấm sàn mái, sân thượng, ban công hiệu quả cao',
+    specifications: `Cấp phối vữa mác 150:
+Xi măng CX Men: 1 bao (25kg)
+Cát sạch: 2 xô 18L (50kg)
+Nước sạch: 5-8 lít
+Ứng dụng: Sàn mái, sân thượng, ban công`,
     created_at: '2025-01-01T00:00:00Z'
   },
-
-  // Rail Connectors
   {
     id: '4',
-    code: 'QM-008',
-    name: 'Thanh Nối Rail 150mm',
-    slug: 'thanh-noi-rail-150mm',
-    category_id: 'solar-rails',
-    price: 13000,
+    code: 'CX-VUA-MAC100',
+    name: 'Vữa Cán Mái Mác 100',
+    slug: 'vua-can-mai-mac-100',
+    category_id: 'ung-dung-san-mai',
+    price: null,
     unit: 'bộ',
-    stock: 2000,
-    image_url: '/products/rail-connector-150.jpg',
-    description: 'Thanh nối rail A6005-T6, bao gồm 2 bulong M8x20 và đệm vênh inox 304',
-    specifications: `Mã sản phẩm: QM-008
-Kích thước: 150x21.5mm
-Vật liệu: A6005-T6
-Bề mặt: Anod 10-12µm
-Bao gồm:
-- 02 Bulong inox 304 M8x20
-- 02 Long đen vênh inox 304 M8
-Độ dày: 8mm, chịu lực tốt
-Xuất xứ: QM Solar`,
+    stock: 1000,
+    image_url: '/products/vua-can-mai-mac100.jpg',
+    description: 'Vữa cán mái mác 100 dùng xi măng CX Men – phù hợp cho các hạng mục chống thấm nhẹ',
+    specifications: `Cấp phối vữa mác 100:
+Xi măng CX Men: 1 bao (25kg)
+Cát sạch: 3 xô 18L (50kg)
+Nước sạch: 5-8 lít
+Ứng dụng: Tường xây, trát nhẹ`,
     created_at: '2025-01-01T00:00:00Z'
   },
   {
     id: '5',
-    code: 'QM-008-140',
-    name: 'Thanh Nối Rail 140mm',
-    slug: 'thanh-noi-rail-140mm',
-    category_id: 'solar-rails',
-    price: 10000,
-    unit: 'bộ',
-    stock: 2000,
-    image_url: '/products/rail-connector-140.jpg',
-    description: 'Thanh nối rail 140mm, bao gồm 2 bulong M8x20 và đệm vênh',
-    specifications: `Kích thước: 140x21.5mm
-Vật liệu: A6005-T6
-Bao gồm:
-- 02 Bulong M8x20
-- 02 Đệm vênh
-Xuất xứ: QM Solar`,
+    code: 'CX-SENO',
+    name: 'Chống Thấm Seno & Máng Nước',
+    slug: 'chong-tham-seno-mang-nuoc',
+    category_id: 'ung-dung-san-mai',
+    price: null,
+    unit: 'dịch vụ',
+    stock: null,
+    image_url: '/products/chong-tham-seno.jpg',
+    description: 'Thi công chống thấm seno, máng nước, mái hiên bằng xi măng CX Men. Bền vững, chống thấm lâu dài.',
+    specifications: `Ứng dụng: Seno, máng nước, mái hiên
+Vật liệu: Xi măng CX Men + lưới thủy tinh
+Bảo hành: Theo thỏa thuận
+Hotline tư vấn: 0919.229.227`,
     created_at: '2025-01-01T00:00:00Z'
   },
-
-  // Solar Clamps
+  // Ứng dụng nhà vệ sinh & bể nước
   {
     id: '6',
-    code: 'QM-016',
-    name: 'Kẹp Giữa 40x50mm',
-    slug: 'kep-giua-40x50mm',
-    category_id: 'solar-clamps',
-    price: 6200,
-    unit: 'bộ',
-    stock: 5000,
-    image_url: '/products/mid-clamp.jpg',
-    description: 'Kẹp giữa nhôm A6005-T6, dày 4mm, chịu lực tốt, bao gồm bulong và con chạy',
-    specifications: `Mã sản phẩm: QM-016
-Kích thước: 40x50x15mm
-Vật liệu: A6005-T6
-Bề mặt: Anod 10-12µm
-Độ dày: 4mm, chịu lực tốt
-Bao gồm:
-- 01 Trượt nhôm M8
-- 01 Bulong inox 304 M8x40
-- 01 Long đen vênh inox 304 M8
-Xuất xứ: QM Solar`,
+    code: 'CX-NVS',
+    name: 'Chống Thấm Nhà Vệ Sinh',
+    slug: 'chong-tham-nha-ve-sinh',
+    category_id: 'ung-dung-nha-ve-sinh',
+    price: null,
+    unit: 'dịch vụ',
+    stock: null,
+    image_url: '/products/chong-tham-nha-ve-sinh.jpg',
+    description: 'Thi công chống thấm nhà vệ sinh, sàn vệ sinh bằng vữa CX Men. Chống thấm thuận và nghịch cực tốt.',
+    specifications: `Ứng dụng: Nhà vệ sinh, sàn vệ sinh
+Vật liệu: Xi măng CX Men + lưới thủy tinh
+Thi công: Trát tường + cán nền
+Hotline tư vấn: 0919.229.227`,
     created_at: '2025-01-01T00:00:00Z'
   },
   {
     id: '7',
-    code: 'QM-020',
-    name: 'Kẹp Biên Z30/35/40',
-    slug: 'kep-bien-z30-35-40',
-    category_id: 'solar-clamps',
-    price: 6200,
-    unit: 'bộ',
-    stock: 5000,
-    image_url: '/products/end-clamp.jpg',
-    description: 'Kẹp biên nhôm A6005-T6, dày 2.5-4mm, bao gồm bulong M8x25 và con chạy',
-    specifications: `Mã sản phẩm: QM-020
-Kích thước: 30/35/40x50mm
-Vật liệu: A6005-T6
-Bề mặt: Anod 10-12µm
-Độ dày: 2.5-4mm, chịu lực tốt
-Bao gồm:
-- 01 Trượt nhôm M8
-- 01 Bulong inox 304 M8x25
-- 01 Long đen vênh inox 304 M8
-Xuất xứ: QM Solar`,
+    code: 'CX-BE-NUOC',
+    name: 'Chống Thấm Bể Nước & Bể Bơi',
+    slug: 'chong-tham-be-nuoc-be-boi',
+    category_id: 'ung-dung-nha-ve-sinh',
+    price: null,
+    unit: 'dịch vụ',
+    stock: null,
+    image_url: '/products/chong-tham-be-nuoc.jpg',
+    description: 'Xi măng CX Men chống thấm bể nước, bể bơi, hố pit. Chống nồm ẩm, kiềm hóa và muối triệt để.',
+    specifications: `Ứng dụng: Bể nước, bể bơi, hố pit
+Vật liệu: Xi măng CX Men
+Thi công: Trát thành bể + cán đáy bể
+An toàn cho nước sinh hoạt
+Hotline tư vấn: 0919.229.227`,
     created_at: '2025-01-01T00:00:00Z'
   },
   {
     id: '8',
-    code: 'QM-SEAMLOOK',
-    name: 'Kẹp Seamlook/Kliplock 55mm',
-    slug: 'kep-seamlook-kliplock-55mm',
-    category_id: 'solar-clamps',
-    price: 18000,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/seamlook-clamp.jpg',
-    description: 'Kẹp seamlook theo sóng tôn, bao gồm 2 bulong M8x25, ecu và đệm cao su inox 304',
-    specifications: `Chiều dài: 55mm
-Vật liệu: A6005-T6
-Bao gồm:
-- 02 Bulong inox 304 M8x25 / Vít tôn M5.5x75
-- 02 Long đen vênh inox 304 M8
-- 02 Ecu inox 304 M8
-- 01 Đệm cao su 40x40x2mm
-Ứng dụng: Lắp trên mái tôn seamlook, kliplock
-Xuất xứ: QM Solar`,
+    code: 'CX-BAN-CONG',
+    name: 'Chống Thấm Ban Công',
+    slug: 'chong-tham-ban-cong',
+    category_id: 'ung-dung-nha-ve-sinh',
+    price: null,
+    unit: 'dịch vụ',
+    stock: null,
+    image_url: '/products/chong-tham-ban-cong.jpg',
+    description: 'Thi công chống thấm ban công, lô gia bằng xi măng CX Men. Bền vững theo thời gian.',
+    specifications: `Ứng dụng: Ban công, lô gia
+Vật liệu: Xi măng CX Men + lưới thủy tinh
+Thi công: Cán vữa chống thấm
+Hotline tư vấn: 0919.229.227`,
     created_at: '2025-01-01T00:00:00Z'
   },
-
-  // Mounting Brackets
+  // Ứng dụng tường & bê tông
   {
     id: '9',
-    code: 'QM-011',
-    name: 'Chân L 85x50x6mm (Có vít tôn)',
-    slug: 'chan-l-85x50x6mm-co-vit-ton',
-    category_id: 'mounting-brackets',
-    price: 15000,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/l-bracket-with-screw.jpg',
-    description: 'Chân L nhôm A6005-T6, bao gồm bulong, con chạy, vít bắn tôn và đệm cao su',
-    specifications: `Mã sản phẩm: QM-011
-Kích thước: 85x50x6mm
-Vật liệu: A6005-T6
-Chiều dài: 50mm
-Bao gồm:
-- 01 Trượt nhôm M8
-- 01 Bulong inox 304 M8x25
-- 01 Long đen vênh inox 304 M8
-- 01 Vít tôn 5.5x75mm
-- 01 Đệm cao su 50x40x2mm
-Xuất xứ: QM Solar`,
+    code: 'CX-TUONG-NGOAI',
+    name: 'Chống Thấm Tường Ngoài',
+    slug: 'chong-tham-tuong-ngoai',
+    category_id: 'ung-dung-tuong',
+    price: null,
+    unit: 'dịch vụ',
+    stock: null,
+    image_url: '/products/chong-tham-tuong-ngoai.jpg',
+    description: 'Chống thấm tường ngoài, chân tường tầng 1, khe tiếp giáp giữa 2 nhà không trát được bên ngoài.',
+    specifications: `Ứng dụng: Tường ngoài, chân tường tầng 1
+Vật liệu: Xi măng CX Men
+Thi công: Xây trát tường chống thấm
+Hotline tư vấn: 0919.229.227`,
     created_at: '2025-01-01T00:00:00Z'
   },
   {
     id: '10',
-    code: 'QM-011-NO-SCREW',
-    name: 'Chân L 85x50x6mm (Không vít tôn)',
-    slug: 'chan-l-85x50x6mm-khong-vit-ton',
-    category_id: 'mounting-brackets',
-    price: 13500,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/l-bracket-no-screw.jpg',
-    description: 'Chân L nhôm A6005-T6, không bao gồm vít tôn và đệm cao su',
-    specifications: `Mã sản phẩm: QM-011
-Kích thước: 85x50x6mm
-Vật liệu: A6005-T6
-Chiều dài: 50mm
-Bao gồm:
-- 01 Trượt nhôm M8
-- 01 Bulong inox 304 M8x25
-- 01 Long đen vênh inox 304 M8
-Xuất xứ: QM Solar`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '11',
-    code: 'QM-L-85x40',
-    name: 'Chân L 85x40x6mm',
-    slug: 'chan-l-85x40x6mm',
-    category_id: 'mounting-brackets',
-    price: 14000,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/l-bracket-85x40.jpg',
-    description: 'Chân L nhôm dày 6mm, bao gồm bulong M8x25, con chạy và vít bắn tôn',
-    specifications: `Kích thước: 85x40x6mm
-Vật liệu: A6005-T6
-Bao gồm:
-- Bulong M8x25
-- Con chạy
-- Vít bắn tôn
-- Đệm
-Xuất xứ: QM Solar`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-
-  // Grounding Accessories
-  {
-    id: '12',
-    code: 'QM-028',
-    name: 'Kẹp Tiếp Địa Thanh Rail',
-    slug: 'kep-tiep-dia-thanh-rail',
-    category_id: 'grounding-accessories',
-    price: 10000,
-    unit: 'bộ',
-    stock: 2000,
-    image_url: '/products/grounding-clamp-rail.jpg',
-    description: 'Kẹp tiếp địa cho thanh rail, bao gồm bulong và mảnh tiếp địa mini',
-    specifications: `Mã sản phẩm: QM-028
-Vật liệu: A6005-T6
-Chiều dài: 40mm
-Bao gồm:
-- 01 Trượt nhôm M8
-- 01 Bulong inox 304 M8x25
-- 01 Long đen vênh inox 304 M8
-- 01 Bulong inox 304 M8
-- 01 Mảnh tiếp địa mini
-Xuất xứ: QM Solar`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '13',
-    code: 'QM-028-20',
-    name: 'Kẹp Tiếp Địa 20mm',
-    slug: 'kep-tiep-dia-20mm',
-    category_id: 'grounding-accessories',
-    price: 12000,
-    unit: 'bộ',
-    stock: 2000,
-    image_url: '/products/grounding-clamp-20.jpg',
-    description: 'Kẹp tiếp địa 20mm, bao gồm bulong inox 304, đệm vênh và bích tiếp địa',
-    specifications: `Kích thước: 20mm
-Bao gồm:
-- 01 Bulong inox 304 M8x25
-- 01 Bulong M6x16
-- Đệm vênh
-- Con trượt
-- Bích tiếp địa
-Vật liệu: Inox 304`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '14',
-    code: 'QM-033',
-    name: 'Lá Tiếp Địa',
-    slug: 'la-tiep-dia',
-    category_id: 'grounding-accessories',
-    price: 1100,
-    unit: 'cái',
-    stock: 10000,
-    image_url: '/products/grounding-plate.jpg',
-    description: 'Lá tiếp địa inox 304, chất lượng cao, chống ăn mòn',
-    specifications: `Mã sản phẩm: QM-033
-Vật liệu: Inox 304
-Đặc điểm: Chống ăn mòn, độ bền cao
-Ứng dụng: Tiếp địa an toàn cho hệ thống solar`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '15',
-    code: 'QM-034',
-    name: 'Kẹp Dây DC',
-    slug: 'kep-day-dc',
-    category_id: 'grounding-accessories',
-    price: 1250,
-    unit: 'chiếc',
-    stock: 10000,
-    image_url: '/products/dc-cable-clamp.jpg',
-    description: 'Kẹp dây DC inox 304, cố định dây điện an toàn',
-    specifications: `Mã sản phẩm: QM-034
-Vật liệu: Inox 304
-Đặc điểm: Chống ăn mòn, cố định chắc chắn
-Ứng dụng: Cố định dây DC trong hệ thống solar`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-
-  // Additional Accessories & Hardware
-  {
-    id: '16',
-    code: 'QM-00909',
-    name: 'Pat Chữ Z 200x100x2mm',
-    slug: 'pat-chu-z-200x100x2mm',
-    category_id: 'mounting-brackets',
+    code: 'CX-BE-TONG',
+    name: 'Đổ Bê Tông Chống Thấm',
+    slug: 'do-be-tong-chong-tham',
+    category_id: 'ung-dung-tuong',
     price: null,
-    unit: 'cái',
-    stock: 1000,
-    image_url: '/products/z-bracket.jpg',
-    description: 'Pat chữ Z nhôm, kích thước 200x100x2mm, dùng cho kết cấu đặc biệt',
-    specifications: `Mã sản phẩm: QM-00909
-Kích thước: 200x100x2mm
-Vật liệu: Nhôm A6005
-Ứng dụng: Kết cấu đặc biệt, giá đỡ`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '17',
-    code: 'QM-01010',
-    name: 'Chân Chữ L 40x80x6mm',
-    slug: 'chan-chu-l-40x80x6mm',
-    category_id: 'mounting-brackets',
-    price: null,
-    unit: 'bộ',
-    stock: 2000,
-    image_url: '/products/l-bracket-40x80.jpg',
-    description: 'Chân L nhôm 40x80x6mm, chịu lực tốt',
-    specifications: `Mã sản phẩm: QM-01010
-Kích thước: 40x80x6mm
-Vật liệu: Nhôm A6005
-Độ dày: 6mm`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '18',
-    code: 'QM-01111',
-    name: 'Bộ Chân Chữ L1 40x80x6mm',
-    slug: 'bo-chan-chu-l1-40x80x6mm',
-    category_id: 'mounting-brackets',
-    price: null,
-    unit: 'bộ',
-    stock: 2000,
-    image_url: '/products/l-bracket-set-1.jpg',
-    description: 'Bộ chân L1 hoàn chỉnh với phụ kiện',
-    specifications: `Mã sản phẩm: QM-01111
-Kích thước: 40x80x6mm
-Bao gồm: Chân L + phụ kiện lắp đặt`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '19',
-    code: 'QM-01212',
-    name: 'Bộ Chân Chữ L2 40x125x6mm',
-    slug: 'bo-chan-chu-l2-40x125x6mm',
-    category_id: 'mounting-brackets',
-    price: null,
-    unit: 'bộ',
-    stock: 1500,
-    image_url: '/products/l-bracket-set-2.jpg',
-    description: 'Bộ chân L2 kích thước lớn 40x125x6mm',
-    specifications: `Mã sản phẩm: QM-01212
-Kích thước: 40x125x6mm
-Bao gồm: Chân L + phụ kiện lắp đặt`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '20',
-    code: 'QM-01313',
-    name: 'Con Trượt Cân 21mm',
-    slug: 'con-truot-can-21mm',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'cái',
-    stock: 5000,
-    image_url: '/products/sliding-nut-21.jpg',
-    description: 'Con trượt cân 21mm, phụ kiện lắp đặt',
-    specifications: `Mã sản phẩm: QM-01313
-Kích thước: 21mm
-Vật liệu: Nhôm
-Ứng dụng: Lắp với thanh ray`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '21',
-    code: 'QM-01414',
-    name: 'Con Trượt + Bulong Inox 304',
-    slug: 'con-truot-bulong-inox-304',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'bộ',
-    stock: 5000,
-    image_url: '/products/sliding-nut-bolt.jpg',
-    description: 'Bộ con trượt kèm bulong inox 304',
-    specifications: `Mã sản phẩm: QM-01414
-Bao gồm: Con trượt + Bulong inox 304
-Vật liệu: Inox 304`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '22',
-    code: 'QM-01515',
-    name: 'Kẹp U 30x60mm Mạ Kẽm',
-    slug: 'kep-u-30x60mm-ma-kem',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'cái',
-    stock: 3000,
-    image_url: '/products/u-clamp-galvanized.jpg',
-    description: 'Kẹp U mạ kẽm 30x60mm, chống gỉ',
-    specifications: `Mã sản phẩm: QM-01515
-Kích thước: 30x60mm
-Vật liệu: Thép mạ kẽm
-Đặc điểm: Chống gỉ, bền bỉ`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '23',
-    code: 'QM-01616',
-    name: 'Kẹp Giữa 35/40 Chìm',
-    slug: 'kep-giua-35-40-chim',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/mid-clamp-flush.jpg',
-    description: 'Kẹp giữa 35/40mm kiểu chìm, thẩm mỹ cao',
-    specifications: `Mã sản phẩm: QM-01616
-Kích thước: 35/40mm
-Kiểu: Chìm (flush mount)
-Vật liệu: Nhôm A6005-T6`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '24',
-    code: 'QM-01717',
-    name: 'Kẹp Giữa 35/40 Nổi',
-    slug: 'kep-giua-35-40-noi',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/mid-clamp-raised.jpg',
-    description: 'Kẹp giữa 35/40mm kiểu nổi',
-    specifications: `Mã sản phẩm: QM-01717
-Kích thước: 35/40mm
-Kiểu: Nổi (raised mount)
-Vật liệu: Nhôm A6005-T6`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '25',
-    code: 'QM-01818',
-    name: 'Kẹp Tiếp Địa (Catalog)',
-    slug: 'kep-tiep-dia-catalog',
-    category_id: 'grounding-accessories',
-    price: null,
-    unit: 'bộ',
-    stock: 2000,
-    image_url: '/products/grounding-clamp-catalog.jpg',
-    description: 'Kẹp tiếp địa theo catalog',
-    specifications: `Mã sản phẩm: QM-01818
-Vật liệu: Nhôm A6005 + Inox 304
-Ứng dụng: Tiếp địa an toàn`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '26',
-    code: 'QM-01919',
-    name: 'Kẹp Sóng Tôn Vuông',
-    slug: 'kep-song-ton-vuong',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'bộ',
-    stock: 2000,
-    image_url: '/products/square-tile-clamp.jpg',
-    description: 'Kẹp sóng tôn vuông, lắp trên mái tôn',
-    specifications: `Mã sản phẩm: QM-01919
-Vật liệu: Nhôm A6005
-Ứng dụng: Mái tôn sóng vuông`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '27',
-    code: 'QM-02020',
-    name: 'Kẹp Biên 30mm',
-    slug: 'kep-bien-30mm',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/end-clamp-30.jpg',
-    description: 'Kẹp biên 30mm cho tấm pin mỏng',
-    specifications: `Mã sản phẩm: QM-02020
-Kích thước: 30mm
-Vật liệu: Nhôm A6005-T6`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '28',
-    code: 'QM-02121',
-    name: 'Kẹp Biên 35mm',
-    slug: 'kep-bien-35mm',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/end-clamp-35.jpg',
-    description: 'Kẹp biên 35mm, phổ biến nhất',
-    specifications: `Mã sản phẩm: QM-02121
-Kích thước: 35mm
-Vật liệu: Nhôm A6005-T6`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '29',
-    code: 'QM-02222',
-    name: 'Kẹp Biên 40mm',
-    slug: 'kep-bien-40mm',
-    category_id: 'solar-clamps',
-    price: null,
-    unit: 'bộ',
-    stock: 3000,
-    image_url: '/products/end-clamp-40.jpg',
-    description: 'Kẹp biên 40mm cho tấm pin dày',
-    specifications: `Mã sản phẩm: QM-02222
-Kích thước: 40mm
-Vật liệu: Nhôm A6005-T6`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '30',
-    code: 'QM-03131',
-    name: 'Vít Bắn Tôn 5.5x75mm',
-    slug: 'vit-ban-ton-5-5x75mm',
-    category_id: 'grounding-accessories',
-    price: null,
-    unit: 'cái',
-    stock: 10000,
-    image_url: '/products/self-drilling-screw-55.jpg',
-    description: 'Vít bắn tôn 5.5x75mm, inox 304',
-    specifications: `Mã sản phẩm: QM-03131
-Kích thước: 5.5x75mm
-Vật liệu: Inox 304
-Ứng dụng: Bắn vào tôn, kết cấu thép`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '31',
-    code: 'QM-03131-63',
-    name: 'Vít Bắn Tôn 6.3x75mm',
-    slug: 'vit-ban-ton-6-3x75mm',
-    category_id: 'grounding-accessories',
-    price: null,
-    unit: 'cái',
-    stock: 10000,
-    image_url: '/products/self-drilling-screw-63.jpg',
-    description: 'Vít bắn tôn 6.3x75mm, inox 304',
-    specifications: `Mã sản phẩm: QM-03131
-Kích thước: 6.3x75mm
-Vật liệu: Inox 304
-Ứng dụng: Bắn vào tôn, kết cấu thép`,
-    created_at: '2025-01-01T00:00:00Z'
-  },
-  {
-    id: '32',
-    code: 'QM-03232',
-    name: 'Bulong Lục Giác M8 (20/25/40/50mm)',
-    slug: 'bulong-luc-giac-m8',
-    category_id: 'grounding-accessories',
-    price: null,
-    unit: 'cái',
-    stock: 20000,
-    image_url: '/products/hex-bolt-m8.jpg',
-    description: 'Bulong lục giác M8 inox 304, nhiều chiều dài',
-    specifications: `Mã sản phẩm: QM-03232
-Kích thước: M8x20, M8x25, M8x40, M8x50mm
-Vật liệu: Inox 304
-Loại: Lục giác`,
+    unit: 'dịch vụ',
+    stock: null,
+    image_url: '/products/do-be-tong-chong-tham.jpg',
+    description: 'Xi măng CX Men PCB 40 đa dụng dùng để đổ bê tông. Cường độ sớm cao, cho phép tháo ván khuôn sớm hơn.',
+    specifications: `Ứng dụng: Đổ bê tông, vữa xây
+Loại: Xi măng pooclang PCB 40
+Cường độ sớm cao, tháo ván khuôn sớm
+Tiết kiệm thời gian và chi phí thi công
+Hotline tư vấn: 0919.229.227`,
     created_at: '2025-01-01T00:00:00Z'
   }
 ]
-
 // Helper functions
 export function getProducts(categoryId?: string): Product[] {
   if (!categoryId || categoryId === 'all') {

@@ -1,10 +1,7 @@
 ---
 import '../styles/global.css'
-import LanguageSwitcher from '../components/LanguageSwitcher.astro'
 import BottomNav from '../components/BottomNav'
 import QuickContactModal from '../components/QuickContactModal'
-import { getLangFromUrl, type Language } from '../i18n/languages'
-import { getLocalizedPath } from '../i18n/url-utils'
 
 interface Props {
   title: string
@@ -12,75 +9,64 @@ interface Props {
   keywords?: string[]
   ogImage?: string
   canonical?: string
-  lang?: Language
 }
-
-const currentLang = Astro.props.lang || getLangFromUrl(Astro.url)
 
 const { 
   title, 
-  description = currentLang === 'en' 
-    ? 'Quang Minh specializes in manufacturing A6005-T6 industrial aluminum: solar rails, mid/end clamps, L-brackets, grounding accessories for solar energy systems. High quality, competitive prices, exporting to Southeast Asia.'
-    : currentLang === 'cn'
-    ? '光明专业生产A6005-T6工业铝材：太阳能导轨、中间夹/端夹、L型支架、太阳能系统接地配件。高质量、有竞争力的价格、出口到东南亚。'
-    : 'Quang Minh chuyên sản xuất và cung cấp nhôm công nghiệp A6005-T6: thanh ray nhôm, kẹp giữa/biên, chân L, phụ kiện tiếp địa cho hệ thống năng lượng mặt trời. Chất lượng cao, giá cạnh tranh, xuất khẩu Đông Nam Á.',
+  description = 'CX-MEN chuyên cung cấp xi măng chống thấm pooclang PCB 40 chất lượng cao cho gia đình và nhà ở. Chống thấm hiệu quả, bền vững theo thời gian.',
   keywords = [
-    'nhôm A6005-T6',
-    'thanh ray nhôm solar',
-    'kẹp nhôm năng lượng mặt trời',
-    'aluminum solar rails',
-    'solar mounting systems',
-    'A6005-T6 aluminum profiles',
-    'kẹp giữa kẹp biên',
-    'chân L nhôm',
-    'mid clamp end clamp',
-    'L-bracket aluminum',
-    'Quang Minh',
-    'QM Solar',
-    'nhôm công nghiệp',
-    'industrial aluminum',
-    'Hà Nam Vietnam'
+    'xi măng chống thấm CX-MEN',
+    'xi măng chống thấm chính hãng',
+    'xi măng pooclang PCB 40',
+    'chống thấm sàn mái',
+    'chống thấm nhà vệ sinh',
+    'chống thấm bể nước',
+    'vữa chống thấm',
+    'xi măng chống thấm Hà Nội',
+    'mua xi măng chống thấm',
+    'giá xi măng chống thấm',
+    'chống thấm nhà ở',
+    'chống thấm gia đình',
+    'sửa chữa thấm nước'
   ],
-  ogImage = '/nha-may.png',
+  ogImage = '/cx-men-logo.svg',
   canonical
 } = Astro.props
 
-const APP_URL = 'https://app.qmalu.com'
 const SITE_URL = Astro.url.origin
 const currentUrl = canonical || Astro.url.pathname
 const fullUrl = `${SITE_URL}${currentUrl}`
 const ogImageUrl = `${SITE_URL}${ogImage}`
 
 // Add hotline to Open Graph description
-const ogDescription = `${description} | Hotline: 0947 776 662`
+const ogDescription = `${description} | Hotline: 0962916488`
 
 // Structured Data - Organization
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Nhôm Quang Minh",
-  "alternateName": "Công ty Cổ phần Nhôm Quang Minh",
+  "name": "CX-MEN",
+  "alternateName": "Công ty Cổ phần PCS Quốc Tế",
   "url": SITE_URL,
-  "logo": `${SITE_URL}/quang-minh-logo.svg`,
+  "logo": `${SITE_URL}/cx-men-logo.svg`,
   "description": description,
-  "foundingDate": "2008",
+  "foundingDate": "2000",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Km 50 Quốc lộ 1A, Xã Tiên Tân",
-    "addressLocality": "Phủ Lý",
-    "addressRegion": "Hà Nam",
+    "streetAddress": "Số 790 Quang Trung",
+    "addressLocality": "Hà Đông",
+    "addressRegion": "Hà Nội",
     "addressCountry": "VN"
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+84-947-776-662",
+    "telephone": "+84-962-916-488",
     "contactType": "customer service",
     "areaServed": "VN",
-    "availableLanguage": ["vi", "en"]
+    "availableLanguage": ["vi"]
   },
   "sameAs": [
-    "https://www.facebook.com/appevn",
-    "https://appe.com.vn"
+    "https://phugiachongtham24h.com"
   ]
 }
 
@@ -88,28 +74,28 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Nhôm Quang Minh",
+  "name": "CX-MEN",
   "url": SITE_URL,
   "description": description,
   "publisher": {
     "@type": "Organization",
-    "name": "Nhôm Quang Minh",
+    "name": "CX-MEN",
     "logo": {
       "@type": "ImageObject",
-      "url": `${SITE_URL}/quang-minh-logo.svg`
+      "url": `${SITE_URL}/cx-men-logo.svg`
     }
   }
 }
 ---
 
 <!DOCTYPE html>
-<html lang={currentLang}>
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(', ')} />
-    <meta name="author" content="Nhôm Quang Minh" />
+    <meta name="author" content="CX-MEN" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     
     <!-- Canonical URL -->
@@ -127,29 +113,8 @@ const websiteSchema = {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="Nhôm Quang Minh" />
-    <meta property="og:locale" content={currentLang === 'en' ? 'en_US' : currentLang === 'cn' ? 'zh_CN' : 'vi_VN'} />
-    
-    <!-- Alternate Language Links -->
-    {currentLang === 'vi' && canonical && (
-      <>
-        <link rel="alternate" hreflang="en" href={`${SITE_URL}/en${canonical}`} />
-        <link rel="alternate" hreflang="zh" href={`${SITE_URL}/cn${canonical}`} />
-      </>
-    )}
-    {currentLang === 'en' && canonical && (
-      <>
-        <link rel="alternate" hreflang="vi" href={`${SITE_URL}${canonical.replace('/en', '')}`} />
-        <link rel="alternate" hreflang="zh" href={`${SITE_URL}/cn${canonical.replace('/en', '')}`} />
-      </>
-    )}
-    {currentLang === 'cn' && canonical && (
-      <>
-        <link rel="alternate" hreflang="vi" href={`${SITE_URL}${canonical.replace('/cn', '')}`} />
-        <link rel="alternate" hreflang="en" href={`${SITE_URL}/en${canonical.replace('/cn', '')}`} />
-      </>
-    )}
-    <link rel="alternate" hreflang="x-default" href={`${SITE_URL}${canonical?.replace('/en', '').replace('/cn', '') || '/'}`} />
+    <meta property="og:site_name" content="CX-MEN" />
+    <meta property="og:locale" content="vi_VN" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -157,8 +122,8 @@ const websiteSchema = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
-    <meta name="twitter:creator" content="@quangminhaluminum" />
-    <meta name="twitter:site" content="@quangminhaluminum" />
+    <meta name="twitter:creator" content="@cxmen" />
+    <meta name="twitter:site" content="@cxmen" />
     
     <!-- Zalo Open Graph -->
     <meta property="zalo:title" content={title} />
@@ -169,23 +134,11 @@ const websiteSchema = {
     <meta property="zalo:image:height" content="630" />
     <meta property="zalo:type" content="website" />
     
-    <!-- LinkedIn -->
-    <meta property="og:type" content="website" />
-    <meta property="article:author" content="Quang Minh Technology" />
-    
-    <!-- WhatsApp / Telegram -->
-    <meta property="og:image:alt" content={`${title} - Nhôm Quang Minh`} />
-    <meta property="og:image:secure_url" content={ogImageUrl} />
-    
-    <!-- Pinterest -->
-    <meta name="pinterest-rich-pin" content="true" />
-    <meta property="og:see_also" content={SITE_URL} />
-    
     <!-- Additional SEO Meta Tags -->
-    <meta name="geo.region" content="VN-63" />
-    <meta name="geo.placename" content="Hà Nam" />
-    <meta name="geo.position" content="20.5385;105.9189" />
-    <meta name="ICBM" content="20.5385, 105.9189" />
+    <meta name="geo.region" content="VN-HN" />
+    <meta name="geo.placename" content="Hà Nội" />
+    <meta name="geo.position" content="20.9719;105.7852" />
+    <meta name="ICBM" content="20.9719, 105.7852" />
     <meta name="language" content="Vietnamese" />
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
@@ -194,39 +147,27 @@ const websiteSchema = {
     <meta name="target" content="all" />
     <meta name="audience" content="all" />
     <meta name="classification" content="Business" />
-    <meta name="category" content="Industrial Aluminum, Solar Energy, Manufacturing" />
-    <meta name="subject" content="Sản xuất nhôm công nghiệp và phụ kiện năng lượng mặt trời" />
-    <meta name="copyright" content="Nhôm Quang Minh" />
-    <meta name="owner" content="Nhôm Quang Minh" />
-    <meta name="reply-to" content="info@qmalu.com" />
+    <meta name="category" content="Xi măng chống thấm, Vật liệu xây dựng" />
+    <meta name="subject" content="Xi măng chống thấm CX-MEN cho gia đình" />
+    <meta name="copyright" content="CX-MEN" />
+    <meta name="owner" content="CX-MEN" />
+    <meta name="reply-to" content="chongthamtoanquoc24h@gmail.com" />
     <meta name="url" content={fullUrl} />
     <meta name="identifier-URL" content={fullUrl} />
     <meta name="directory" content="submission" />
     <meta name="pagename" content={title} />
-    <meta name="page-topic" content="Industrial Aluminum, Solar Mounting Systems, A6005-T6 Profiles" />
+    <meta name="page-topic" content="Xi măng chống thấm, Chống thấm gia đình, CX-MEN" />
     <meta name="page-type" content="Business Website" />
-    
-    <!-- Facebook Domain Verification -->
-    <meta name="facebook-domain-verification" content="YOUR_FB_DOMAIN_VERIFICATION" />
-    
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
-    
-    <!-- Bing Webmaster -->
-    <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
-    
-    <!-- Yandex Verification -->
-    <meta name="yandex-verification" content="YOUR_YANDEX_VERIFICATION_CODE" />
     
     <!-- Theme & Mobile -->
     <meta name="theme-color" content="#e6282b" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Quang Minh" />
+    <meta name="apple-mobile-web-app-title" content="CX-MEN" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="Quang Minh" />
+    <meta name="application-name" content="CX-MEN" />
     <meta name="msapplication-TileColor" content="#e6282b" />
-    <meta name="msapplication-TileImage" content="/quang-minh-square-logo.svg" />
+    <meta name="msapplication-TileImage" content="/cx-men-logo.svg" />
     
     <!-- Format Detection -->
     <meta name="format-detection" content="telephone=yes" />
@@ -236,14 +177,14 @@ const websiteSchema = {
     <title>{title}</title>
     
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="/quang-minh-square-logo.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/quang-minh-square-logo.svg" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/quang-minh-square-logo.svg" />
-    <link rel="apple-touch-icon" href="/quang-minh-square-logo.svg" sizes="180x180" />
-    <link rel="apple-touch-icon-precomposed" href="/quang-minh-square-logo.svg" />
-    <link rel="mask-icon" href="/quang-minh-square-logo.svg" color="#e6282b" />
-    <link rel="icon" type="image/svg+xml" sizes="192x192" href="/quang-minh-square-logo.svg" />
-    <link rel="icon" type="image/svg+xml" sizes="512x512" href="/quang-minh-square-logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/cx-men-logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/cx-men-logo.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/cx-men-logo.svg" />
+    <link rel="apple-touch-icon" href="/cx-men-logo.svg" sizes="180x180" />
+    <link rel="apple-touch-icon-precomposed" href="/cx-men-logo.svg" />
+    <link rel="mask-icon" href="/cx-men-logo.svg" color="#e6282b" />
+    <link rel="icon" type="image/svg+xml" sizes="192x192" href="/cx-men-logo.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="512x512" href="/cx-men-logo.svg" />
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
@@ -260,95 +201,39 @@ const websiteSchema = {
     <link rel="dns-prefetch" href="https://www.clarity.ms" />
     
     <!-- Preload critical assets -->
-    <link rel="preload" href="/quang-minh-logo.svg" as="image" type="image/svg+xml" />
-    <link rel="preload" href="/quang-minh-square-logo.svg" as="image" type="image/svg+xml" />
-    
-    <!-- Google Analytics 4 with Partytown -->
-    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-KL7B65498K"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-KL7B65498K', {
-        page_path: window.location.pathname,
-        send_page_view: true
-      });
-    </script>
-    
-    <!-- Microsoft Clarity -->
-    <script type="text/partytown">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "o8iqxqxqxq");
-    </script>
-    
-    <!-- Facebook Pixel -->
-    <script type="text/partytown">
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
-      fbq('track', 'PageView');
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=YOUR_FACEBOOK_PIXEL_ID&ev=PageView&noscript=1"
-      />
-    </noscript>
+    <link rel="preload" href="/cx-men-logo.svg" as="image" type="image/svg+xml" />
   </head>
 <body class="bg-white min-h-screen has-bottom-nav">
     <!-- Skip Links for Accessibility -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300">
-      {currentLang === 'en' ? 'Skip to main content' : currentLang === 'cn' ? '跳转到主要内容' : 'Chuyển đến nội dung chính'}
+      Chuyển đến nội dung chính
     </a>
     <a href="#main-nav" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-40 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300">
-      {currentLang === 'en' ? 'Skip to navigation' : currentLang === 'cn' ? '跳转到导航' : 'Chuyển đến điều hướng'}
+      Chuyển đến điều hướng
     </a>
 
-    <!-- Header - Apple Style -->
+    <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-2xl border-b border-gray-200/80 transition-all duration-300">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-14">
           <!-- Logo -->
           <a href="/" class="flex items-center group -ml-2">
-            <img 
-              src="/quang-minh-logo.svg" 
-              alt="Quang Minh Logo" 
-              class="h-10 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-200"
-            />
+            <span class="text-xl font-bold text-primary hover:text-primary-dark transition-colors duration-200">
+              CX-MEN
+            </span>
           </a>
 
           <!-- Desktop Navigation -->
           <nav id="main-nav" class="hidden md:flex items-center gap-8" role="navigation" aria-label="Main navigation">
-            <a href={currentLang === 'en' ? '/en' : currentLang === 'cn' ? '/cn' : '/'} class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
-              {currentLang === 'en' ? 'Home' : currentLang === 'cn' ? '首页' : 'Trang chủ'}
+            <a href="/" class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
+              Trang chủ
             </a>
-            <a href={currentLang === 'en' ? '/en/about' : currentLang === 'cn' ? '/cn/about' : '/gioi-thieu'} class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
-              {currentLang === 'en' ? 'About' : currentLang === 'cn' ? '关于我们' : 'Giới thiệu'}
+            <a href="/lien-he" class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
+              Liên hệ
             </a>
-            <a href={currentLang === 'en' ? '/en/products' : currentLang === 'cn' ? '/cn/products' : '/san-pham'} class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
-              {currentLang === 'en' ? 'Products' : currentLang === 'cn' ? '产品' : 'Sản phẩm'}
+            <a href="/cau-hoi-thuong-gap" class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
+              FAQ
             </a>
-            <a href={currentLang === 'en' ? '/en/projects' : currentLang === 'cn' ? '/cn/projects' : '/du-an'} class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
-              {currentLang === 'en' ? 'Projects' : currentLang === 'cn' ? '项目' : 'Dự án'}
-            </a>
-            <a href={currentLang === 'en' ? '/en/partners' : currentLang === 'cn' ? '/cn/partners' : '/doi-tac'} class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
-              {currentLang === 'en' ? 'Partners' : currentLang === 'cn' ? '合作伙伴' : 'Đối tác'}
-            </a>
-            <a href={currentLang === 'en' ? '/en/news' : currentLang === 'cn' ? '/cn/news' : '/tin-tuc'} class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
-              {currentLang === 'en' ? 'News' : currentLang === 'cn' ? '新闻' : 'Tin tức'}
-            </a>
-            <a href={currentLang === 'en' ? '/en/contact' : currentLang === 'cn' ? '/cn/contact' : '/lien-he'} class="text-[12px] font-normal text-gray-800 hover:text-gray-900 transition-colors duration-200 tracking-tight">
-              {currentLang === 'en' ? 'Contact' : currentLang === 'cn' ? '联系我们' : 'Liên hệ'}
-            </a>
-            <LanguageSwitcher />
           </nav>
 
           <!-- Mobile Menu Button -->
@@ -371,7 +256,7 @@ const websiteSchema = {
       class="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden opacity-0 pointer-events-none transition-opacity duration-300"
     ></div>
 
-    <!-- Mobile Menu - Dropdown from top -->
+    <!-- Mobile Menu -->
     <div 
       id="mobile-menu"
       class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-2xl z-50 transform -translate-y-full transition-transform duration-400 ease-out md:hidden border-b border-gray-200"
@@ -380,11 +265,9 @@ const websiteSchema = {
         <!-- Mobile Menu Header -->
         <div class="flex items-center justify-between h-12 border-b border-gray-200/50">
           <div class="flex items-center">
-            <img 
-              src="/quang-minh-logo.svg" 
-              alt="Quang Minh Logo" 
-              class="h-9 w-auto object-contain opacity-90"
-            />
+            <span class="text-lg font-bold text-primary">
+              CX-MEN
+            </span>
           </div>
           <button
             id="mobile-menu-close"
@@ -400,48 +283,15 @@ const websiteSchema = {
         <!-- Mobile Menu Content -->
         <nav class="py-4">
           <div class="space-y-0.5">
-            <a href={currentLang === 'en' ? '/en' : currentLang === 'cn' ? '/cn' : '/'} class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
-              {currentLang === 'en' ? 'Home' : currentLang === 'cn' ? '首页' : 'Trang chủ'}
+            <a href="/" class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
+              Trang chủ
             </a>
-            <a href={currentLang === 'en' ? '/en/about' : currentLang === 'cn' ? '/cn/about' : '/gioi-thieu'} class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
-              {currentLang === 'en' ? 'About' : currentLang === 'cn' ? '关于我们' : 'Giới thiệu'}
+            <a href="/lien-he" class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
+              Liên hệ
             </a>
-            <a href={currentLang === 'en' ? '/en/products' : currentLang === 'cn' ? '/cn/products' : '/san-pham'} class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
-              {currentLang === 'en' ? 'Products' : currentLang === 'cn' ? '产品' : 'Sản phẩm'}
+            <a href="/cau-hoi-thuong-gap" class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
+              FAQ
             </a>
-            <a href={currentLang === 'en' ? '/en/projects' : currentLang === 'cn' ? '/cn/projects' : '/du-an'} class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
-              {currentLang === 'en' ? 'Projects' : currentLang === 'cn' ? '项目' : 'Dự án'}
-            </a>
-            <a href={currentLang === 'en' ? '/en/partners' : currentLang === 'cn' ? '/cn/partners' : '/doi-tac'} class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
-              {currentLang === 'en' ? 'Partners' : currentLang === 'cn' ? '合作伙伴' : 'Đối tác'}
-            </a>
-            <a href={currentLang === 'en' ? '/en/news' : currentLang === 'cn' ? '/cn/news' : '/tin-tuc'} class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
-              {currentLang === 'en' ? 'News' : currentLang === 'cn' ? '新闻' : 'Tin tức'}
-            </a>
-            <a href={currentLang === 'en' ? '/en/contact' : currentLang === 'cn' ? '/cn/contact' : '/lien-he'} class="mobile-menu-link block px-3 py-2.5 text-[14px] text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors font-normal">
-              {currentLang === 'en' ? 'Contact' : currentLang === 'cn' ? '联系我们' : 'Liên hệ'}
-            </a>
-            
-            <!-- Language Switcher in Mobile -->
-            <div class="px-3 py-2.5">
-              <div class="flex items-center gap-2 text-[14px] text-gray-600">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                </svg>
-                <span class="font-medium">{currentLang === 'en' ? 'Language' : currentLang === 'cn' ? '语言' : 'Ngôn ngữ'}</span>
-              </div>
-              <div class="mt-2 space-y-1">
-                <a href={getLocalizedPath(Astro.url.pathname, 'vi')} class="block px-3 py-2 text-[13px] rounded-lg transition-colors" class:list={[currentLang === 'vi' ? 'bg-gray-100 text-gray-900 font-semibold' : 'text-gray-600 hover:bg-gray-50']}>
-                  🇻🇳 Tiếng Việt
-                </a>
-                <a href={getLocalizedPath(Astro.url.pathname, 'en')} class="block px-3 py-2 text-[13px] rounded-lg transition-colors" class:list={[currentLang === 'en' ? 'bg-gray-100 text-gray-900 font-semibold' : 'text-gray-600 hover:bg-gray-50']}>
-                  🇬🇧 English
-                </a>
-                <a href={getLocalizedPath(Astro.url.pathname, 'cn')} class="block px-3 py-2 text-[13px] rounded-lg transition-colors" class:list={[currentLang === 'cn' ? 'bg-gray-100 text-gray-900 font-semibold' : 'text-gray-600 hover:bg-gray-50']}>
-                  🇨🇳 中文
-                </a>
-              </div>
-            </div>
           </div>
         </nav>
       </div>
@@ -550,235 +400,63 @@ if (menuButton && menuClose && menu && overlay) {
       <slot />
     </main>
 
-    <!-- Mobile Bottom Navigation - Global -->
+    <!-- Mobile Bottom Navigation -->
     <BottomNav currentPath={Astro.url.pathname} client:load />
 
-    <!-- Quick Contact Modal - Mobile -->
-    <QuickContactModal lang={currentLang} client:load />
+    <!-- Quick Contact Modal -->
+    <QuickContactModal client:load />
 
-    <!-- Footer - Apple Style -->
+    <!-- Footer -->
     <footer class="bg-[#f5f5f7] text-gray-900 border-t border-gray-200">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Main Footer Content -->
         <div class="py-12 md:py-16">
-          <!-- Top Section: App Downloads & Company Info -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 pb-12 border-b border-gray-300">
-            <!-- Left: Mobile Apps -->
-            <div>
-              <h3 class="text-2xl md:text-3xl font-semibold mb-4 tracking-tight">
-                {currentLang === 'en' ? 'Download Quang Minh App' : currentLang === 'cn' ? '下载Quang Minh应用' : 'Tải ứng dụng Quang Minh'}
-              </h3>
-              <p class="text-gray-600 mb-6 text-sm md:text-base font-light leading-relaxed max-w-md">
-                {currentLang === 'en' 
-                  ? 'Manage orders, track projects and receive exclusive offers right on your phone'
-                  : currentLang === 'cn'
-                  ? '管理订单、跟踪项目并在手机上获得独家优惠'
-                  : 'Quản lý đơn hàng, theo dõi dự án và nhận ưu đãi độc quyền ngay trên điện thoại'
-                }
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div class="lg:col-span-2">
+              <div class="mb-4">
+                <span class="text-2xl font-bold text-primary">CX-MEN</span>
+              </div>
+              <p class="text-gray-600 mb-4 max-w-md">
+                CX-MEN - Thương hiệu xi măng chống thấm hàng đầu Việt Nam. Chuyên cung cấp xi măng chống thấm pooclang PCB 40 chất lượng cao cho gia đình.
               </p>
-              <div class="flex flex-col sm:flex-row gap-3">
-                <!-- App Store Badge -->
-                <a 
-                  href={currentLang === 'en' ? '/en/app' : currentLang === 'cn' ? '/cn/app' : '/ung-dung'}
-                  class="inline-flex items-center gap-3 bg-black text-white px-5 py-3 rounded-lg hover:bg-gray-800 transition-all group"
-                  aria-label="Download on App Store"
-                >
-                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                  </svg>
-                  <div class="text-left">
-                    <div class="text-[10px] opacity-90">{currentLang === 'en' ? 'Download on' : currentLang === 'cn' ? '下载于' : 'Tải trên'}</div>
-                    <div class="text-base font-semibold -mt-0.5">App Store</div>
-                  </div>
-                </a>
-                
-                <!-- Google Play Badge -->
-                <a 
-                  href={currentLang === 'en' ? '/en/app' : currentLang === 'cn' ? '/cn/app' : '/ung-dung'}
-                  class="inline-flex items-center gap-3 bg-black text-white px-5 py-3 rounded-lg hover:bg-gray-800 transition-all group"
-                  aria-label="Get it on Google Play"
-                >
-                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                  </svg>
-                  <div class="text-left">
-                    <div class="text-[10px] opacity-90">{currentLang === 'en' ? 'Get it on' : currentLang === 'cn' ? '获取于' : 'Tải trên'}</div>
-                    <div class="text-base font-semibold -mt-0.5">Google Play</div>
-                  </div>
-                </a>
+              <div class="space-y-2 text-sm">
+                <p><strong>Địa chỉ:</strong> Số 790 Quang Trung, Hà Đông, Hà Nội</p>
+                <p><strong>Hotline:</strong> <a href="tel:0962916488" class="text-primary hover:underline">0962916488</a></p>
+                <p><strong>Email:</strong> <a href="mailto:chongthamtoanquoc24h@gmail.com" class="text-primary hover:underline">chongthamtoanquoc24h@gmail.com</a></p>
+                <p><strong>Website:</strong> <a href="https://phugiachongtham24h.com" class="text-primary hover:underline">phugiachongtham24h.com</a></p>
               </div>
             </div>
 
-            <!-- Right: Company Info -->
+            <!-- Quick Links -->
             <div>
-              <div class="flex items-center mb-4">
-                <img 
-                  src="/quang-minh-logo.svg" 
-                  alt="Quang Minh Logo" 
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <p class="text-gray-600 text-sm leading-relaxed mb-4 font-light">
-                {currentLang === 'en' 
-                  ? 'Quang Minh Technology Joint Stock Company'
-                  : currentLang === 'cn'
-                  ? '光明技术股份公司'
-                  : 'Công ty Cổ phần Kỹ thuật Công nghệ Quang Minh'
-                }<br />
-                {currentLang === 'en'
-                  ? 'Industrial aluminum and solar energy solutions'
-                  : currentLang === 'cn'
-                  ? '工业铝材和太阳能解决方案'
-                  : 'Giải pháp nhôm công nghiệp và năng lượng mặt trời'
-                }
-              </p>
-              <div class="flex gap-3 mb-4">
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-10 h-10 bg-[#1877F2] hover:bg-[#0C63D4] rounded-full transition-colors text-white text-xl font-bold" aria-label="Facebook">
-                  f
-                </a>
-                <a href="#" class="inline-flex items-center justify-center w-10 h-10 bg-[#FF0000] hover:bg-[#CC0000] rounded-full transition-colors text-white text-xl font-bold" aria-label="YouTube">
-                  ▶
-                </a>
-                <a href="#" class="inline-flex items-center justify-center w-10 h-10 bg-[#0A66C2] hover:bg-[#004182] rounded-full transition-colors text-white text-xl font-bold" aria-label="LinkedIn">
-                  in
-                </a>
-              </div>
-              
-              <!-- Ministry of Industry and Trade Certification -->
-              <div class="mt-4 pt-4 border-t border-gray-300">
-                <a 
-                  href="http://online.gov.vn/Home/WebDetails/110913" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="inline-block hover:opacity-80 transition-opacity"
-                  aria-label={currentLang === 'en' 
-                    ? 'Verified by Ministry of Industry and Trade' 
-                    : currentLang === 'cn'
-                    ? '工贸部认证'
-                    : 'Đã thông báo Bộ Công Thương'
-                  }
-                >
-                  <img 
-                    src="/logo-da-thong-bao-bo-cong-thuong-mau-xanh.png" 
-                    alt={currentLang === 'en' 
-                      ? 'Verified by Ministry of Industry and Trade of Vietnam' 
-                      : currentLang === 'cn'
-                      ? '越南工贸部认证'
-                      : 'Đã thông báo Bộ Công Thương'
-                    }
-                    class="h-12 w-auto object-contain"
-                    loading="lazy"
-                  />
-                </a>
-                <p class="text-xs text-gray-500 mt-2 font-light">
-                  {currentLang === 'en' 
-                    ? 'Verified by Ministry of Industry and Trade' 
-                    : currentLang === 'cn'
-                    ? '工贸部认证'
-                    : 'Đã thông báo Bộ Công Thương'
-                  }
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Links Grid -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-            <!-- Products -->
-            <div>
-              <h4 class="text-xs font-semibold mb-4 tracking-wide uppercase text-gray-500">
-                {currentLang === 'en' ? 'Products' : currentLang === 'cn' ? '产品' : 'Sản phẩm'}
-              </h4>
-              <ul class="space-y-2.5">
-                <li><a href={currentLang === 'en' ? '/en/products' : currentLang === 'cn' ? '/cn/products' : '/san-pham'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Aluminum A6005' : currentLang === 'cn' ? '铝材A6005' : 'Nhôm A6005'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/products' : currentLang === 'cn' ? '/cn/products' : '/san-pham'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Solar Equipment' : currentLang === 'cn' ? '太阳能设备' : 'Thiết bị năng lượng mặt trời'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/products' : currentLang === 'cn' ? '/cn/products' : '/san-pham'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Aluminum Extrusion' : currentLang === 'cn' ? '铝挤压' : 'Nhôm đùn ép'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/products' : currentLang === 'cn' ? '/cn/products' : '/san-pham'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'View all' : currentLang === 'cn' ? '查看全部' : 'Xem tất cả'}
-                </a></li>
-              </ul>
-            </div>
-
-            <!-- Company -->
-            <div>
-              <h4 class="text-xs font-semibold mb-4 tracking-wide uppercase text-gray-500">
-                {currentLang === 'en' ? 'Company' : currentLang === 'cn' ? '公司' : 'Công ty'}
-              </h4>
-              <ul class="space-y-2.5">
-                <li><a href={currentLang === 'en' ? '/en/about' : currentLang === 'cn' ? '/cn/about' : '/gioi-thieu'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'About' : currentLang === 'cn' ? '关于我们' : 'Giới thiệu'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/about' : currentLang === 'cn' ? '/cn/about' : '/gioi-thieu'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Vision' : currentLang === 'cn' ? '愿景' : 'Tầm nhìn'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/projects' : currentLang === 'cn' ? '/cn/projects' : '/du-an'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Projects' : currentLang === 'cn' ? '项目' : 'Dự án'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/partners' : currentLang === 'cn' ? '/cn/partners' : '/doi-tac'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Partners' : currentLang === 'cn' ? '合作伙伴' : 'Đối tác'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/contact' : currentLang === 'cn' ? '/cn/contact' : '/lien-he'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Contact' : currentLang === 'cn' ? '联系我们' : 'Liên hệ'}
-                </a></li>
+              <h3 class="font-semibold mb-4">Liên kết nhanh</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="/" class="text-gray-600 hover:text-primary transition-colors">Trang chủ</a></li>
+                <li><a href="/lien-he" class="text-gray-600 hover:text-primary transition-colors">Liên hệ</a></li>
+                <li><a href="/cau-hoi-thuong-gap" class="text-gray-600 hover:text-primary transition-colors">FAQ</a></li>
               </ul>
             </div>
 
             <!-- Support -->
             <div>
-              <h4 class="text-xs font-semibold mb-4 tracking-wide uppercase text-gray-500">
-                {currentLang === 'en' ? 'Support' : currentLang === 'cn' ? '支持' : 'Hỗ trợ'}
-              </h4>
-              <ul class="space-y-2.5">
-                <li><a href={currentLang === 'en' ? '/en/faq' : currentLang === 'cn' ? '/cn/faq' : '/cau-hoi-thuong-gap'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">FAQ</a></li>
-                <li><a href={currentLang === 'en' ? '/en/downloads' : currentLang === 'cn' ? '/cn/downloads' : '/tai-lieu'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Downloads' : currentLang === 'cn' ? '下载资料' : 'Tải tài liệu'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/news' : currentLang === 'cn' ? '/cn/news' : '/tin-tuc'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'News' : currentLang === 'cn' ? '新闻' : 'Tin tức'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/contact' : currentLang === 'cn' ? '/cn/contact' : '/lien-he'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Contact' : currentLang === 'cn' ? '联系我们' : 'Liên hệ'}
-                </a></li>
-              </ul>
-            </div>
-
-            <!-- Legal -->
-            <div>
-              <h4 class="text-xs font-semibold mb-4 tracking-wide uppercase text-gray-500">
-                {currentLang === 'en' ? 'Legal' : currentLang === 'cn' ? '法律' : 'Pháp lý'}
-              </h4>
-              <ul class="space-y-2.5">
-                <li><a href={currentLang === 'en' ? '/en/privacy-policy' : currentLang === 'cn' ? '/cn/privacy-policy' : '/chinh-sach-bao-mat'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Privacy Policy' : currentLang === 'cn' ? '隐私政策' : 'Chính sách bảo mật'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/terms-of-service' : currentLang === 'cn' ? '/cn/terms-of-service' : '/dieu-khoan-su-dung'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Terms of Service' : currentLang === 'cn' ? '服务条款' : 'Điều khoản sử dụng'}
-                </a></li>
-                <li><a href={currentLang === 'en' ? '/en/cookie-policy' : currentLang === 'cn' ? '/cn/cookie-policy' : '/chinh-sach-cookie'} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  {currentLang === 'en' ? 'Cookie Policy' : currentLang === 'cn' ? 'Cookie政策' : 'Chính sách cookie'}
-                </a></li>
-                <li><a href="/sitemap.xml" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sitemap</a></li>
+              <h3 class="font-semibold mb-4">Hỗ trợ</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="/cau-hoi-thuong-gap" class="text-gray-600 hover:text-primary transition-colors">FAQ</a></li>
+                <li><a href="/chinh-sach-bao-mat" class="text-gray-600 hover:text-primary transition-colors">Chính sách bảo mật</a></li>
+                <li><a href="/dieu-khoan-su-dung" class="text-gray-600 hover:text-primary transition-colors">Điều khoản sử dụng</a></li>
               </ul>
             </div>
           </div>
-        </div>
 
-        <!-- Footer Bottom -->
-        <div class="border-t border-gray-300 py-6">
-          <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-            <p>
-              © 2026 Quang Minh {currentLang === 'en' ? 'Vietnam' : currentLang === 'cn' ? '越南' : 'Việt Nam'}. {currentLang === 'en' ? 'Established 2008' : currentLang === 'cn' ? '成立于2008年' : 'Thành lập năm 2008'}. {currentLang === 'en' ? 'All rights reserved' : currentLang === 'cn' ? '版权所有' : 'Tất cả quyền được bảo lưu'}.
-            </p>
-            <div class="flex items-center gap-4">
-              <span>{currentLang === 'en' ? 'Vietnam' : currentLang === 'cn' ? '越南' : 'Việt Nam'}</span>
-              <span>|</span>
-              <a href="tel:+84947776662" class="hover:text-gray-900 transition-colors">0947 776 662</a>
+          <!-- Bottom Footer -->
+          <div class="border-t border-gray-300 pt-8 mt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+              <p class="text-sm text-gray-600">
+                © 2024 CX-MEN. Tất cả quyền được bảo lưu.
+              </p>
+              <p class="text-sm text-gray-600 mt-2 md:mt-0">
+                Thiết kế bởi <a href="#" class="text-primary hover:underline">CX-MEN Team</a>
+              </p>
             </div>
           </div>
         </div>

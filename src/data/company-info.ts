@@ -1,110 +1,109 @@
 // Company information - B2B Focus
 export const companyInfo = {
-  name: 'Công ty Cổ phần Kỹ thuật Công nghệ Quang Minh',
-  shortName: 'Quang Minh',
-  shortNameEn: 'QMTECH.,JSC',
-  englishName: 'Quang Minh Technology Engineering Joint Stock Company',
-  brand: 'QUANG MINH',
-  logo: '/quang-minh-logo.svg',
-  logoSvg: '/quang-minh-logo.svg',
-  legalRepresentative: 'Đinh Xuân Kiên',
+  name: 'Công ty Cổ phần Mozart Việt Nam',
+  shortName: 'CX-MEN',
+  shortNameEn: 'MOZART VIETNAM.,JSC',
+  englishName: 'Mozart Vietnam Joint Stock Company',
+  brand: 'CX-MEN',
+  logo: '/cx-men-logo.svg',
+  logoSvg: '/cx-men-logo.svg',
+  legalRepresentative: 'Nguyễn Văn A',
   status: 'Đang hoạt động',
   
   // Thông tin liên hệ
   contact: {
-    factory: 'Lô CN09 – KCN Nguyên Khê – Đông Anh – Hà Nội',
-    address: 'Lô CN09 Khu Công nghiệp Nguyên Khê, Xã Phúc Thịnh, Đông Anh, Hà Nội, Việt Nam',
-    taxCode: '0106124982',
-    phone: '0947 776 662',
-    email: 'info@qmalu.com',
-    website: 'https://qmalu.com',
+    factory: 'Số 790 Quang Trung – Hà Đông – Hà Nội',
+    address: 'Số 790 Quang Trung, Quận Hà Đông, Hà Nội, Việt Nam',
+    taxCode: '0100000000',
+    phone: '0962916488',
+    email: 'chongthamtoanquoc24h@gmail.com',
+    website: 'https://phugiachongtham24h.com',
     coordinates: {
-      lat: 21.165485437772254,
-      lng: 105.83500360198961
+      lat: 20.9719,
+      lng: 105.7852
     },
-    googleMapsUrl: 'https://maps.app.goo.gl/43W5jSshicKhDimG8'
+    googleMapsUrl: 'https://maps.app.goo.gl/example'
   },
   
   // Lịch sử
   history: {
-    founded: 2008,
-    registeredDate: '2013-03-18',
-    location: 'Khu công nghiệp Nguyên Khê, Đông Anh, Hà Nội',
-    description: 'Quang Minh là nhà sản xuất trực tiếp các sản phẩm kết cấu nhôm và phụ kiện cho hệ thống điện năng lượng mặt trời. Với nhà máy 3,000m² tại KCN Nguyên Khê, chúng tôi cung cấp giải pháp trọn gói cho các dự án EPC và nhà thầu điện mặt trời.'
+    founded: 2000,
+    registeredDate: '2000-01-01',
+    location: 'Số 790 Quang Trung, Hà Đông, Hà Nội',
+    description: 'CX-MEN là thương hiệu xi măng chống thấm hàng đầu Việt Nam, sản xuất và phân phối bởi Công ty Cổ phần Mozart Việt Nam. Xi măng chống thấm CX-MEN là xi măng Pooclang PCB 40 đa dụng cao cấp với công nghệ siêu kỵ nước (hiệu ứng lá sen), mang đến giải pháp bảo vệ toàn diện và vĩnh cửu cho mọi công trình.'
   },
   
   // Tầm nhìn - Sứ mệnh (B2B Focus)
-  vision: 'Trở thành đối tác tin cậy hàng đầu cho các dự án điện năng lượng mặt trời quy mô lớn tại Việt Nam và khu vực.',
+  vision: 'Trở thành thương hiệu xi măng chống thấm hàng đầu Việt Nam, được tin dùng bởi các công trình xây dựng chất lượng cao.',
   
-  mission: 'Cung cấp giải pháp kết cấu nhôm chất lượng cao, tối ưu chi phí và tiến độ cho các dự án MWp. Đồng hành cùng EPC và nhà thầu từ thiết kế đến thi công.',
+  mission: 'Cung cấp giải pháp chống thấm toàn diện với xi măng CX-MEN chất lượng cao, giúp công trình bền vững và an toàn lâu dài.',
   
-  slogan: 'ĐỐI TÁC TIN CẬY CHO DỰ ÁN CỦA BẠN',
+  slogan: 'THÁCH THỨC MỌI THỜI TIẾT',
   
-  motto: 'Chất lượng sản phẩm và dịch vụ chuyên nghiệp là cam kết của chúng tôi với mọi dự án.',
+  motto: 'Công nghệ siêu kỵ nước – Bảo vệ toàn diện và vĩnh cửu cho mọi công trình.',
   
   // Lĩnh vực hoạt động
   businessLines: [
     {
-      title: 'Sản xuất kết cấu nhôm điện mặt trời',
-      description: 'Thanh ray, chân đỡ, kẹp pin và phụ kiện hoàn chỉnh cho hệ thống NLMT'
+      title: 'Xi măng chống thấm CX-MEN',
+      description: 'Xi măng pooclang PCB 40 đa dụng, chống thấm, chống co ngót, rạn nứt hoàn hảo'
     },
     {
-      title: 'Cung cấp thang cáp & máng cáp',
-      description: 'Thang cáp, máng cáp mạ kẽm nhúng nóng cho dự án công nghiệp'
+      title: 'Thi công chống thấm chuyên nghiệp',
+      description: 'Dịch vụ thi công chống thấm cho mọi loại công trình'
     }
   ],
   
   // Khách hàng mục tiêu
   targetCustomers: [
-    'Nhà thầu EPC (Engineering, Procurement, Construction)',
-    'Nhà thầu điện mặt trời',
-    'Khu công nghiệp',
-    'Dự án quy mô lớn (MWp)',
-    'Nhà đầu tư năng lượng tái tạo'
+    'Nhà thầu xây dựng',
+    'Chủ đầu tư dự án',
+    'Công ty xây dựng',
+    'Cửa hàng vật liệu xây dựng',
+    'Khách hàng cá nhân'
   ],
   
   // Giá trị cốt lõi - B2B Focus
   coreValues: [
     {
-      title: 'Chi phí tối ưu',
-      description: 'Sản xuất trực tiếp, không qua trung gian. Giảm chi phí dự án đến 30%.',
-      icon: '💰'
+      title: 'Công nghệ siêu kỵ nước',
+      description: 'Hiệu ứng "Lá Sen" trên bề mặt và trong toàn khối vữa – chống thấm tuyệt đối ở mọi điều kiện thời tiết.',
+      icon: '💧'
     },
     {
-      title: 'Chất lượng cam kết',
-      description: 'ISO 9001:2015. Nhôm hợp kim 6xxx đạt tiêu chuẩn quốc tế. Bảo hành 10 năm.',
+      title: 'Chống thấm vĩnh cửu',
+      description: 'Tạo nguyên khối liên kết bền chặt, không tách lớp, không bong tróc. Tuổi thọ theo tuổi thọ công trình.',
+      icon: '🛡️'
+    },
+    {
+      title: 'Kiểm nghiệm TCVN',
+      description: 'Cường độ nén ~30,81 N/mm². Độ chống thấm: 0/6 mẫu thấm ở áp lực 2–19 daN/cm².',
       icon: '✓'
     },
     {
-      title: 'Thiết bị hiện đại',
-      description: 'Máy đùn ép công suất lớn, dây chuyền xử lý bề mặt tự động.',
-      icon: '⚙️'
+      title: 'Thi công nhanh',
+      description: 'Cường độ sớm cao, vữa khô đặc và chắc chắn hơn, rút ngắn thời gian thi công đáng kể.',
+      icon: '⚡'
     },
     {
-      title: 'Dịch vụ kỹ thuật',
-      description: 'Hỗ trợ thiết kế, tính toán kết cấu, tư vấn thi công 24/7.',
-      icon: '🔧'
-    },
-    {
-      title: 'Cung ứng ổn định',
-      description: 'Năng lực sản xuất lớn, đáp ứng dự án MWp. Giao hàng đúng tiến độ.',
-      icon: '📦'
+      title: 'Đa ứng dụng',
+      description: 'Sân thượng, ban công, nhà vệ sinh, bể nước, bể cá, hồ bơi, phần ngầm, tường ngoài.',
+      icon: '🏗️'
     }
   ],
   
   // Năng lực sản xuất - B2B Focus
   capacity: {
-    factoryArea: '3,000m²',
-    location: 'KCN Nguyên Khê, Đông Anh, Hà Nội',
-    employees: '50+ nhân viên',
-    engineers: '10+ kỹ sư',
-    productionLines: '3 dây chuyền sản xuất',
-    monthlyCapacity: 'Đáp ứng dự án 10+ MWp/tháng',
+    factoryArea: 'Kho hàng rộng rãi',
+    location: 'Số 790 Quang Trung, Hà Đông, Hà Nội',
+    employees: '20+ nhân viên',
+    engineers: '5+ kỹ sư',
+    productionLines: 'Phân phối chính hãng',
+    monthlyCapacity: 'Đáp ứng mọi quy mô công trình',
     departments: [
-      { name: 'Phòng Kỹ thuật & Thiết kế', staff: 10, role: 'Thiết kế khuôn, tính toán kết cấu' },
-      { name: 'Phòng Sản xuất', staff: 25, role: 'Đùn ép, xử lý bề mặt, gia công' },
-      { name: 'Phòng QC', staff: 5, role: 'Kiểm soát chất lượng' },
-      { name: 'Phòng Kinh doanh', staff: 10, role: 'Hỗ trợ khách hàng, báo giá dự án' }
+      { name: 'Phòng Kỹ thuật', staff: 5, role: 'Tư vấn giải pháp chống thấm' },
+      { name: 'Phòng Thi công', staff: 10, role: 'Thi công chống thấm chuyên nghiệp' },
+      { name: 'Phòng Kinh doanh', staff: 5, role: 'Hỗ trợ khách hàng, báo giá' }
     ]
   },
   
@@ -112,165 +111,149 @@ export const companyInfo = {
   productionProcess: [
     {
       step: 1,
-      name: 'Nhôm thỏi nguyên liệu',
-      description: 'Mẫu nhôm Grade 6063 T5 6005 T5/6061 T6. Nguyên liệu nhôm cao cấp đảm bảo chất lượng sản phẩm đầu ra.',
+      name: 'Xi măng pooclang PCB 40',
+      description: 'Nguyên liệu xi măng chất lượng cao, đạt tiêu chuẩn quốc gia.',
       icon: '📦'
     },
     {
       step: 2,
-      name: 'Chế tạo khuôn',
-      description: 'Quang Minh luôn nghiên cứu chế tạo các khuôn mẫu mới, sản xuất những sản phẩm có tính ứng dụng cao, mang lại hiệu quả tối ưu cho các khách hàng.',
+      name: 'Phối trộn đặc biệt',
+      description: 'Công thức phối trộn độc quyền với phụ gia chống thấm cao cấp.',
       icon: '🔧'
     },
     {
       step: 3,
-      name: 'Xử lý nguyên liệu',
-      description: 'Sản phẩm của Quang Minh vật đó dây lặp phù hợp đến 18 µm. Ngoài ra, Các sản phẩm được sơn tĩnh được đảm bảo chất lượng, độ bền theo yêu cầu.',
-      icon: '⚙️'
-    },
-    {
-      step: 4,
-      name: 'Gia công sản phẩm',
-      description: 'Sản phẩm được gia công chính xác, tỉ mỉ đến từng chi tiết.',
-      icon: '🔨'
-    },
-    {
-      step: 5,
-      name: 'Kiểm tra',
-      description: 'Kiểm tra chất lượng sản phẩm sau gia công.',
+      name: 'Kiểm tra chất lượng',
+      description: 'Kiểm tra nghiêm ngặt các chỉ tiêu kỹ thuật: độ bền, khả năng chống thấm.',
       icon: '✓'
     },
     {
-      step: 6,
-      name: 'Đóng gói',
-      description: 'Quy trình đóng gói và lưu trữ chuyên nghiệp.',
+      step: 4,
+      name: 'Đóng gói chuyên nghiệp',
+      description: 'Đóng bao 25kg/50kg, bảo quản đúng tiêu chuẩn.',
       icon: '📦'
+    },
+    {
+      step: 5,
+      name: 'Phân phối',
+      description: 'Giao hàng nhanh chóng trên toàn quốc.',
+      icon: '🚚'
+    },
+    {
+      step: 6,
+      name: 'Hỗ trợ kỹ thuật',
+      description: 'Tư vấn và hướng dẫn thi công miễn phí.',
+      icon: '🔧'
     }
   ],
   
   // Sản phẩm chính - B2B Focus
   mainProducts: [
     {
-      category: 'Thanh ray nhôm điện mặt trời',
-      products: ['Profile nhôm 6005-T6', 'Rail connector', 'Splice kit'],
-      application: 'Kết cấu chính của hệ giá đỡ pin'
+      category: 'Xi măng chống thấm CX-MEN',
+      products: ['Xi măng CX-MEN bao 25kg', 'Xi măng CX-MEN bao 50kg'],
+      application: 'Chống thấm toàn diện cho mọi hạng mục xây dựng – công nghệ siêu kỵ nước'
     },
     {
-      category: 'Chân đỡ & kết cấu mái',
-      products: ['L-feet', 'Triangle bracket', 'Tile hook', 'Flat roof mount'],
-      application: 'Cố định hệ thống lên mái nghiêng, mái bằng, mái tôn'
+      category: 'Vữa cán mái & sân thượng',
+      products: ['Vữa mác M100: 1 bao CX Men + 3 xô cát 18L', 'Vữa mác M75: 1 bao CX Men + 5 xô cát 18L'],
+      application: 'Chống thấm sàn mái, sân thượng, ban công'
     },
     {
-      category: 'Kẹp pin',
-      products: ['Mid clamp', 'End clamp', 'Kliplock clamp', 'Seamlock clamp'],
-      application: 'Cố định tấm pin lên thanh ray'
+      category: 'Ứng dụng nhà vệ sinh & bể chứa',
+      products: ['Vữa trát chống thấm', 'Vữa cán nền'],
+      application: 'Nhà vệ sinh, bể nước, bể cá, hồ bơi, hố pit'
     },
     {
-      category: 'Phụ kiện tiếp địa & bulong',
-      products: ['Grounding clip', 'Grounding lug', 'Bulong Inox 304/316', 'Đệm cao su EPDM'],
-      application: 'Tiếp địa an toàn, lắp ráp kết cấu'
-    },
-    {
-      category: 'Thang cáp & máng cáp',
-      products: ['Thang cáp mạ kẽm', 'Máng cáp mạ kẽm', 'Máng cáp DC/AC', 'Phụ kiện đi dây'],
-      application: 'Hệ thống dây cáp DC/AC cho dự án công nghiệp'
-    },
-    {
-      category: 'Thang leo & sàn thao tác',
-      products: ['Thang leo mái', 'Sàn thao tác (Walkway)', 'Lan can an toàn', 'Phụ kiện lắp đặt'],
-      application: 'Đảm bảo an toàn thi công và bảo trì hệ thống trên mái'
+      category: 'Ứng dụng tường & phần ngầm',
+      products: ['Vữa xây chống thấm', 'Vữa trát tường ngoài'],
+      application: 'Tường ngoài, chân tường tầng 1, phần ngầm, khe tiếp giáp'
     }
   ],
   
   // Giải pháp EPC
   epcSolutions: {
-    title: 'Giải pháp trọn gói cho dự án EPC',
-    description: 'Cung cấp đầy đủ hệ giá đỡ pin NLMT từ thiết kế đến thi công',
+    title: 'Giải pháp chống thấm toàn diện',
+    description: 'Cung cấp xi măng chống thấm CX-MEN và dịch vụ thi công chuyên nghiệp',
     features: [
       {
-        title: 'Cung cấp trọn bộ',
-        description: 'Đầy đủ thanh ray, chân đỡ, kẹp pin, phụ kiện',
-        icon: '📦'
+        title: 'Sản phẩm chính hãng',
+        description: 'Xi măng CX-MEN chính hãng, chất lượng đảm bảo',
+        icon: '✓'
       },
       {
-        title: 'Đồng bộ vật tư',
-        description: 'Tất cả sản phẩm từ một nguồn, dễ quản lý',
-        icon: '🔗'
+        title: 'Chống thấm hoàn hảo',
+        description: 'Chống thấm thuận và nghịch, bền vững theo thời gian',
+        icon: '💧'
       },
       {
-        title: 'Tối ưu thi công',
-        description: 'Thiết kế dễ lắp đặt, tiết kiệm thời gian 50%',
+        title: 'Dễ thi công',
+        description: 'Thi công đơn giản như xi măng thường',
         icon: '⚡'
       },
       {
-        title: 'Kiểm soát chi phí',
-        description: 'Giá sản xuất trực tiếp, tiết kiệm 30%',
+        title: 'Giá cả hợp lý',
+        description: 'Giá tốt nhất thị trường, giao hàng nhanh',
         icon: '💰'
       },
       {
-        title: 'Hỗ trợ kỹ thuật',
-        description: 'Tư vấn thiết kế, tính toán kết cấu miễn phí',
+        title: 'Tư vấn miễn phí',
+        description: 'Tư vấn phương án chống thấm tối ưu',
         icon: '🔧'
       },
       {
-        title: 'Phù hợp MWp',
-        description: 'Đáp ứng dự án quy mô lớn, giao hàng đúng hạn',
-        icon: '☀️'
+        title: 'Hỗ trợ thi công',
+        description: 'Hướng dẫn thi công chi tiết, hỗ trợ 24/7',
+        icon: '📞'
       }
     ],
     benefits: [
-      'Giảm 30% chi phí so với nhập khẩu',
-      'Rút ngắn 50% thời gian thi công',
-      'Bảo hành 10 năm kết cấu',
+      'Chống thấm hiệu quả cao',
+      'Tiết kiệm thời gian thi công',
+      'Độ bền cao, lâu dài',
       'Hỗ trợ kỹ thuật 24/7',
-      'Giao hàng đúng tiến độ dự án'
+      'Giao hàng nhanh toàn quốc'
     ]
   },
   
   // Số liệu năng lực
   statistics: {
-    customers: '1,000+',
-    experience: '16+',
-    factoryArea: '3,000',
-    partners: '100+',
-    products: '50+',
-    projects: '500+',
-    capacity: '10+'
+    customers: '5,000+',
+    experience: '24+',
+    factoryArea: 'Toàn quốc',
+    partners: '200+',
+    products: '10+',
+    projects: '10,000+',
+    capacity: 'Không giới hạn'
   },
   
   statisticsLabels: {
     customers: 'Khách hàng',
     experience: 'Năm kinh nghiệm',
-    factoryArea: 'm² nhà máy',
-    partners: 'Đối tác',
-    products: 'Dòng sản phẩm',
-    projects: 'Dự án hoàn thành',
-    capacity: 'MWp/tháng'
+    factoryArea: 'Phân phối',
+    partners: 'Đại lý',
+    products: 'Sản phẩm',
+    projects: 'Công trình',
+    capacity: 'Năng lực'
   },
   
   // Chứng nhận & Giấy phép
   certifications: [
     {
-      name: 'ISO 9001:2015',
-      nameVi: 'Chứng nhận hệ thống quản lý chất lượng',
-      issuedBy: 'Tổ chức chứng nhận quốc tế',
-      description: 'Đảm bảo quy trình sản xuất đạt tiêu chuẩn quốc tế'
-    },
-    {
       name: 'Giấy chứng nhận đăng ký kinh doanh',
-      code: '0106124982',
+      code: '0100000000',
       issuedBy: 'Sở Kế hoạch và Đầu tư TP Hà Nội',
       description: 'Giấy phép kinh doanh hợp pháp'
     },
     {
-      name: 'Certificate of Quality',
-      nameVi: 'Giấy chứng nhận chất lượng sản phẩm',
-      description: 'Chứng nhận chất lượng nhôm và thiết bị năng lượng mặt trời'
+      name: 'Chứng nhận sản phẩm',
+      nameVi: 'Chứng nhận chất lượng xi măng CX-MEN',
+      description: 'Chứng nhận chất lượng sản phẩm đạt tiêu chuẩn'
     },
     {
-      name: 'Test Report',
-      nameVi: 'Báo cáo kiểm nghiệm',
-      description: 'Kết quả kiểm nghiệm từ các phòng thí nghiệm có thẩm quyền'
+      name: 'Đã thông báo Bộ Công Thương',
+      nameVi: 'Website đã thông báo Bộ Công Thương',
+      description: 'Website bán hàng hợp pháp'
     }
   ]
 }

@@ -255,162 +255,162 @@ function validateComparisonOption(option: ComparisonOption): void {
 // ============================================================================
 
 export const homepageContent: HomepageContent = {
-  // 1. Process Timeline Section (6 steps) - B2B EPC Focus
+  // 1. Process Timeline Section (6 steps) - Quy trình thi công CX Men
   processTimeline: {
-    title: 'Quy Trình Cung Ứng Dự Án',
-    subtitle: 'Từ thiết kế đến thi công, đồng hành cùng EPC trong mọi giai đoạn dự án',
+    title: 'Quy Trình Thi Công Chống Thấm',
+    subtitle: 'Hướng dẫn thi công xi măng chống thấm CX Men đúng kỹ thuật, đảm bảo hiệu quả lâu dài',
     steps: [
       {
         number: 1,
         title: 'Tư vấn & Khảo sát',
-        description: 'Tư vấn giải pháp kết cấu, khảo sát hiện trường, báo giá dự án trong 24h',
+        description: 'Tư vấn phương án chống thấm miễn phí, khảo sát hiện trường, báo giá trong 24h',
         icon: '📋'
       },
       {
         number: 2,
-        title: 'Thiết kế kỹ thuật',
-        description: 'Thiết kế bản vẽ kết cấu, tính toán tải trọng, tối ưu vật tư',
-        icon: '📐'
+        title: 'Chuẩn bị mặt bằng',
+        description: 'Loại bỏ bụi bẩn, đục tẩy bê tông yếu, vệ sinh bề mặt bằng máy phun nước áp lực',
+        icon: '🧹'
       },
       {
         number: 3,
-        title: 'Sản xuất',
-        description: 'Sản xuất theo tiêu chuẩn, kiểm soát chất lượng từng công đoạn',
-        icon: '🏭'
+        title: 'Trộn vữa CX Men',
+        description: 'Trộn CX Men với cát sạch theo tỉ lệ, thêm nước 5-8L, trộn đều 5 phút rồi để nghỉ 3-5 phút',
+        icon: '🔧'
       },
       {
         number: 4,
-        title: 'Kiểm tra QC',
-        description: 'Kiểm tra 100% sản phẩm, đảm bảo tiêu chuẩn ISO 9001:2015',
-        icon: '✓'
+        title: 'Thi công chống thấm',
+        description: 'Tưới ẩm bề mặt, thi công hồ dầu, trải lưới thủy tinh, cán/trát vữa CX Men',
+        icon: '🏗️'
       },
       {
         number: 5,
-        title: 'Giao hàng',
-        description: 'Giao hàng đúng tiến độ dự án, hỗ trợ logistics',
-        icon: '🚚'
+        title: 'Bảo dưỡng',
+        description: 'Sau 3-5 giờ quét nước xi măng CX Men lên bề mặt, bảo dưỡng bằng nước như vữa thường',
+        icon: '💧'
       },
       {
         number: 6,
-        title: 'Hỗ trợ kỹ thuật',
-        description: 'Hỗ trợ thi công, bảo hành 10 năm, dịch vụ sau bán hàng',
-        icon: '🔧'
+        title: 'Kiểm tra & Nghiệm thu',
+        description: 'Sau 24-48 giờ bơm nước ngâm kiểm tra thấm, đảm bảo chất lượng trước khi bàn giao',
+        icon: '✓'
       }
     ]
   },
 
-  // 2. Animated Number Counter (4 metrics) - B2B Focus - OPTIMIZED
+  // 2. Animated Number Counter (4 metrics) - CX Men Focus
   animatedCounter: {
-    title: 'Năng Lực Sản Xuất',
-    subtitle: 'Đối tác tin cậy cho các dự án điện mặt trời quy mô lớn',
+    title: 'Uy Tín Được Kiểm Chứng',
+    subtitle: 'Hơn 24 năm cung cấp xi măng chống thấm CX Men chính hãng trên toàn quốc',
     metrics: [
       {
-        value: 500,
-        label: 'Dự án MWp hoàn thành',
+        value: 10000,
+        label: 'Công trình đã thi công',
         suffix: '+',
-        icon: '⚡',
+        icon: '🏗️',
         trend: 'up'
       },
       {
-        value: 10,
-        label: 'Bảo hành kết cấu',
-        suffix: ' năm',
-        icon: '🛡️',
+        value: 24,
+        label: 'Năm kinh nghiệm',
+        suffix: '+',
+        icon: '🏆',
         trend: 'neutral'
       },
       {
-        value: 100,
-        label: 'Đối tác EPC',
+        value: 5000,
+        label: 'Khách hàng tin dùng',
         suffix: '+',
         icon: '🤝',
         trend: 'up'
       },
       {
-        value: 10,
-        label: 'MWp/tháng năng lực',
+        value: 200,
+        label: 'Đại lý toàn quốc',
         suffix: '+',
-        icon: '🏭',
+        icon: '🚚',
         trend: 'up'
       }
     ],
     duration: 2000
   },
 
-  // 3. Product 3D Carousel (5+ products)
+  // 3. Product 3D Carousel (5+ products) - CX Men applications
   product3DCarousel: {
-    title: 'Sản phẩm nổi bật',
-    subtitle: 'Khám phá dòng sản phẩm giá đỡ nhôm A6005-T6 chất lượng cao cho năng lượng mặt trời',
+    title: 'Ứng Dụng Xi Măng CX Men',
+    subtitle: 'Xi măng chống thấm CX Men – giải pháp chống thấm toàn diện cho mọi hạng mục công trình',
     products: [
       {
-        id: 'thanh-ray-nhom-26x45mm',
-        name: 'Thanh Ray Nhôm 26x45mm',
-        image: '/products/rail-26x45.jpg',
-        description: 'Thanh ray năng lượng mặt trời A6005-T6 dài 4.2m, anod 10-12µm, cứng vững và chịu tải tốt cho hệ thống lắp đặt điện mặt trời',
+        id: 'chong-tham-san-mai',
+        name: 'Chống Thấm Sàn Mái',
+        image: '/products/chong-tham-san-mai.jpg',
+        description: 'Xi măng CX Men cán vữa sàn mái, sân thượng, ban công. Chống thấm hoàn hảo, bền vững theo thời gian.',
         features: [
-          'Vật liệu: A6005-T6',
-          'Kích thước: 26x45mm, dài 4.2m',
-          'Tỉ trọng: 0.52kg/m (±5%)',
-          'Bề mặt: Anod 10-12µm'
+          'Vữa mác 150: 1 bao CX Men + 2 xô cát 18L',
+          'Vữa mác 100: 1 bao CX Men + 3 xô cát 18L',
+          'Trải lưới thủy tinh gia cường chống xé',
+          'Kiểm tra bơm nước ngâm sau 24-48h'
         ]
       },
       {
-        id: 'kep-giua-40x50mm',
-        name: 'Kẹp Giữa 40x50mm',
-        image: '/products/mid-clamp.jpg',
-        description: 'Kẹp giữa phụ kiện nhôm solar A6005-T6, dày 4mm, chịu lực tốt, bao gồm bulong và con chạy',
+        id: 'chong-tham-nha-ve-sinh',
+        name: 'Chống Thấm Nhà Vệ Sinh',
+        image: '/products/chong-tham-nha-ve-sinh.jpg',
+        description: 'Thi công chống thấm nhà vệ sinh, sàn vệ sinh bằng vữa CX Men. Chống thấm thuận và nghịch cực tốt.',
         features: [
-          'Vật liệu: A6005-T6',
-          'Kích thước: 40x50x15mm',
-          'Độ dày: 4mm, chịu lực tốt',
-          'Bao gồm: Bulong inox 304 + con chạy'
+          'Chống thấm thuận và nghịch hiệu quả',
+          'Trát tường, cán nền nhà vệ sinh',
+          'Lưới thủy tinh gia cường tại chân tường',
+          'Bảo dưỡng bằng nước như vữa thường'
         ]
       },
       {
-        id: 'kep-bien-z30-35-40',
-        name: 'Kẹp Biên Z30/35/40',
-        image: '/products/end-clamp.jpg',
-        description: 'Kẹp biên giá đỡ năng lượng mặt trời A6005-T6, dày 2.5-4mm, bao gồm bulong M8x25 và con chạy',
+        id: 'chong-tham-be-nuoc',
+        name: 'Chống Thấm Bể Nước',
+        image: '/products/chong-tham-be-nuoc.jpg',
+        description: 'Xi măng CX Men chống thấm bể nước, bể bơi, hố pit. Chống nồm ẩm, kiềm hóa và muối triệt để.',
         features: [
-          'Vật liệu: A6005-T6',
-          'Kích thước: 30/35/40x50mm',
-          'Độ dày: 2.5-4mm',
-          'Bao gồm: Bulong inox 304 + con chạy'
+          'Chống thấm bể nước, bể bơi, hố pit',
+          'Chống nồm ẩm, kiềm hóa và muối',
+          'Trát thành bể, cán đáy bể',
+          'An toàn cho bể chứa nước sinh hoạt'
         ]
       },
       {
-        id: 'chan-l-85x50x6mm-co-vit-ton',
-        name: 'Chân L 85x50x6mm',
-        image: '/products/l-bracket-with-screw.jpg',
-        description: 'Chân L giá đỡ nhôm A6005-T6, bao gồm bulong, con chạy, vít bắn tôn và đệm cao su',
+        id: 'chong-tham-tuong-ngoai',
+        name: 'Chống Thấm Tường Ngoài',
+        image: '/products/chong-tham-tuong-ngoai.jpg',
+        description: 'Chống thấm tường ngoài, chân tường tầng 1, khe tiếp giáp giữa 2 nhà không trát được bên ngoài.',
         features: [
-          'Vật liệu: A6005-T6',
-          'Kích thước: 85x50x6mm',
-          'Bao gồm: Vít tôn + đệm cao su',
-          'Ứng dụng: Lắp trên mái tôn'
+          'Xây trát tường ngoài chống thấm',
+          'Chân tường tầng 1 chống ẩm',
+          'Khe tiếp giáp giữa 2 nhà',
+          'Chống co ngót, rạn nứt hoàn hảo'
         ]
       },
       {
-        id: 'thanh-noi-rail-150mm',
-        name: 'Thanh Nối Rail 150mm',
-        image: '/products/rail-connector-150.jpg',
-        description: 'Thanh nối rail hệ thống lắp đặt điện mặt trời A6005-T6, bao gồm 2 bulong M8x20 và đệm vênh inox 304',
+        id: 'do-be-tong-chong-tham',
+        name: 'Đổ Bê Tông Chống Thấm',
+        image: '/products/do-be-tong-chong-tham.jpg',
+        description: 'Xi măng CX Men PCB 40 đa dụng dùng để đổ bê tông. Cường độ sớm cao, cho phép tháo ván khuôn sớm hơn.',
         features: [
-          'Vật liệu: A6005-T6',
-          'Kích thước: 150x21.5mm',
-          'Độ dày: 8mm, chịu lực tốt',
-          'Bao gồm: 2 bulong inox 304'
+          'Xi măng pooclang PCB 40 đa dụng',
+          'Cường độ sớm cao, tháo ván khuôn sớm',
+          'Tiết kiệm thời gian và chi phí thi công',
+          'Chống co ngót, rạn nứt bê tông'
         ]
       },
       {
-        id: 'kep-seamlook-kliplock-55mm',
-        name: 'Kẹp Seamlook/Kliplock 55mm',
-        image: '/products/seamlook-clamp.jpg',
-        description: 'Kẹp seamlook theo sóng tôn, bao gồm 2 bulong M8x25, ecu và đệm cao su inox 304',
+        id: 'chong-tham-seno-ban-cong',
+        name: 'Chống Thấm Seno & Ban Công',
+        image: '/products/chong-tham-seno.jpg',
+        description: 'Thi công chống thấm seno, ban công, mái hiên bằng xi măng CX Men. Bền vững, chống thấm lâu dài.',
         features: [
-          'Vật liệu: A6005-T6',
-          'Chiều dài: 55mm',
-          'Bao gồm: Bulong + ecu + đệm cao su',
-          'Ứng dụng: Mái tôn seamlook, kliplock'
+          'Chống thấm seno, máng nước',
+          'Ban công, mái hiên, lô gia',
+          'Chống thấm khe co giãn',
+          'Bền vững theo thời gian'
         ]
       }
     ]
@@ -418,66 +418,65 @@ export const homepageContent: HomepageContent = {
 
   // 4. Before/After Comparison Slider
   comparisonSlider: {
-    title: 'Chất lượng bề mặt vượt trội',
-    subtitle: 'So sánh trước và sau xử lý bề mặt anodize',
-    beforeImage: '/images/comparison/before-anodize.jpg',
-    afterImage: '/images/comparison/after-anodize.jpg',
-    beforeLabel: 'Trước xử lý',
-    afterLabel: 'Sau anodize',
+    title: 'Hiệu Quả Chống Thấm Vượt Trội',
+    subtitle: 'So sánh bề mặt trước và sau khi thi công xi măng chống thấm CX Men',
+    beforeImage: '/images/comparison/before-chong-tham.jpg',
+    afterImage: '/images/comparison/after-chong-tham.jpg',
+    beforeLabel: 'Trước thi công',
+    afterLabel: 'Sau thi công CX Men',
     defaultPosition: 50
   },
 
   // 5. Live Metrics Dashboard (4+ metrics)
   liveMetrics: {
-    title: 'Hoạt động sản xuất',
-    subtitle: 'Theo dõi các chỉ số sản xuất phụ kiện nhôm solar trong thời gian thực',
+    title: 'Hoạt Động Kinh Doanh',
+    subtitle: 'Theo dõi các chỉ số phân phối xi măng chống thấm CX Men trên toàn quốc',
     metrics: [
       {
-        id: 'production-today',
-        label: 'Sản lượng hôm nay',
-        value: 12500,
-        unit: 'kg',
-        trend: 'up',
-        trendValue: 8.5,
-        sparklineData: [10200, 10800, 11200, 11500, 11800, 12100, 12500]
-      },
-      {
-        id: 'orders-processing',
-        label: 'Đơn hàng đang xử lý',
-        value: 47,
+        id: 'orders-today',
+        label: 'Đơn hàng hôm nay',
+        value: 85,
         unit: 'đơn',
-        trend: 'neutral',
-        trendValue: 0,
-        sparklineData: [45, 46, 48, 47, 46, 47, 47]
+        trend: 'up',
+        trendValue: 12.5,
+        sparklineData: [65, 70, 72, 75, 78, 82, 85]
       },
       {
-        id: 'quality-rate',
-        label: 'Tỷ lệ đạt chuẩn',
-        value: 99.2,
+        id: 'bags-delivered',
+        label: 'Bao CX Men giao hôm nay',
+        value: 1250,
+        unit: 'bao',
+        trend: 'up',
+        trendValue: 8.3,
+        sparklineData: [980, 1050, 1100, 1150, 1180, 1220, 1250]
+      },
+      {
+        id: 'customer-satisfaction',
+        label: 'Khách hàng hài lòng',
+        value: 98.5,
         unit: '%',
         trend: 'up',
-        trendValue: 0.3,
-        sparklineData: [98.8, 98.9, 99.0, 99.1, 99.0, 99.1, 99.2]
+        trendValue: 0.5,
+        sparklineData: [97.8, 98.0, 98.1, 98.2, 98.3, 98.4, 98.5]
       },
       {
         id: 'delivery-ontime',
         label: 'Giao hàng đúng hạn',
-        value: 96.8,
+        value: 97.2,
         unit: '%',
         trend: 'up',
-        trendValue: 1.2,
-        sparklineData: [95.5, 95.8, 96.0, 96.2, 96.5, 96.6, 96.8]
+        trendValue: 1.0,
+        sparklineData: [96.0, 96.3, 96.5, 96.8, 97.0, 97.1, 97.2]
       }
     ],
     updateInterval: 5000
   },
 
-  // 6. Trust Badges Carousel (16 badges) - B2B Focus with Real Logos
+  // 6. Trust Badges Carousel - Đối tác & Chứng nhận CX Men
   trustBadges: {
-    title: 'Chứng Nhận & Đối Tác',
-    subtitle: 'Được tin tưởng bởi các đối tác EPC hàng đầu và đạt chứng nhận quốc tế',
+    title: 'Đối Tác & Chứng Nhận',
+    subtitle: 'Được tin tưởng bởi các nhà thầu xây dựng hàng đầu và đạt chứng nhận chất lượng',
     badges: [
-      // Real partner logos from public/partner_brand
       { id: 'bdo', name: 'BDO', logo: '/partner_brand/bdo-logo.png', type: 'partner' },
       { id: 'hoa-phat', name: 'Hòa Phát', logo: '/partner_brand/hoa-phat-logo.png', type: 'partner' },
       { id: 'komatsu', name: 'Komatsu', logo: '/partner_brand/komatsu-logo.png', type: 'partner' },
@@ -500,15 +499,15 @@ export const homepageContent: HomepageContent = {
 
   // 7. Video Testimonials (3 videos)
   videoTestimonials: {
-    title: 'Khách hàng nói gì về chúng tôi',
-    subtitle: 'Những chia sẻ chân thực từ khách hàng đã sử dụng giá đỡ nhôm A6005-T6 của chúng tôi',
+    title: 'Khách Hàng Nói Gì Về CX Men',
+    subtitle: 'Những chia sẻ chân thực từ khách hàng đã sử dụng xi măng chống thấm CX Men',
     testimonials: [
       {
         id: 'testimonial-1',
         videoUrl: '/videos/testimonials/customer-1.mp4',
         posterImage: '/images/testimonials/customer-1-poster.jpg',
         customerName: 'Nguyễn Văn A',
-        role: 'Giám đốc Dự án',
+        role: 'Chủ thầu xây dựng',
         company: 'Công ty Xây dựng ABC',
         duration: 120
       },
@@ -517,8 +516,8 @@ export const homepageContent: HomepageContent = {
         videoUrl: '/videos/testimonials/customer-2.mp4',
         posterImage: '/images/testimonials/customer-2-poster.jpg',
         customerName: 'Trần Thị B',
-        role: 'Kiến trúc sư trưởng',
-        company: 'Studio Kiến trúc XYZ',
+        role: 'Chủ nhà',
+        company: 'Hà Nội',
         duration: 95
       },
       {
@@ -526,100 +525,89 @@ export const homepageContent: HomepageContent = {
         videoUrl: '/videos/testimonials/customer-3.mp4',
         posterImage: '/images/testimonials/customer-3-poster.jpg',
         customerName: 'Lê Văn C',
-        role: 'Chủ đầu tư',
-        company: 'Tập đoàn Bất động sản DEF',
+        role: 'Giám đốc dự án',
+        company: 'Công ty Xây dựng DEF',
         duration: 150
       }
     ]
   },
 
-  // 8. Interactive Map (factory location)
+  // 8. Interactive Map (store location)
   interactiveMap: {
-    title: 'Nhà máy sản xuất',
-    subtitle: 'Ghé thăm cơ sở sản xuất hiện đại của chúng tôi',
+    title: 'Tổng Kho CX Men Hà Nội',
+    subtitle: 'Ghé thăm tổng kho sơn và chống thấm của chúng tôi',
     location: {
-      lat: 21.165485437772254,
-      lng: 105.83500360198961,
-      name: 'Công ty Cổ phần Kỹ thuật Công nghệ Quang Minh',
-      address: 'Lô CN09 Khu Công nghiệp Nguyên Khê, Xã Phúc Thịnh, Đông Anh, Hà Nội',
-      phone: '+84 947 776 662',
+      lat: 20.9719,
+      lng: 105.7852,
+      name: 'Tổng Kho Sơn Và Chống Thấm CX Men',
+      address: 'Số 790 Quang Trung, Quận Hà Đông, Hà Nội',
+      phone: '0919.229.227',
       photo: '/images/factory/exterior.jpg'
     },
     zoom: 15,
     fallbackImage: '/images/factory/map-fallback.jpg'
   },
 
-  // 9. Comparison Calculator
+  // 9. Comparison Calculator - Tính lượng CX Men cần dùng
   comparisonCalculator: {
-    title: 'Tính toán chi phí',
-    subtitle: 'So sánh giá thành giữa các loại thanh ray năng lượng mặt trời và phụ kiện nhôm solar',
+    title: 'Tính Lượng Xi Măng CX Men Cần Dùng',
+    subtitle: 'Ước tính số bao CX Men cần thiết cho công trình của bạn',
     inputs: [
       {
-        id: 'length',
-        label: 'Chiều dài (m)',
+        id: 'area',
+        label: 'Diện tích cần chống thấm (m²)',
         type: 'number',
         min: 1,
-        max: 100,
-        step: 0.5,
-        defaultValue: 10
+        max: 1000,
+        step: 1,
+        defaultValue: 50
       },
       {
-        id: 'profile-type',
-        label: 'Loại nhôm',
+        id: 'application',
+        label: 'Hạng mục thi công',
         type: 'select',
         options: [
-          { value: '6063', label: 'Nhôm 6063' },
-          { value: '6061', label: 'Nhôm 6061' },
-          { value: '6005', label: 'Nhôm 6005' }
+          { value: 'san-mai', label: 'Sàn mái / Ban công' },
+          { value: 'nha-ve-sinh', label: 'Nhà vệ sinh / Sàn' },
+          { value: 'be-nuoc', label: 'Bể nước / Bể bơi' },
+          { value: 'tuong', label: 'Tường xây / Trát' }
         ],
-        defaultValue: '6063'
+        defaultValue: 'san-mai'
       },
       {
-        id: 'surface-treatment',
-        label: 'Xử lý bề mặt',
-        type: 'select',
-        options: [
-          { value: 'mill-finish', label: 'Nguyên bản' },
-          { value: 'anodize', label: 'Anodize' },
-          { value: 'powder-coating', label: 'Sơn tĩnh điện' },
-          { value: 'wood-grain', label: 'Vân gỗ' }
-        ],
-        defaultValue: 'anodize'
-      },
-      {
-        id: 'quantity',
-        label: 'Số lượng (kg)',
+        id: 'thickness',
+        label: 'Độ dày lớp vữa (mm)',
         type: 'range',
-        min: 100,
-        max: 10000,
-        step: 100,
-        defaultValue: 1000
+        min: 10,
+        max: 50,
+        step: 5,
+        defaultValue: 20
       }
     ],
     options: [
       {
-        id: 'standard',
-        name: 'Gói Tiêu chuẩn',
-        basePrice: 85000,
+        id: 'mac-100',
+        name: 'Vữa Mác 100',
+        basePrice: 180000,
         features: [
-          'Nhôm định hình chất lượng cao',
-          'Kiểm tra chất lượng cơ bản',
-          'Bảo hành 12 tháng',
-          'Giao hàng tiêu chuẩn'
+          '1 bao CX Men (25kg)',
+          '3 xô cát sạch 18L (50kg)',
+          'Nước sạch 5-8 lít',
+          'Phù hợp tường xây, trát nhẹ',
+          'Tiết kiệm chi phí vật liệu'
         ],
         recommended: false
       },
       {
-        id: 'premium',
-        name: 'Gói Cao cấp',
-        basePrice: 95000,
+        id: 'mac-150',
+        name: 'Vữa Mác 150',
+        basePrice: 200000,
         features: [
-          'Nhôm định hình chất lượng cao',
-          'Kiểm tra chất lượng toàn diện',
-          'Bảo hành 24 tháng',
-          'Giao hàng ưu tiên',
-          'Hỗ trợ kỹ thuật 24/7',
-          'Tư vấn thiết kế miễn phí'
+          '1 bao CX Men (25kg)',
+          '2 xô cát sạch 18L (50kg)',
+          'Nước sạch 5-8 lít',
+          'Phù hợp sàn mái, bể nước, nhà vệ sinh',
+          'Độ bền và chống thấm tối ưu'
         ],
         recommended: true
       }
